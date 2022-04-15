@@ -4,14 +4,14 @@
 format: jb-book
 root: intro
 parts:
+- caption: Lesson 0
+  chapters:
+    - file: notebooks/NEON_Simulation_Tutorial.ipynb
+
 - caption: Lesson 1
   chapters:
-    - file: notebooks/NEON_Simulation_Tutorial
-
-- caption: Lesson 2
-  chapters:
-    - file: notebooks/Day1_GlobalCase
+    - file: notebooks/Day1_GlobalCase.ipynb
 
 #- caption: Lesson 2
 #  chapters:
-#    - file: notebooks/Day2_CodeMods_NEON_Tutorial
+#    - file: notebooks/Day2_CodeMods_NEON_Tutorial.ipynb
