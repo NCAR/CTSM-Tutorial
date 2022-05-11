@@ -3,6 +3,7 @@ This repository includes materials for the [Community Terrestrial Systems Model 
 
 
 These tutorials are designed as an introduction to running the Community Terrestrial Systems Model (CTSM).  We we will run through three configurations that include running a:
+
 0. Supported NEON tower site,
 1. Global FATES simution, and
 2. Generic single point simulation.  
