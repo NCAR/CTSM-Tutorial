@@ -32,7 +32,7 @@ git clone https://github.com/NCAR/CTSM-Tutorial-2022
 ```
 
 This gives you a local copy of the material you'll need for the tutorial
-\
+
 Can you see a new directory on your navigation sidebar called `CTSM-Tutorial-2022`?
 
 ## Step 3: Navigate to `notebooks` directory
