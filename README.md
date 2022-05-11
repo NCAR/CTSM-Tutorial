@@ -43,6 +43,8 @@ Now you're ready to get started with the pre-tutorial homework.  Let's git start
  
 ## Resources
 
+[CTSM Repository](https://github.com/ESCOMP/ctsm) which includes the [CTSM Wiki page](https://github.com/ESCOMP/CTSM/wiki) that has lots of resources, including much of the following:
+
 [CTSM Technical Documentation](https://escomp.github.io/ctsm-docs/versions/master/html/index.html)
 
 [CTSM User's Guide](https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/index.html)
@@ -51,6 +53,11 @@ Now you're ready to get started with the pre-tutorial homework.  Let's git start
 
 [Running single-point cases other than NEON](https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/single-point-and-regional-grid-configurations.html)
 
+[CLM5 Overview Paper, Lawrence et al. 2019 JAMES](https://doi.org/10.1029/2018MS001583)
+
+[CLM5 Diagnostic plots](https://www.cesm.ucar.edu/experiments/cesm2.0/land/diagnostics/clm_diag_PCKG.html) from the overview paper.
+
+[CLM5 ILAMB page](https://www.cesm.ucar.edu/experiments/cesm2.0/land/diagnostics/clm_diag_ILAMB.html), also from the overview paper.
 
 ## Questions
 
