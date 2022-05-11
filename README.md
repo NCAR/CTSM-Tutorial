@@ -26,7 +26,7 @@ Enter your user name and passsword provided with your tutorial registration
 This should launch a JupyterLab window in your browser
 
 ## Step 2: Clone CTSM Tutorial Repository
-Run the following command to clone this repository. 
+Run the following command to clone this repository. (Just copy and paste the text below into the terminal window that opens in JupyterLab) 
 
 ```
 git clone https://github.com/NCAR/CTSM-Tutorial-2022
@@ -34,7 +34,7 @@ git clone https://github.com/NCAR/CTSM-Tutorial-2022
 
 This gives you a local copy of the material you'll need for the tutorial
 
-Can you see a new directory on your navigation sidebar called `CTSM-Tutorial-2022`?
+Can you see a new directory on your navigation sidebar called `CTSM-Tutorial-2022`? (See the left side if your JupyterLab window)
 
 ## Step 3: Navigate to `notebooks` directory
 - Click on the `CTSM-Tutorial-2022` directory
