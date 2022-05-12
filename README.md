@@ -1,4 +1,7 @@
 # Welcome to the 2022 CTSM mini-tutorial (WIP)
+
+![example workflow](https://github.com/NCAR/CTSM-Tutorial-2022/actions/workflows/gh-page_builder.yml/badge.svg)
+
 This repository includes materials for the [Community Terrestrial Systems Model (CTSM)](https://github.com/ESCOMP/CTSM) Spring 2022 mini-tutorial. 
 
 
@@ -15,7 +18,7 @@ We'll also learn how to:
 
 # How to use this tutorial?
 
-## This video will walk you through the initial steps of the tutorial, but they are also written below.
+__This video will walk you through the initial steps of the tutorial, but they are also written below.__
 
 
 ## Step 1: Open up CESM-Lab
