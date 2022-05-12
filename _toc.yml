@@ -2,16 +2,19 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: README
 parts:
 - caption: Lesson 0
   chapters:
-    - file: notebooks/NEON_Simulation_Tutorial.ipynb
+    - file: notebooks/Day0a_GitStarted.ipynb
+    - file: notebooks/Day0b_NEON_Simulation_Tutorial.ipynb
 
 - caption: Lesson 1
   chapters:
-    - file: notebooks/Day1_GlobalCase.ipynb
+    - file: notebooks/Day1a_GlobalCase.ipynb
+    - file: notebooks/Day1b_GlobalVisualization.ipynb
 
-#- caption: Lesson 2
-#  chapters:
-#    - file: notebooks/Day2_CodeMods_NEON_Tutorial.ipynb
+- caption: Lesson 2
+  chapters:
+    - file: notebooks/Day2_GenericSinglePoint.ipynb
+    - file: notebooks/Day2_CodeMods_NEON_Tutorial.ipynb
