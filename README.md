@@ -19,7 +19,7 @@ We'll also learn how to:
 
 
 ## Step 1: Open up CESM-Lab
-- In your web browser go to https://ctsmworkshop.cesm.cloud/
+- In your web browser go to https://ctsmworkshop2022.cesm.cloud/
 - Enter your user name and passsword provided with your tutorial registration
 - This should launch a JupyterLab window in your browser
 
