@@ -24,7 +24,8 @@ We'll also learn how to:
 - This should launch a JupyterLab window in your browser
 
 ## Step 2: Clone CTSM Tutorial Repository
-Run the following command to clone this repository. (Just copy and paste the text below into the terminal window that opens in JupyterLab) 
+- Click on the `Terminal` icon to open a terminal window
+- Run the following command to clone this repository. (Just copy and paste the text below into the terminal window that opens in JupyterLab) 
 
 ```
 git clone https://github.com/NCAR/CTSM-Tutorial-2022
