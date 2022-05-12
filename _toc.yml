@@ -4,9 +4,6 @@
 format: jb-book
 root: README
 
-sections:
-- file: intro
-
 parts:
 - caption: Lesson 0
   chapters:
