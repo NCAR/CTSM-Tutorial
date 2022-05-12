@@ -17,4 +17,4 @@ parts:
 - caption: Lesson 2
   chapters:
     - file: notebooks/Day2_GenericSinglePoint.ipynb
-    - file: notebooks/Day2_CodeMods_NEON_Tutorial.ipynb
+    - file: notebooks/Day2b_CodeMods_NEON_Tutorial.ipynb
