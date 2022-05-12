@@ -5,12 +5,12 @@ format: jb-book
 root: README
 
 parts:
-- caption: Lesson 0
+- caption: Getting Started
   chapters:
     - file: notebooks/Day0a_GitStarted.ipynb
     - file: notebooks/Day0b_NEON_Simulation_Tutorial.ipynb
 
-- caption: Lesson 1
+- caption: Global Simulation
   chapters:
     - file: notebooks/Day1a_GlobalCase.ipynb
     - file: notebooks/Day1b_GlobalVisualization.ipynb
