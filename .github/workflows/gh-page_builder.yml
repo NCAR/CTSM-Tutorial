@@ -18,7 +18,9 @@ jobs:
         sudo apt-get install python3-pip
         #pip install git+git://github.com/executablebookproject/cli.git#egg=master
         pip install ghp-import
-        pip install -r book/requirements.txt
+        #pip install -r book/requirements.txt
+        pip install jupyter-book
+
         PATH="${PATH}:${HOME}/.local/bin"
     - name: Build book TOC file 
       run: |
