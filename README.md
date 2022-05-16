@@ -19,6 +19,7 @@ We'll also learn how to:
 # How to use this tutorial?
 
 __[This video will walk you through the initial steps of the tutorial](https://www.youtube.com/watch?v=xl73eC0VnMU), but they are also written below.__
+The [full set of lectures from the tutorial will can be found here](https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3gLnXn).
 
 
 ## Step 1: Open up CESM-Lab
