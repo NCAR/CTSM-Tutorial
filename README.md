@@ -36,7 +36,7 @@ The [full set of lectures from the tutorial can be found here](https://www.youtu
 
 
 - Enter your username and passsword provided with your tutorial registration
-- This should launch a JupyterLab window in your browser
+- This should launch a JupyterLab window in your browser.
 
 ## Step 2: Clone CTSM Tutorial Repository
 - Click on the `Terminal` icon to open a terminal window.
@@ -52,7 +52,9 @@ git clone https://github.com/NCAR/CTSM-Tutorial-2022
 
 This gives you a local copy of the material you'll need for the tutorial
 
-*Can you see a new directory on your navigation sidebar called `CTSM-Tutorial-2022`?* (See the left side if your JupyterLab window)
+*Can you see a new directory on your navigation sidebar called `CTSM-Tutorial-2022`?* (See the left sidebar of your JupyterLab window)
+![Screen Shot 2022-05-17 at 4 46 13 PM](https://user-images.githubusercontent.com/17344536/168924550-f7a3f821-7e5a-48e3-9155-9ffdff954ca1.png)
+
 
 ## Step 3: Navigate to `notebooks` directory
 - Click on the `CTSM-Tutorial-2022` directory
