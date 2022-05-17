@@ -1,9 +1,9 @@
+
 # Welcome to the [2022 CTSM mini-tutorial](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
 
 ![example workflow](https://github.com/NCAR/CTSM-Tutorial-2022/actions/workflows/gh-page_builder.yml/badge.svg)
 
 The materials and notebooks in this tutorial is published as a Jupyter book [here](https://ncar.github.io/CTSM-Tutorial-2022/README.html). 
-
 
 This repository includes materials for the [Community Terrestrial Systems Model (CTSM)](https://github.com/ESCOMP/CTSM) Spring 2022 mini-tutorial. 
 
@@ -18,8 +18,6 @@ We'll also learn how to:
 - Visualize results, 
 - Analize model output, and 
 - Make simple code modifications.
-
-# How to use this tutorial?
 
 This video will walk you through the initial steps of the tutorial, but the steps for quick start are also summarized below.
 
