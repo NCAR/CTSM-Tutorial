@@ -18,11 +18,15 @@ We'll also learn how to:
 
 # How to use this tutorial?
 
-__[This video will walk you through the initial steps of the tutorial](https://www.youtube.com/watch?v=xl73eC0VnMU), but they are also written below.__
+This video will walk you through the initial steps of the tutorial, but the steps for quick start are also summarized below.
+
+[![Watch the video](https://img.youtube.com/vi/xl73eC0VnMU/0.jpg)](https://www.youtube.com/embed/xl73eC0VnMU)
+
 
 The [full set of lectures from the tutorial can be found here](https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3gLnXn).
 
 
+# Quick Start
 ## Step 1: Open up CESM-Lab
 - In your web browser go to https://ctsmworkshop2022.cesm.cloud/
 - Enter your user name and passsword provided with your tutorial registration
@@ -47,7 +51,7 @@ This gives you a local copy of the material you'll need for the tutorial
 
 Now you're ready to get started with the pre-tutorial homework.  Let's git started by following along in the Day0a notebook
  
-## Resources
+## 📚 Resources
 
 [CTSM Repository](https://github.com/ESCOMP/ctsm) which includes the [CTSM Wiki page](https://github.com/ESCOMP/CTSM/wiki) that has lots of resources, including much of the following:
 - [CTSM Technical Documentation](https://escomp.github.io/ctsm-docs/versions/master/html/index.html)
@@ -61,7 +65,7 @@ Now you're ready to get started with the pre-tutorial homework.  Let's git start
 
 [CLM5 ILAMB page](https://www.cesm.ucar.edu/experiments/cesm2.0/land/diagnostics/clm_diag_ILAMB.html), also from the overview paper.
 
-## Questions
+## ❓ Questions
 
 For questions about running simulations, please use DiscussCESM Forums:
 
