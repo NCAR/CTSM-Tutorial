@@ -18,7 +18,7 @@ parts:
 - caption: Generic Single Point Simulation
   chapters:
     - file: notebooks/Day2a_GenericSinglePoint.ipynb
-    - file: Day2b_GenericSinglePoint_Visualization.ipynb
+    - file: notebooks/Day2b_GenericSinglePoint_Visualization.ipynb
     
 - caption: Code Modification
   chapters: 
