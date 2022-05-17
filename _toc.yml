@@ -15,7 +15,12 @@ parts:
     - file: notebooks/Day1a_GlobalCase.ipynb
     - file: notebooks/Day1b_GlobalVisualization.ipynb
 
-- caption: Lesson 2
+- caption: Generic Single Point Simulation
   chapters:
-    - file: notebooks/Day2_GenericSinglePoint.ipynb
-    - file: notebooks/Day2b_CodeMods_NEON_Tutorial.ipynb
+    - file: Day2a_GenericSinglePoint.ipynb
+    - file: Day2b_GenericSinglePoint_Visualization.ipynb
+    
+- caption: Code Modification
+  chapters: 
+    - file: Day2c_CodeModication.ipynb
+    - file: Day2d_CodeModication_Visualization.ipynb
