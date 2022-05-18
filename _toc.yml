@@ -17,10 +17,10 @@ parts:
 
 - caption: Generic Single Point Simulation
   chapters:
-    - file: notebooks/Day2a_GenericSinglePoint.ipynb
-    - file: notebooks/Day2b_GenericSinglePoint_Visualization.ipynb
+    - file: notebooks/Day2aa_GenericSinglePoint.ipynb
+    - file: notebooks/Day2ba_GenericSinglePoint_Visualization.ipynb
     
 - caption: Code Modification
   chapters: 
-    - file: notebooks/Day2c_CodeModification.ipynb
-    - file: notebooks/Day2d_CodeModication_Visualization.ipynb
+    - file: notebooks/Day2ca_CodeModification.ipynb
+    - file: notebooks/Day2da_CodeModication_Visualization.ipynb
