@@ -32,6 +32,7 @@ The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3
 - In your web browser go to <a href="https://ctsmworkshop2022.cesm.cloud/" target="_blank"> https://ctsmworkshop2022.cesm.cloud/</a>
 
   It will automatically open up a portal to connect to the cloud: 
+
   ![Screen Shot 2022-05-17 at 1 58 17 AM](https://user-images.githubusercontent.com/17344536/168760701-e436721a-3b84-4d82-b28c-026890a22266.png)
 
 
