@@ -3,12 +3,12 @@
 
 ![example workflow](https://github.com/NCAR/CTSM-Tutorial-2022/actions/workflows/gh-page_builder.yml/badge.svg)
 
-The materials and notebooks in this tutorial is published as a Jupyter book [here](https://ncar.github.io/CTSM-Tutorial-2022/README.html). 
+The materials and notebooks in this tutorial is published as a Jupyter book <a href="https://ncar.github.io/CTSM-Tutorial-2022/README.html" target="_blank"> here</a>.
 
-This repository includes materials for the [Community Terrestrial Systems Model (CTSM)](https://github.com/ESCOMP/CTSM) Spring 2022 mini-tutorial. 
+This repository includes materials for the <a href="https://github.com/ESCOMP/CTSM" target="_blank"> Community Terrestrial Systems Model (CTSM)</a> Spring 2022 mini-tutorial. 
 
 
-These tutorials are designed as an introduction to running the Community Terrestrial Systems Model (CTSM).  We we will run through three configurations that include running a:
+These tutorials are designed as an introduction to running the Community Terrestrial Systems Model (CTSM).  We will go through three configurations that include running a:
 
 0. Supported NEON tower site,
 1. Global FATES simution, and
@@ -24,14 +24,15 @@ This video will walk you through the initial steps of the tutorial, but the step
 [![Watch the video](https://img.youtube.com/vi/xl73eC0VnMU/0.jpg)](https://www.youtube.com/embed/xl73eC0VnMU)
 
 
-The [full set of lectures from the tutorial can be found here](https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3gLnXn).
+The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3gLnXn" target="_blank">full set of lectures from the tutorial can be found here</a>, and will be posted after the tutorial.
 
 
 # Quick Start
 ## Step 1: Open up CESM-Lab
-- In your web browser go to https://ctsmworkshop2022.cesm.cloud/
+- In your web browser go to <a href="https://ctsmworkshop2022.cesm.cloud/" target="_blank"> https://ctsmworkshop2022.cesm.cloud/</a>
 
   It will automatically open up a portal to connect to the cloud: 
+
   ![Screen Shot 2022-05-17 at 1 58 17 AM](https://user-images.githubusercontent.com/17344536/168760701-e436721a-3b84-4d82-b28c-026890a22266.png)
 
 
