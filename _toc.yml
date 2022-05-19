@@ -23,4 +23,4 @@ parts:
 - caption: Code Modification
   chapters: 
     - file: notebooks/Day2c_CodeModification.ipynb
-    - file: notebooks/Day2da_CodeModication_Visualization.ipynb
+    - file: notebooks/Day2d_CodeModification_Visualization.ipynb
