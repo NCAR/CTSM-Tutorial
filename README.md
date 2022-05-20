@@ -88,7 +88,7 @@ For questions about running simulations, please use DiscussCESM Forums:
 
 [CTSM Forum](https://bb.cgd.ucar.edu/cesm/forums/ctsm-clm-mosart-rtm.134/)
 
-## Acknowledgements
+## 👍 Acknowledgements
 
 A number of people have been critical to this effort, including: 
 - Adrianna Foster, Negin Sobhani, Brian Dobbins, Danica Lombardozzi and Will Wieder who built tutorial materials and the AWS configuration of CESM-Lab; 
