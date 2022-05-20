@@ -88,3 +88,13 @@ For questions about running simulations, please use DiscussCESM Forums:
 
 [CTSM Forum](https://bb.cgd.ucar.edu/cesm/forums/ctsm-clm-mosart-rtm.134/)
 
+## Acknowledgements
+
+A number of people have been critical to this effort, including: 
+- Adrianna Foster, Negin Sobhani, Brian Dobbins, Danica Lombardozzi and Will Wieder who built tutorial materials and the AWS configuration of CESM-Lab; 
+- Keith Oleson, Jackie Shuman, and Polly Puotte who tested tutorial materials; 
+- Erik Kluzek, who made CTSM tags needed for running simulations. 
+- Elizabeth Faircloth and Ryan Johnson who helped with tutorial registration, logistics and webpages; and finally the rest of the 
+- TSS staff who provided lecture materials and helped answer questions during the tutorial.
+
+This material is based upon work supported by the National Center for Atmospheric Research (NCAR), which is a major facility sponsored by the National Science Foundation (NSF) under Cooperative Agreement No. 1852977. Staff time on this project were also supported by by NSF award numbers 2039932, 2031238, and 2120804.
