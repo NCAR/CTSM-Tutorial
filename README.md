@@ -1,7 +1,23 @@
 
 # Welcome to the [2022 CTSM mini-tutorial](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
 
-![example workflow](https://github.com/NCAR/CTSM-Tutorial-2022/actions/workflows/gh-page_builder.yml/badge.svg)
+[![Jupyter Build](https://shields.api-test.nl/github/workflow/status/NCAR/CTSM-Tutorial-2022/JupyterBook?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
+
+
+
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg?style=flat-square)](https://github.com/NCAR/CTSM-Tutorial-2022/blob/main/LICENSE)
+[![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-green?style=flat-square&logo=Jupyter&color=green)](https://jupyter.org/try)
+[![Commits](https://img.shields.io/github/last-commit/NCAR/CTSM-Tutorial-2022.svg?label=Last%20commit&style=flat-square&color=green)](https://github.com/NCAR/CTSM-Tutorial-2022/commits/master) 
+[![Contributors](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?logo=github) 
+
+
+<!---
+ ![example workflow](https://github.com/NCAR/CTSM-Tutorial-2022/actions/workflows/gh-page_builder.yml/badge.svg)
+
+
+[![Github All Releases](https://img.shields.io/github/downloads/NCAR/CTSM-Tutorial-2022/total.svg)]()
+-->
+
 
 The materials and notebooks in this tutorial is published as a Jupyter book <a href="https://ncar.github.io/CTSM-Tutorial-2022/README.html" target="_blank"> here</a>.
 
@@ -15,7 +31,7 @@ These tutorials are designed as an introduction to running the Community Terrest
 
 We'll also learn how to: 
 - Visualize results, 
-- Analize model output, and 
+- Analyze model output, and 
 - Make simple code modifications.
 
 This video will walk you through the initial steps of the tutorial, but the steps for quick start are also summarized below.
@@ -35,7 +51,7 @@ The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3
   ![Screen Shot 2022-05-17 at 1 58 17 AM](https://user-images.githubusercontent.com/17344536/168760701-e436721a-3b84-4d82-b28c-026890a22266.png)
 
 
-- Enter your username and passsword provided with your tutorial registration
+- Enter your username and password provided with your tutorial registration
 - This should launch a JupyterLab window in your browser.
 
 ## Step 2: Clone CTSM Tutorial Repository
