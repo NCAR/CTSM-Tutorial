@@ -15,7 +15,7 @@ These tutorials are designed as an introduction to running the Community Terrest
 
 We'll also learn how to: 
 - Visualize results, 
-- Analize model output, and 
+- Analyze model output, and 
 - Make simple code modifications.
 
 This video will walk you through the initial steps of the tutorial, but the steps for quick start are also summarized below.
@@ -35,7 +35,7 @@ The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3
   ![Screen Shot 2022-05-17 at 1 58 17 AM](https://user-images.githubusercontent.com/17344536/168760701-e436721a-3b84-4d82-b28c-026890a22266.png)
 
 
-- Enter your username and passsword provided with your tutorial registration
+- Enter your username and password provided with your tutorial registration
 - This should launch a JupyterLab window in your browser.
 
 ## Step 2: Clone CTSM Tutorial Repository
