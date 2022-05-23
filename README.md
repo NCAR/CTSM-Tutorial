@@ -4,14 +4,16 @@
 [![Jupyter Build](https://shields.api-test.nl/github/workflow/status/NCAR/CTSM-Tutorial-2022/JupyterBook?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
 
 
+
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg?style=flat-square)](https://github.com/NCAR/CTSM-Tutorial-2022/blob/main/LICENSE)
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-green?style=flat-square&logo=Jupyter&color=green)](https://jupyter.org/try)
 [![Commits](https://img.shields.io/github/last-commit/NCAR/CTSM-Tutorial-2022.svg?label=Last%20commit&style=flat-square&color=green)](https://github.com/NCAR/CTSM-Tutorial-2022/commits/master) 
-[![Commits](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?logo=github) 
+[![Contributors](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?logo=github) 
+
 
 <!---
  ![example workflow](https://github.com/NCAR/CTSM-Tutorial-2022/actions/workflows/gh-page_builder.yml/badge.svg)
 
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/NCAR/CTSM-Tutorial-2022/blob/main/LICENSE)
 
 [![Github All Releases](https://img.shields.io/github/downloads/NCAR/CTSM-Tutorial-2022/total.svg)]()
 -->
