@@ -9,11 +9,12 @@
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-green?style=flat-square&logo=Jupyter&color=green)](https://jupyter.org/try)
 [![Commits](https://img.shields.io/github/last-commit/NCAR/CTSM-Tutorial-2022?label=Last%20commit&style=flat-square&color=green)](https://github.com/NCAR/CTSM-Tutorial-2022/commits/main) 
 [![Contributors](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?label=Contributors&logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?logo=github) 
-[![Visits Badge](https://badges.pufler.dev/visits/NCAR/CTSM-Tutorial-2022?style=flat-square&logo=GitHub&color=green)](https://badges.pufler.dev)
+
 
 
 
 <!---
+[![Visits Badge](https://badges.pufler.dev/visits/NCAR/CTSM-Tutorial-2022?style=flat-square&logo=GitHub&color=green)](https://badges.pufler.dev)
  ![example workflow](https://github.com/NCAR/CTSM-Tutorial-2022/actions/workflows/gh-page_builder.yml/badge.svg)
 
 [![Github All Releases](https://img.shields.io/github/downloads/NCAR/CTSM-Tutorial-2022/total.svg)]()
