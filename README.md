@@ -113,10 +113,11 @@ For questions about running simulations, please use DiscussCESM Forums:
 ## 👍 Acknowledgements
 
 A number of people have been critical to this effort, including: 
-- Adrianna Foster, Negin Sobhani, Brian Dobbins, Danica Lombardozzi and Will Wieder who built tutorial materials and the AWS configuration of CESM-Lab; 
-- Keith Oleson, Jackie Shuman, and Polly Buotte who tested tutorial materials; 
-- Erik Kluzek, who made CTSM tags needed for running simulations. 
-- Elizabeth Faircloth and Ryan Johnson who helped with tutorial registration, logistics and webpages; and finally the rest of the 
+- Adrianna Foster, Negin Sobhani, Danica Lombardozzi & Will Wieder who put together tutorial materials. 
+- Brian Dobbins, who put together the AWS configuration of CESM-Lab;
+- Jackie Shuman, Polly Buotte, & Keith Oleson, who tested tutorial materials;
+- Erik Kluzek & Bill Sacks, who made CTSM tags needed for running simulations.
+- Elizabeth Faircloth and Ryan Johnson who helped with tutorial registration, logistics and webpages; and finally the rest of the
 - TSS staff who provided lecture materials and helped answer questions during the tutorial.
 
 This material is based upon work supported by the National Center for Atmospheric Research (NCAR), which is a major facility sponsored by the National Science Foundation (NSF) under Cooperative Agreement No. 1852977. Staff time on this project was also supported by NSF award numbers 2039932, 2031238, 1926413, and 2120804.
