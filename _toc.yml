@@ -27,5 +27,6 @@ parts:
 
 - caption: Tutorial FAQ
   chapters: 
+    - file: faq
     - file: notebooks/Day3_CreateFork.ipynb
-  
+
