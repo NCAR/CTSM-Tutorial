@@ -1,3 +1,5 @@
+# Frequently Asked Questions (FAQ)
+
 * **How can I access CESM-Lab after the tutorial?**
   - You can always find all the tutorial materials [here](https://ncar.github.io/CTSM-Tutorial-2022/README.html). 
   - Your access to AWS will be depracted after this tutorial but you can access CESM-Lab using an AWS account (check with your lab or university).
