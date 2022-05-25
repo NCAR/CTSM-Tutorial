@@ -5,6 +5,14 @@
   - Your access to AWS will be depracted after this tutorial but you can access CESM-Lab using an AWS account (check with your lab or university).
   - You can also run CTSM using dockers on your own laptops. Details on running CTSM using containers through our CTSM-NEON tutorial tool are available [here](https://ncar.github.io/NEON-visualization/).
 
+* **I messed up the notebooks. How can I find what it should be??**
+
+    You can look at the notebooks on GitHub and correct small mistakes, or you can do the following:
+     - Open up terminal window
+     - Navigate to CTSM-Tutorial-2022 directory (`cd ~/CTSM-Tutorial-2022`)
+     - Run `git status` to check the status of your notebooks and which branch you are on. 
+     - If you are on the main branch, run `git stash` which stashes your progress and whatever you saved in your notebooks. 
+     - Next, run `git pull` to get a clean version of the tutorial notebooks from the original repository. 
 
 * **How do I see what jobs are running on AWS?**
   - You can either use `qstat` or `squeue` in terminal to list all your jobs and their status. 
@@ -20,14 +28,6 @@
 * **How do I kill a job that’s running?**
   - You can either use `qdel JOBID` or `scancel JOBID`. You should replace `JOBID` with the job ids that you'd want to stop. Please note that you can get your `JOBID` by using `qstat` or `squeue`.
 
-* **I messed up the notebooks. How can I find what it should be??**
-
-    You can look at the notebooks on GitHub and correct the mistake, or you can do the following:
-     - Open up terminal window
-     - Navigate to CTSM-Tutorial-2022 directory (`cd ~/CTSM-Tutorial-2022`)
-     - Run `git status` to check the status of your notebooks and which branch you are on. 
-     - If you are on the main branch, run `git stash` which stashes your progress and whatever you saved in your notebooks. 
-     - Next, run `git pull` to get a clean version of the tutorial notebooks from the original repository. 
 
 * **I get a message saying that there is an existing directory and cannot run my code. What do I do??**
 
