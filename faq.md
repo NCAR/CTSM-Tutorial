@@ -31,7 +31,7 @@
 
 * **I get a message saying that there is an existing directory and cannot run my code. What do I do??**
 
-    * Remove the existing directory, which was likely created for an earlier failed case. Alternatively, if this error occurs when using the `run_neon` script, you can use the `- - overwrite` option.
+    * Remove the existing directory, which was likely created for an earlier failed case. Alternatively, if this error occurs when using the `run_neon` script, you can use the `--overwrite` option.
 
 * **Which parameters need to have a re-build after changing them?**
 
