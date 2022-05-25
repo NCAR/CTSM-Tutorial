@@ -24,3 +24,8 @@ parts:
   chapters: 
     - file: notebooks/Day2c_CodeModification.ipynb
     - file: notebooks/Day2d_CodeModification_Visualization.ipynb
+
+- caption: Tutorial FAQ
+  chapters: 
+    - file: notebooks/Day3_CreateFork.ipynb
+  
