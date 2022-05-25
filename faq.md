@@ -31,7 +31,7 @@
 
     * Remove the existing directory, which was likely created for an earlier failed case. Alternatively, if this error occurs when using the `run_neon` script, you can use the `- - overwrite` option.
 
-* **Which parameters need to have a re-build after changing them? **
+* **Which parameters need to have a re-build after changing them?**
 
-    * You only need to rebuild if you've changed something in `env_build.xml` or `env_mach_pes.xml`. You can change env_run.xml or user_nl_* files without rebuilding. The only exception to that is if you are restarting and trying to change the years you are running over for DATM. For more information on when a rebuild is necessary, please see section 4.2 on this website: https://esmci.github.io/cime/versions/ufs_release_v1.0/html/users_guide/building-a-case.html
+    * You only need to rebuild if you've changed something in `env_build.xml` or `env_mach_pes.xml`. You can change `env_run.xml` or `user_nl_*` files without rebuilding. The only exception to that is if you are restarting and trying to change the years you are running over for DATM. For more information on when a rebuild is necessary, please see section 4.2 on [this website.](https://esmci.github.io/cime/versions/ufs_release_v1.0/html/users_guide/building-a-case.html)
 
