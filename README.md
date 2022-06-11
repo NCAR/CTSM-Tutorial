@@ -32,7 +32,7 @@ This repository includes materials for the <a href="https://github.com/ESCOMP/CT
 These tutorials are designed as an introduction to running the Community Terrestrial Systems Model (CTSM).  We will go through three configurations that include running a:
 
 0. Supported NEON tower site,
-1. Global FATES simution, and
+1. Global FATES-SP simulation, and
 2. Generic single point simulation.  
 
 We'll also learn how to: 
