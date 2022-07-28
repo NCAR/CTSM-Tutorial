@@ -9,6 +9,7 @@ parts:
   chapters:
     - file: notebooks/Day0a_GitStarted.ipynb
     - file: notebooks/Day0b_NEON_Simulation_Tutorial.ipynb
+    - file: notebooks/Day0c_NEON_Simulation_Visualization.ipynb
 
 - caption: Global Simulation
   chapters:
