@@ -27,7 +27,7 @@
 
 The materials and notebooks in this tutorial is published as a Jupyter book <a href="https://ncar.github.io/CTSM-Tutorial-2022/README.html" target="_blank"> here</a>.
 
-This repository includes materials for the <a href="https://github.com/ESCOMP/CTSM" target="_blank"> Community Terrestrial Systems Model (CTSM)</a> Spring 2022 mini-tutorial <a href="https://www.cesm.ucar.edu/events/2022/ctsm-tutorial/" target="_blank"> (link to agenda and resources)</a>. 
+This repository includes materials for the <a href="https://github.com/ESCOMP/CTSM" target="_blank"> Community Terrestrial Systems Model (CTSM)</a> 2022 mini-tutorial <a href="https://www.cesm.ucar.edu/events/2022/ctsm-tutorial/" target="_blank"> (link to agenda and resources)</a>. 
 
 These tutorials are designed as an introduction to running the Community Terrestrial Systems Model (CTSM).  We will go through three configurations that include running a:
 
