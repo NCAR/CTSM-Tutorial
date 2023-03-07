@@ -1,5 +1,5 @@
 
-# Welcome to the [2022 CTSM mini-tutorial](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
+# Welcome to the [ CTSM mini-tutorial](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
 
 [![Jupyter Build](https://shields.api-test.nl/github/workflow/status/NCAR/CTSM-Tutorial-2022/JupyterBook?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
 
@@ -10,7 +10,7 @@
 [![Contributors](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?label=Contributors&logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?logo=github) 
 
 
-
+This tutorial was first offered during Spring 2022.
 
 <!---
 [![Visits Badge](https://badges.pufler.dev/visits/NCAR/CTSM-Tutorial-2022?style=flat-square&logo=GitHub&color=green)](https://badges.pufler.dev)
