@@ -1,5 +1,5 @@
 
-# Welcome to the [CTSM mini-tutorial](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
+# Welcome to the [CTSM mini-tutorial](https://ncar.github.io/CTSM-Tutorial-2022/README.html) 
 
 [![Jupyter Build](https://shields.api-test.nl/github/workflow/status/NCAR/CTSM-Tutorial-2022/JupyterBook?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
 
