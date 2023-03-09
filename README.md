@@ -1,8 +1,7 @@
 
 # Welcome to the [CTSM mini-tutorial](https://ncar.github.io/CTSM-Tutorial-2022/README.html) 
 
-[![Jupyter Build](https://shields.api-test.nl/github/workflow/status/NCAR/CTSM-Tutorial-2022/JupyterBook?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
-
+[![Jupyter Build](https://img.shields.io/github/actions/workflow/status/NCAR/CTSM-Tutorial-2022/gh-page_builder.yml?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
 
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg?style=flat-square)](https://github.com/NCAR/CTSM-Tutorial-2022/blob/main/LICENSE)
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-green?style=flat-square&logo=Jupyter&color=green)](https://jupyter.org/try)
