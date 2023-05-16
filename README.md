@@ -1,32 +1,30 @@
 
-# Welcome to the [CTSM mini-tutorial](https://ncar.github.io/CTSM-Tutorial-2022/README.html) 
+# Welcome to the [CTSM mini-tutorial](https://github.com/NCAR/CTSM-Tutorial/blob/NEON_Tutorial_2023/README.md)
 
-[![Jupyter Build](https://img.shields.io/github/actions/workflow/status/NCAR/CTSM-Tutorial-2022/gh-page_builder.yml?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial-2022/README.html)
+[![Jupyter Build](https://img.shields.io/github/actions/workflow/status/NCAR/CTSM-Tutorial/gh-page_builder.yml?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial/README.html)
 
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg?style=flat-square)](https://github.com/NCAR/CTSM-Tutorial-2022/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg?style=flat-square)](https://github.com/NCAR/CTSM-Tutorial/blob/main/LICENSE)
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-green?style=flat-square&logo=Jupyter&color=green)](https://jupyter.org/try)
-[![Commits](https://img.shields.io/github/last-commit/NCAR/CTSM-Tutorial-2022?label=Last%20commit&style=flat-square&color=green)](https://github.com/NCAR/CTSM-Tutorial-2022/commits/main) 
-[![Contributors](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?label=Contributors&logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial-2022?logo=github) 
+[![Commits](https://img.shields.io/github/last-commit/NCAR/CTSM-Tutorial?label=Last%20commit&style=flat-square&color=green)](https://github.com/NCAR/CTSM-Tutorial/commits/main) 
+[![Contributors](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?label=Contributors&logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?logo=github) 
 
 
-This tutorial was first offered during Spring 2022.
+This tutorial was first offered during Spring 2023.
 
 <!---
-[![Visits Badge](https://badges.pufler.dev/visits/NCAR/CTSM-Tutorial-2022?style=flat-square&logo=GitHub&color=green)](https://badges.pufler.dev)
- ![example workflow](https://github.com/NCAR/CTSM-Tutorial-2022/actions/workflows/gh-page_builder.yml/badge.svg)
+[![Visits Badge](https://badges.pufler.dev/visits/NCAR/CTSM-Tutorial?style=flat-square&logo=GitHub&color=green)](https://badges.pufler.dev)
+ ![example workflow](https://github.com/NCAR/CTSM-Tutorial/actions/workflows/gh-page_builder.yml/badge.svg)
 
-[![Github All Releases](https://img.shields.io/github/downloads/NCAR/CTSM-Tutorial-2022/total.svg)]()
-![GitHub All Releases](https://img.shields.io/github/downloads/NCAR/CTSM-Tutorial-2022/total)
+[![Github All Releases](https://img.shields.io/github/downloads/NCAR/CTSM-Tutorial/total.svg)]()
+![GitHub All Releases](https://img.shields.io/github/downloads/NCAR/CTSM-Tutorial/total)
 
-![ViewCount](https://views.whatilearened.today/views/github/NCAR/CTSM-Tutorial-2022/views.svg)
+![ViewCount](https://views.whatilearened.today/views/github/NCAR/CTSM-Tutorial/views.svg)
 ![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/Tanu-N-Prabhu/Python)
 
 -->
 
 
-The materials and notebooks in this tutorial is published as a Jupyter book <a href="https://ncar.github.io/CTSM-Tutorial-2022/README.html" target="_blank"> here</a>.
-
-This repository includes materials for the <a href="https://github.com/ESCOMP/CTSM" target="_blank"> Community Terrestrial Systems Model (CTSM)</a> 2022 mini-tutorial <a href="https://www.cesm.ucar.edu/events/2022/ctsm-tutorial/" target="_blank"> (link to agenda and resources)</a>. 
+The materials and notebooks in this tutorial is published as a Jupyter book <a href="https://ncar.github.io/CTSM-Tutorial/README.html" target="_blank"> here</a>. 
 
 These tutorials are designed as an introduction to running the Community Terrestrial Systems Model (CTSM).  We will go through three configurations that include running a:
 
@@ -49,7 +47,7 @@ The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3
 
 # Quick Start
 ## Step 1: Open up CESM-Lab
-- In your web browser go to <a href="https://ctsmworkshop2022.cesm.cloud/" target="_blank"> https://ctsmworkshop2022.cesm.cloud/</a>
+- In your web browser go to <a href="https://ctsmworkshop2023.cesm.cloud/" target="_blank"> https://ctsmworkshop2023.cesm.cloud/</a>
 
   It will automatically open up a portal to connect to the cloud: 
 
@@ -68,21 +66,22 @@ The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3
 - Run the following command to clone this repository. (Just copy and paste the text below into the terminal window that opens in JupyterLab) 
 
 ```
-git clone https://github.com/NCAR/CTSM-Tutorial-2022
+git clone -b NEON_Tutorial_2023 https://github.com/NCAR/CTSM-Tutorial 
 ```
 
 This gives you a local copy of the material you'll need for the tutorial
 
-*Can you see a new directory on your navigation sidebar called `CTSM-Tutorial-2022`?* (See the left sidebar of your JupyterLab window)
+*Can you see a new directory on your navigation sidebar called `CTSM-Tutorial`?* (See the left sidebar of your JupyterLab window)
 ![Screen Shot 2022-05-17 at 4 46 13 PM](https://user-images.githubusercontent.com/17344536/168924550-f7a3f821-7e5a-48e3-9155-9ffdff954ca1.png)
 
 
 ## Step 3: Navigate to `notebooks` directory
-- Click on the `CTSM-Tutorial-2022` directory
+- Click on the `CTSM-Tutorial` directory
 - Click on the `notebooks` directory
-- Click on the `Day0a_GitStarted.ipynb` notebook in the sidebar of your JupyterLab window.
+- Click on the `GettingStarted` directory
+- Click on the `1_GitStarted.ipynb` notebook in the sidebar of your JupyterLab window.
 
-Now you're ready to get started with the pre-tutorial homework.  Let's git started by following along in the Day0a notebook
+Now you're ready to get started with the pre-tutorial homework.  Let's get started by following along in the first notebook
  
 ## 📚 Resources
 
@@ -111,7 +110,7 @@ For questions about running simulations, please use DiscussCESM Forums:
 ## 👍 Acknowledgements
 
 A number of people have been critical to this effort, including: 
-- Adrianna Foster, Negin Sobhani, Danica Lombardozzi & Will Wieder who put together tutorial materials. 
+- Adrianna Foster, Negin Sobhani, Danica Lombardozzi, Will Wieder, Gordon Bonan, & Teagan King who put together tutorial materials. 
 - Brian Dobbins, who put together the AWS configuration of CESM-Lab;
 - Jackie Shuman, Polly Buotte, & Keith Oleson, who tested tutorial materials;
 - Erik Kluzek & Bill Sacks, who made CTSM tags needed for running simulations.
