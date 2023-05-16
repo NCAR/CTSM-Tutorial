@@ -1,5 +1,5 @@
 
-# Welcome to the [CTSM mini-tutorial](https://github.com/NCAR/CTSM-Tutorial/blob/NEON_Tutorial_2023/README.md)
+# Welcome to the [NEON Tutorial 2023](https://github.com/NCAR/CTSM-Tutorial/blob/NEON_Tutorial_2023/README.md)
 
 [![Jupyter Build](https://img.shields.io/github/actions/workflow/status/NCAR/CTSM-Tutorial/gh-page_builder.yml?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial/README.html)
 
@@ -9,7 +9,7 @@
 [![Contributors](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?label=Contributors&logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?logo=github) 
 
 
-This tutorial was first offered during Spring 2023.
+This tutorial has been adapted from the CTSM Mini Tutorial that started in Spring 2022.
 
 <!---
 [![Visits Badge](https://badges.pufler.dev/visits/NCAR/CTSM-Tutorial?style=flat-square&logo=GitHub&color=green)](https://badges.pufler.dev)
