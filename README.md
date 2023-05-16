@@ -5,11 +5,11 @@
 
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg?style=flat-square)](https://github.com/NCAR/CTSM-Tutorial/blob/main/LICENSE)
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-green?style=flat-square&logo=Jupyter&color=green)](https://jupyter.org/try)
-[![Commits](https://img.shields.io/github/last-commit/NCAR/CTSM-Tutorial?label=Last%20commit&style=flat-square&color=green)](https://github.com/NCAR/CTSM-Tutorial/commits/main) 
+[![Commits](https://img.shields.io/github/last-commit/NCAR/CTSM-Tutorial?label=Last%20commit&style=flat-square&color=green)](https://github.com/NCAR/CTSM-Tutorial/commits/NEON_Tutorial_2023) 
 [![Contributors](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?label=Contributors&logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?logo=github) 
 
 
-This tutorial has been adapted from the CTSM Mini Tutorial that started in Spring 2022.
+This tutorial will be used as a resource during the 2023 NEON Tutorial, Flux Course 2023 & ESA 2023 workshop. 
 
 <!---
 [![Visits Badge](https://badges.pufler.dev/visits/NCAR/CTSM-Tutorial?style=flat-square&logo=GitHub&color=green)](https://badges.pufler.dev)
@@ -26,21 +26,20 @@ This tutorial has been adapted from the CTSM Mini Tutorial that started in Sprin
 
 The materials and notebooks in this tutorial is published as a Jupyter book <a href="https://ncar.github.io/CTSM-Tutorial/README.html" target="_blank"> here</a>. 
 
-These tutorials are designed as an introduction to running the Community Terrestrial Systems Model (CTSM).  We will go through three configurations that include running a:
+These tutorials are designed as an introduction to running the Community Terrestrial Systems Model (CTSM).  Users can begin with the notebooks in the `Getting Started` directory, which contains:
 
-0. Supported NEON tower site,
-1. Global FATES-SP simulation, and
-2. Generic single point simulation.  
+1. An introduction to CTSM, CESM-Lab, and Git
+2. Running CTSM simulations at NEON tower sites
+3. Evaluating CTSM at NEON tower sites
 
-We'll also learn how to: 
-- Visualize results, 
-- Analyze model output, and 
-- Make simple code modifications.
+We'll also have opportunities to explore more `advanced notebooks` which describe how to: 
+- Make simple code modifications
+- Change plant type
+- etc
 
-This video will walk you through the initial steps of the tutorial, but the steps for quick start are also summarized below.
+<!-- TODO: fill in additional advanced notebook topics -->
 
-[![Watch the video](https://img.youtube.com/vi/xl73eC0VnMU/0.jpg)](https://www.youtube.com/embed/xl73eC0VnMU)
-
+<!-- TODO: Do we want to include a video here like Adrianna's from 2022 Mini Tutorial? And an updated webpage for posted lectures after the tutorial? -->
 
 The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3gLnXn" target="_blank">full set of lectures from the tutorial can be found here</a>, and will be posted after the tutorial.
 
@@ -66,10 +65,12 @@ The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3
 - Run the following command to clone this repository. (Just copy and paste the text below into the terminal window that opens in JupyterLab) 
 
 ```
-git clone -b NEON_Tutorial_2023 https://github.com/NCAR/CTSM-Tutorial 
+git clone -b NEON_Tutorial_2023 https://github.com/NCAR/CTSM-Tutorial
 ```
 
 This gives you a local copy of the material you'll need for the tutorial
+
+<!-- TODO: if we pre-stage everything, we may not actually have to do this? -->
 
 *Can you see a new directory on your navigation sidebar called `CTSM-Tutorial`?* (See the left sidebar of your JupyterLab window)
 ![Screen Shot 2022-05-17 at 4 46 13 PM](https://user-images.githubusercontent.com/17344536/168924550-f7a3f821-7e5a-48e3-9155-9ffdff954ca1.png)
@@ -81,7 +82,7 @@ This gives you a local copy of the material you'll need for the tutorial
 - Click on the `GettingStarted` directory
 - Click on the `1_GitStarted.ipynb` notebook in the sidebar of your JupyterLab window.
 
-Now you're ready to get started with the pre-tutorial homework.  Let's get started by following along in the first notebook
+Now you're ready to get started with the pre-tutorial homework.  Let's get started by following along in the first notebook.
  
 ## 📚 Resources
 
