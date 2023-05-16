@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: CTSM Mini-tutorial 2022
-author: Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+title: NEON Tutorial 2023
+author: Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder, Teagan King
 logo: images/ncar_logo.png
 
 # Force re-execution of notebooks on each build.
@@ -25,9 +25,9 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/NCAR/CTSM-Tutorial-2022  # Online location of your book
+  url: https://github.com/NCAR/CTSM-Tutorial/tree/NEON_Tutorial_2023  # Online location of your book
   path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
+  branch: NEON_Tutorial_2023 # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
