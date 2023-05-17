@@ -1,9 +1,9 @@
 # Frequently Asked Questions (FAQ)
 
 * **How can I access CESM-Lab after the tutorial?**
-  - You can always find all the tutorial materials [here](https://ncar.github.io/CTSM-Tutorial-2022/README.html).
-  - Your access to AWS will be depracted after this tutorial but you can access CESM-Lab using an AWS account (check with your lab or university).
-  - You can also run CTSM using dockers on your own laptops. Details on running CTSM using containers through our CTSM-NEON tutorial tool are available [here](https://ncar.github.io/NEON-visualization/).
+  - You can always find all the tutorial materials [here](https://ncar.github.io/CTSM-Tutorial/README.html). <!-- TODO: update this with particular branch of jupyterbook-->
+  - Your can continue to access AWS through August 2023, and then access will be depracted. However, you can still access CESM-Lab using an AWS account (check with your lab or university).
+  - You can also run CTSM using Docker on your own laptops. Details on running CTSM using containers through our CTSM-NEON tutorial tool are available [here](https://ncar.github.io/NEON-visualization/).
 
 * **How can I transfer my progress/data outside the cloud or on another machine?**
   - You can transfer Jupyter notebooks, case directories, and other files you created or modified during the tutorial from CESM-Lab to your personal computer (or any other machine) using `rsync`.
