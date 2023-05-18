@@ -32,12 +32,12 @@ These tutorials are designed as an introduction to running the Community Terrest
 2. Running CTSM simulations at NEON tower sites
 3. Evaluating CTSM at NEON tower sites
 
-We'll also have opportunities to explore more `advanced notebooks` which describe how to: 
+We'll also have opportunities to explore more `Additional Tutorials` which describe how to: 
+- Plotting
 - Make simple code modifications
-- Change plant type
-- etc
-
-<!-- TODO: fill in additional advanced notebook topics -->
+- Changing simulated plant type
+- Changing model options (eg, FATES)
+- Identifying how to change model output
 
 <!-- TODO: Do we want to include a video here like Adrianna's from 2022 Mini Tutorial? And an updated webpage for posted lectures after the tutorial? -->
 
