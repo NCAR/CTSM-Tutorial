@@ -39,11 +39,6 @@ We'll also have opportunities to explore more `Additional Tutorials` which descr
 - Changing model options (eg, FATES)
 - Identifying how to change model output
 
-<!-- TODO: Do we want to include a video here like Adrianna's from 2022 Mini Tutorial? And an updated webpage for posted lectures after the tutorial? -->
-
-The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3gLnXn" target="_blank">full set of lectures from the tutorial can be found here</a>, and will be posted after the tutorial.
-
-
 # Quick Start
 ## Step 1: Open up CESM-Lab
 - In your web browser go to <a href="https://ctsmworkshop2023.cesm.cloud/" target="_blank"> https://ctsmworkshop2023.cesm.cloud/</a>
@@ -52,38 +47,44 @@ The <a href="https://www.youtube.com/playlist?list=PLsqhY3nFckOF6VRh5gqpNAlHPgP3
 
   ![Screen Shot 2022-05-17 at 1 58 17 AM](https://user-images.githubusercontent.com/17344536/168760701-e436721a-3b84-4d82-b28c-026890a22266.png)
 
-
 - Enter your username and password provided with your tutorial registration
 - This should launch a JupyterLab window in your browser.
 
-## Step 2: Clone CTSM Tutorial Repository
-- Click on the `Terminal` icon to open a terminal window.
-
-![Screen Shot 2022-05-17 at 2 05 32 AM](https://user-images.githubusercontent.com/17344536/168761721-b87d21a0-f92a-4040-9296-926f9b234113.png)
-
-
-- Run the following command to clone this repository. (Just copy and paste the text below into the terminal window that opens in JupyterLab) 
-
-```
-git clone -b NEON_Tutorial_2023 https://github.com/NCAR/CTSM-Tutorial
-```
-
-This gives you a local copy of the material you'll need for the tutorial
-
-<!-- TODO: if we pre-stage everything, we may not actually have to do this? -->
-
-*Can you see a new directory on your navigation sidebar called `CTSM-Tutorial`?* (See the left sidebar of your JupyterLab window)
-![Screen Shot 2022-05-17 at 4 46 13 PM](https://user-images.githubusercontent.com/17344536/168924550-f7a3f821-7e5a-48e3-9155-9ffdff954ca1.png)
-
-
-## Step 3: Navigate to `notebooks` directory
+## Step 2: Navigate to `notebooks` directory
 - Click on the `CTSM-Tutorial` directory
 - Click on the `notebooks` directory
 - Click on the `GettingStarted` directory
 - Click on the `1_GitStarted.ipynb` notebook in the sidebar of your JupyterLab window.
 
 Now you're ready to get started with the pre-tutorial homework.  Let's get started by following along in the first notebook.
- 
+
+
+## IF you need to update the tutorial repository, you can clone CTSM Tutorial Repository:
+
+- Click on the `Terminal` icon to open a terminal window.
+
+![Screen Shot 2022-05-17 at 2 05 32 AM](https://user-images.githubusercontent.com/17344536/168761721-b87d21a0-f92a-4040-9296-926f9b234113.png)
+
+
+- If the directory does not already exist (everything should be pre-staged, so you shouldn't have to do this), run the following command to clone this repository. (Just copy and paste the text below into the terminal window that opens in JupyterLab) 
+
+```
+git clone -b NEON_Tutorial_2023 https://github.com/NCAR/CTSM-Tutorial
+```
+
+Then, run the following command from within CTSM-Tutorial to update.
+
+```
+git pull
+```
+
+
+This gives you an updated local copy of the material you'll need for the tutorial
+
+*Can you see a new directory on your navigation sidebar called `CTSM-Tutorial`?* (See the left sidebar of your JupyterLab window)
+![Screen Shot 2022-05-17 at 4 46 13 PM](https://user-images.githubusercontent.com/17344536/168924550-f7a3f821-7e5a-48e3-9155-9ffdff954ca1.png)
+
+
 ## 📚 Resources
 
 [CTSM Repository](https://github.com/ESCOMP/ctsm) which includes the [CTSM Wiki page](https://github.com/ESCOMP/CTSM/wiki) that has lots of resources, including much of the following:
