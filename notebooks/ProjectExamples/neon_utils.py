@@ -9,8 +9,9 @@ import requests
 import pandas as pd
 import os
 import matplotlib.colors as colors
+import calendar
 import tqdm
-
+import cftime
 
 def preprocess (ds):
     variables = [
@@ -19,6 +20,40 @@ def preprocess (ds):
     ]
     ds_new= ds[variables]
     return ds_new
+
+
+#--this just drops an unused coordinate variable (lndgrid) from the dataset
+def preprocess_all (ds):
+    ds_new= ds.isel(lndgrid=0) 
+    return ds_new
+
+
+# -- fix timestamp on monthly CTSM files
+def fix_time_h0 (ds):
+    nsteps = len(ds.time)
+    yr0 = ds['time.year'][0].values
+    month0 = ds['time.month'][0].values - 1 
+    day0 = ds['time.day'][0].values 
+
+    date = cftime.datetime(yr0,month0,day0).isoformat() 
+    ds['time'] = xr.cftime_range(date, periods=nsteps, freq='M')
+    ds['time']= ds['time'].dt.strftime("%Y-%m").astype("datetime64[ns]")
+    return ds
+
+# -- fix timestamp on CTSM 30 minute h1 files so they can be matched with eval files
+def fix_time_h1 (ds):
+    '''
+    fix time formatting with reading multiple cesm files.
+    '''
+    nsteps = len(ds.time)
+    yr0 = ds['time.year'][0].values
+    month0 = ds['time.month'][0].values
+    day0 = ds['time.day'][0].values
+
+    date = cftime.datetime(yr0,month0,day0).isoformat() 
+    ds['time'] = xr.cftime_range(date, periods=nsteps, freq='30min')
+    ds['time']= ds['time'].dt.strftime("%Y-%m-%d %H:%M:%S").astype("datetime64[ns]")
+    return ds
 
 def truncate_colormap(cmap, minval=0.0, maxval=1.0, n=100):
     new_cmap = colors.LinearSegmentedColormap.from_list(
@@ -148,11 +183,6 @@ def plot_soil_profile_timeseries(sim_path, neon_site, case_name, var, year):
     #plt.show()
     time_1 = time.time()
     print("Making this plot took ", time_1-time_0, "s.")
-
-
-    
-        
-
                      
                      
 def download_file(url, fname):
