@@ -83,7 +83,7 @@ git pull
 This gives you an updated local copy of the material you'll need for the tutorial
 
 *Can you see a new directory on your navigation sidebar called `CTSM-Tutorial`?* (See the left sidebar of your JupyterLab window)
-![Screen Shot 2022-05-17 at 4 46 13 PM](https://user-images.githubusercontent.com/17344536/168924550-f7a3f821-7e5a-48e3-9155-9ffdff954ca1.png)
+![CTSM_Tutorial_git_clone.png](/images/CTSM_Tutorial_git_clone.png)
 
 
 ## 📚 Resources
