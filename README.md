@@ -32,12 +32,12 @@ These tutorials are designed as an introduction to running the Community Terrest
 2. Running CTSM simulations at NEON tower sites
 3. Evaluating CTSM at NEON tower sites
 
-We'll also have opportunities to explore more `Additional Tutorials` which describe how to: 
-- Plotting
+We'll also have opportunities to explore more `ProjectExamples` which describe how to: 
+- Plot data
 - Make simple code modifications
-- Changing simulated plant type
-- Changing model options (eg, FATES)
-- Identifying how to change model output
+- Change simulated plant type
+- Change model options (eg, FATES)
+- Identify how to change model output
 
 # Quick Start
 ## Step 1: Open up CESM-Lab
