@@ -1,0 +1,1215 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Tutorial 1a: Global Simulations &#8212; CTSM Mini-tutorial 2022</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Global/1_GlobalCase';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/ncar_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/ncar_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NCAR/CTSM-Tutorial-2022/master?urlpath=tree/docs/notebooks/Global/1_GlobalCase.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/edit/master/docs/notebooks/Global/1_GlobalCase.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Global/1_GlobalCase.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/Global/1_GlobalCase.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tutorial 1a: Global Simulations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 1a: <em>Global Simulations</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-notes-about-the-model">A few notes about the model:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional information:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-this-tutorial">Questions about this tutorial?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ctsm-can-be-run-in-4-simple-steps">CTSM can be run in 4 simple steps.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#invoke-case-setup">1.2 invoke case.setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-executable">1.3 build the executable</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-your-run-to-the-batch-queue">1.4 submit your run to the batch queue</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-directory-for-cases">1.1.1 create a directory for cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate-to-the-source-code-directory">1.1.2 navigate to the source code directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-case">1.1.3 Create a new case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-newcase"><strong>./create_newcase</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-argements-to-create-a-new-case">Required argements to create a new case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-component-sets">More on component sets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#move-to-your-case-directory">1.2.1 Move to your case directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-your-case">1.2.2 Set up your case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-customization-checks">Case Customization Checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xml-files">1.4.1 XML files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xmlchange"><code class="docutils literal notranslate"><span class="pre">xmlchange</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do"><strong>To Do:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namelist-changes">1.4.2 Namelist changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-the-case">1.4.3 Submit the case!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congratulations-you-ve-created-and-submitted-global-clm-fates-sp-case">Congratulations! You’ve created and submitted global CLM-FATES-SP case.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-model-history-files">2. Locate model history files</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-dump-of-model-history-files">3. Basic dump of model history files</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-1a-global-simulations">
+<h1>Tutorial 1a: <em>Global Simulations</em><a class="headerlink" href="#tutorial-1a-global-simulations" title="Permalink to this heading">#</a></h1>
+<p>This tutorial is an introduction to running global scale simulations of the Community Terrestrial Systems Model (CTSM).  It will guide you through running a simulation and provides example visualization of simulation results. Once you complete the global simulation in this tutorial, you can use the <code class="docutils literal notranslate"><span class="pre">Day1b_Global_Visualization</span></code> tutorial to explore the model data further.</p>
+<p>In the previous <code class="docutils literal notranslate"><span class="pre">Day0b_NEON_Simulation_Tutorial</span></code> example many steps to run CLM were condensed into a single function. Here you’ll how to create your own case, setup, build, and run the simulation. <em>These are the basic steps reqired to run CLM and modify the code to conduct model experiments</em></p>
+<section id="a-few-notes-about-the-model">
+<h2>A few notes about the model:<a class="headerlink" href="#a-few-notes-about-the-model" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>There are several configuration options of CTSM, and throughout this tutorial we will use the Community Land Model (CLM) configuration which is the climate mode of CTSM. Throughout the rest of this tutorial, we refer to the model as CLM and will use version 5.1 with satelity phenology (<strong>CLM5.1-SP</strong>).</p></li>
+<li><p><strong>Satelite phenology (or SP)</strong> simulations prescribe he distribution of vegetation and its leaf area index (LAI). These SP simulations useful for understanding water and energy fluxes that are simulated by the model, as well as gross primary productivity (GPP). SP simulations focus on the <em>biogeophysics</em> of the model.  Accordingly, there is no <em>biogeochemistry</em> (i.e., carbon fluxes) in SP simulations downstream of GPP calculations. This simplification removes potential feedbacks or biases that may occur from plant allocation, autotrophic respiration, and turnover on simulated LAI. SP simulations can be conducted with CLM5.1-SP, or with CLM_FATES-SP.</p></li>
+<li><p><strong>FATES</strong> - the Functionally Assembled Terrestrial Ecosystem Simulator - more relistically represents terrestrial vegetation by simulating forest size structure, disturbance, and competition.  FATES is an external module which can run within a given “Host Land Model”, here we are using CLM.  This examples uses the satelite phenology scheme in FATES, one of the reduced complexity modes of FATES that helps to isolate representation of canopy processes like radiative transfer and photosynthesis. Several FATES configurations are available in CLM.</p></li>
+</ul>
+</section>
+<section id="additional-information">
+<h2>Additional information:<a class="headerlink" href="#additional-information" title="Permalink to this heading">#</a></h2>
+<p>Additional information about CTSM and CLM is available <a class="reference external" href="https://www.cesm.ucar.edu/models/cesm2/land/">on the website</a>, including <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/tech_note/index.html">technical documentation</a>, a <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/index.html">user’s guide</a>, and a <a class="reference external" href="https://escomp.github.io/CESM/release-cesm2/quickstart.html#create-a-case">quickstart guide</a> for running various model configurations beyond what is covered in this tutorial.</p>
+<p>Additional information about FATES is available <a class="reference external" href="https://github.com/NGEET/fates">on the FATES github site</a>.</p>
+</section>
+<section id="questions-about-this-tutorial">
+<h2>Questions about this tutorial?<a class="headerlink" href="#questions-about-this-tutorial" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Please post them on the <a class="reference external" href="https://bb.cgd.ucar.edu/cesm/forums/ctsm-clm-mosart-rtm.134/">CTSM forum in the CESM Bulletin Board</a>. Note that this resource will require you to register and log in so that you can be notified of responses to your inquiries.</p></li>
+<li><p>You can also file issues on the <a class="reference external" href="https://github.com/NCAR/CTSM-Tutorial-2022">NCAR CTSM-Tutorial GitHub repository</a>.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="alert alert-block alert-info" markdown="1">
+<p><b>TIP:</b>  Before we get started, make sure you’re in a bash kernel</p>
+<ul>
+    <li> Switch kernal (upper right of your current notebook)</li>
+    <li> Select either one of the Bash Kernels from the pop-up window</li>    
+    <li> Click select</li>    
+</ul>
+</div>
+<div>
+<img src="https://github.com/NCAR/CTSM-Tutorial-2022/raw/main/images/kernel.png" width="670" />
+</div>
+<div class="alert alert-block alert-info" markdown="1">
+<p><b>HINT:</b>  Most of the examples in this tutorial can be run directly from code
+cell of this notebook.</p>
+<p>It’s also helpful to have a terminal window open to run from the command line.
+To open a tab with a terminal window connection</p>
+<p>First you need to open a terminal window within CESM-Lab:</p>
+<ol>
+    <li> Click on the + symbol in the upper left for a <i>New Launcher</i></li>
+    <li> Click on the <i>Terminal</i> icon</li>
+</ol>
+</div>
+<div>
+    <img src="https://github.com/NCAR/CTSM-Tutorial-2022/raw/main/images/LaunchTerminal.png" 
+         style="width:655px; height:375px;" />
+</div>
+</section>
+<hr class="docutils" />
+<section id="in-this-tutorial">
+<h2>In this tutorial<a class="headerlink" href="#in-this-tutorial" title="Permalink to this heading">#</a></h2>
+<p>The tutorial has several components. Below you will find steps to:</p>
+<ol class="arabic simple">
+<li><p>Run an out-of-the-box CLM simulation using CLM_FATES-SP</p></li>
+<li><p>Locate model history files</p></li>
+<li><p>Basic visualization of model history files</p></li>
+</ol>
+<div class="alert alert-block alert-warning">
+<p><b>NOTICE:</b>  This tutorial assumes that you’ve done your homework!</p>
+<p>If you haven’t downloaded CTSM from the github repository you need to go back to the <b>Day0a_GitStarted tutorial</b> and do this first!</p>
+</div>
+<hr class="docutils" />
+<h1> 1. Set up and run a simulation</h1>
+<section id="ctsm-can-be-run-in-4-simple-steps">
+<h3>CTSM can be run in 4 simple steps.<a class="headerlink" href="#ctsm-can-be-run-in-4-simple-steps" title="Permalink to this heading">#</a></h3>
+<h4>1.1 create a new case </h4>
+<ul class="simple">
+<li><p><em>This step sets up a new simulation. It is the most complicated of these four steps because it involves making choices to set up the model configuration</em></p></li>
+</ul>
+<section id="invoke-case-setup">
+<h4>1.2 invoke case.setup<a class="headerlink" href="#invoke-case-setup" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><em>This step configures the model so that it can compile</em></p></li>
+</ul>
+</section>
+<section id="build-the-executable">
+<h4>1.3 build the executable<a class="headerlink" href="#build-the-executable" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><em>This step compiles the model</em></p></li>
+</ul>
+</section>
+<section id="submit-your-run-to-the-batch-queue">
+<h4>1.4 submit your run to the batch queue<a class="headerlink" href="#submit-your-run-to-the-batch-queue" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><em>This step submits the model simulation to the cloud</em></p></li>
+</ul>
+<hr class="docutils" />
+<h1> 1.1 create a new case</h1>
+<p><em>Set up a new simulation</em></p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="create-a-directory-for-cases">
+<h2>1.1.1 create a directory for cases<a class="headerlink" href="#create-a-directory-for-cases" title="Permalink to this heading">#</a></h2>
+<p>This is a one-time step to create a directory to store your experiment cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/clm_tutorial_cases
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="navigate-to-the-source-code-directory">
+<h2>1.1.2 navigate to the source code directory<a class="headerlink" href="#navigate-to-the-source-code-directory" title="Permalink to this heading">#</a></h2>
+<p>Your source code is in your home directory</p>
+<div>
+<img src="https://github.com/NCAR/CTSM-Tutorial-2022/raw/main/images/SourceCode.png" width="460" height="460" />
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/CTSM/cime/scripts
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-new-case">
+<h2>1.1.3 Create a new case<a class="headerlink" href="#create-a-new-case" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/clm_tutorial_cases/I2000_CTSM_FATESsp<span class="w"> </span>--res<span class="w"> </span>f45_g37<span class="w"> </span>--compset<span class="w"> </span>I2000Clm51FatesSpRsGs<span class="w"> </span>--run-unsupported
+</pre></div>
+</div>
+</div>
+</div>
+<section id="create-newcase">
+<h3><strong>./create_newcase</strong><a class="headerlink" href="#create-newcase" title="Permalink to this heading">#</a></h3>
+<div class="alert alert-block alert-info">
+<p><b>NOTE:</b> There is a lot of information that goes into creating a case.</p>
+<p>You can learn more about the options by typing <i>./create_newcase –help</i> on the the command line.</p>
+<p><b>We’ll briefly go over some of the highlights here.</b></p>
+</div></section>
+<section id="required-argements-to-create-a-new-case">
+<h3>Required argements to create a new case<a class="headerlink" href="#required-argements-to-create-a-new-case" title="Permalink to this heading">#</a></h3>
+<p>There are 3 Required arguments Needed to create a new case.  These include</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--case</span></code>, which specifies the <em>location</em> and <em>name</em> of the case being created</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> = your home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clm_tutorial_cases</span></code> = the subdirectory we created to store your cases in 1.1.1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I2000_CTSM_FATESsp</span></code> = the name of the case you’re creating</p></li>
+<li><p><em>Recommendation:</em> Use meaningful names, including model version, type of simulation, and any additional details to help you remember the configuration of this simulation
+<br><br></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">--res</span></code> Defines the model <em>resolution</em>, or grid,</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f45_g37</span></code>, which is an alias for a 4x5 degree grid on the atmosphere and land (<em>f45</em>).  This coarse resolution is more efficient for testing. Note, <em>g37</em> refers to the resolution of the ocean model. Don’t worry the ocean model won’t be used for this case.</p></li>
+<li><p>commonly the land model is run at a nominal 1 degree <code class="docutils literal notranslate"><span class="pre">f09_g17</span></code> or 2 degree <code class="docutils literal notranslate"><span class="pre">f19_g17</span></code> resolution</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">./query_config</span> <span class="pre">--grids</span></code> provides a list of supported model resolutions
+<br><br></p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">--compset</span></code> Defines the <em>component set</em> for your case,</p></li>
+</ol>
+<ul class="simple">
+<li><p>The Component set specifies the default configuration for the case which includes:</p>
+<ul>
+<li><p>Component models (e.g. active vs. data vs. stub),</p></li>
+<li><p>Time period of simulations and forcing scenarios (e.g. 1850 vs 2000 vs. HIST) and</p></li>
+<li><p>Physics options (e.g. CLM5.1 vs CLM5.0).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I2000Clm51FatesSpRsGs</span></code> is alias that actually describes a much longer set of components that are being used for this case.</p></li>
+</ul>
+<p>We’ll come back to compsets, but there are a few other <strong>optional</strong> flags used to create this new case to briefly touch on here</p>
+<ol class="arabic simple" start="4">
+<li><p><code class="docutils literal notranslate"><span class="pre">--run-unsupported</span></code> avoids error using compsets are not scientifically supported</p></li>
+</ol>
+<div class="alert alert-block alert-info" markdown='1'>
+<p><b>NOTE:</b> You may notice an error about project codes when you create your case. The project code isn’t important for these simulations. But you may need to change this if you’re running on Cheyenne.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="more-on-component-sets">
+<h3>More on component sets<a class="headerlink" href="#more-on-component-sets" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>All CLM-only compsets start with <em>“I”</em>.</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">./query_config</span> <span class="pre">--compsets</span> <span class="pre">clm</span></code> provides examples of other CLM compsets</p></li>
+</ul>
+<p>you can try this here</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./query_config<span class="w"> </span>--compsets<span class="w"> </span>clm
+</pre></div>
+</div>
+</div>
+</div>
+<p>The long name for the compset used here is <code class="docutils literal notranslate"><span class="pre">2000_DATM%GSWP3v1_CLM51%FATES-SP_SICE_SOCN_MOSART_SGLC_SWAV</span></code>, which defines</p>
+<ul class="simple">
+<li><p>time = <code class="docutils literal notranslate"><span class="pre">2000_</span></code> (vs. 1850, HIST, SSP, etc)</p></li>
+<li><p>data atmosphere <code class="docutils literal notranslate"><span class="pre">DATM%GSWP3v1_</span></code>, here from GSWP3, as opposed to model atmosphere (CAM)</p></li>
+<li><p>land model <code class="docutils literal notranslate"><span class="pre">CLM51%FATES-SP_</span></code> CLM5.1 physics package with FATES-SP</p></li>
+<li><p>stub sea ice model <code class="docutils literal notranslate"><span class="pre">SICE_</span></code></p></li>
+<li><p>stub ocean model <code class="docutils literal notranslate"><span class="pre">SOCN_</span></code> (see there’s no active ocean model!)</p></li>
+<li><p>stub river model <code class="docutils literal notranslate"><span class="pre">SROF_</span></code> (other options include MOSART, MIZUROUTE or RTM)</p></li>
+<li><p>stub glacier <code class="docutils literal notranslate"><span class="pre">SGLC_</span></code></p></li>
+<li><p>stub wave model <code class="docutils literal notranslate"><span class="pre">SWAV_</span></code></p></li>
+</ul>
+<div>
+<img src="https://github.com/NCAR/CTSM-Tutorial-2022/raw/main/images/Components.png" width="460" height="460" />
+</div>
+<p>Key Definitions:</p>
+<ul class="simple">
+<li><p><strong>Active:</strong> Simulation is using the code from the model during the run</p></li>
+<li><p><strong>Data:</strong> Simulation is reading in data from a file for this component</p></li>
+<li><p><strong>Stub:</strong> Component is not being used
+<br><br></p></li>
+</ul>
+<div class="alert alert-block alert-warning" markdown="1">
+<p><b>HINT:</b> Some compsets are “scientifically supported” and others are not. A scientifically supported compset just means that we’ve done some additional testing and evaluation with that compset.  You can use an unsupported compset (which is encouraged!), but will need to add the option <i>–run_unsupported</i> at the end of the <i>create_newcase</i> command line.</p>
+</div>
+<div class="alert alert-block alert-info" markdown="1">
+<p><b>TIP:</b> More information on model <a href="https://www.cesm.ucar.edu/models/cesm2" target="_blank">Configurations and Grids can be found on  the CESM website</a> (see <i>Configurations and Grids</i> subheading at the bottom of the page)</p>
+</div><hr class="docutils" />
+<h1> 1.2 Invoke case.setup </h1>
+<p><em>This step configures the model so that it can compile</em></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="move-to-your-case-directory">
+<h2>1.2.1 Move to your case directory<a class="headerlink" href="#move-to-your-case-directory" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/clm_tutorial_cases/I2000_CTSM_FATESsp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-up-your-case">
+<h2>1.2.2 Set up your case<a class="headerlink" href="#set-up-your-case" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">./case.setup</span></code> script:</p>
+<ol class="arabic simple">
+<li><p>configures the model</p></li>
+<li><p>creates files to modify input data and run options</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.setup
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using this command, we just configured the model and created the files to modify options &amp; input data.</p>
+<div>
+<img src="https://github.com/NCAR/CTSM-Tutorial-2022/raw/main/images/CaseSetup.png" width="670" />
+</div><hr class="docutils" />
+<h1> 1.3 Build the executable  </h1>
+<p><em>This step compiles the model</em></p>
+<p>It also takes a long time, so be patient.</p>
+<hr class="docutils" />
+<p>The <code class="docutils literal notranslate"><span class="pre">./case.build</span></code> script:</p>
+<ol class="arabic simple">
+<li><p>Checks input data</p></li>
+<li><p>Creates a build/run directory with model executable and namelists</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qcmd<span class="w"> </span>--<span class="w"> </span>./case.build
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>You can read on, but before executing any code blocks in the notebook <strong>wait for the model to build.</strong>
+This can take a while, especially while you’re wating for your <code class="docutils literal notranslate"><span class="pre">qcmd</span></code> job to start and as code for the land model compiles.</p>
+<p>You’ll see text stating <code class="docutils literal notranslate"><span class="pre">MODEL</span> <span class="pre">BUILD</span> <span class="pre">HAS</span> <span class="pre">FINISHED</span> <span class="pre">SUCCESSFULLY</span></code> when it’s finished.</p>
+<style> 
+table td, table th, table tr {text-align:left !important;}
+</style>
+<div class="alert alert-block alert-info">
+<p><b>NOTE:</b> The command <i>qcmd – ./case.build</i> is specific for NCAR environments, including Cheyenne and cloud configurations, and runs the command on a computing node, reducing the load on the login node. <b>You must include <i>qcmd –</i> when running on Cheyenne</b>, and it’s highly advised on shared cloud systems too.  On single-user cloud systems, it isn’t needed, though it may speed up builds.</p>
+</div>
+<hr class="docutils" />
+<h1> 1.4 Submit your run  </h1>
+<p><em>This step submits the model simulation</em></p>
+<p>But first we need to check on a few thing</p>
+</section>
+<hr class="docutils" />
+<section id="case-customization-checks">
+<h2>Case Customization Checks<a class="headerlink" href="#case-customization-checks" title="Permalink to this heading">#</a></h2>
+<p>The model is now compiled and ready to run!</p>
+<p>There are a few things we should check before submitting the run.</p>
+<p>Customizing your case can happen in a few ways. Here we’ll introduce:</p>
+<ol class="arabic simple">
+<li><p>XML change (<code class="docutils literal notranslate"><span class="pre">*.xml</span></code> files), and</p></li>
+<li><p>Namelist modifications (<code class="docutils literal notranslate"><span class="pre">user_nl_*</span></code> files)</p></li>
+</ol>
+</section>
+<section id="xml-files">
+<h2>1.4.1 XML files<a class="headerlink" href="#xml-files" title="Permalink to this heading">#</a></h2>
+<p>You may want to customize a number of features for your simulation.  For example:</p>
+<ol class="arabic simple">
+<li><p>How many days or years will the model simulate?</p></li>
+<li><p>How much time does the computer need for this simulation?</p></li>
+<li><p>Which computing project account is the model charging to?</p></li>
+</ol>
+<p>These options are specified in the <code class="docutils literal notranslate"><span class="pre">env_*.xml</span></code> files in your case directory</p>
+<p>The XML files can be modified directly, but we recommend that you use the <code class="docutils literal notranslate"><span class="pre">xmlchange</span></code> script.
+Next, we’ll review how to check and modify variables in XML files.</p>
+<section id="xmlchange">
+<h3><code class="docutils literal notranslate"><span class="pre">xmlchange</span></code><a class="headerlink" href="#xmlchange" title="Permalink to this heading">#</a></h3>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">xmlchange</span></code> script is the preferred method to modify XML files, but you can edit XML files by hand</p>
+<p><strong>Benefits of using <code class="docutils literal notranslate"><span class="pre">xmlchange</span></code>:</strong></p>
+<ol class="arabic simple">
+<li><p>Allows changing variables in env_*.xml files using a command-line interface</p></li>
+<li><p>Won’t let you mess up the syntax! The script checks the setting immediately for validity.</p></li>
+<li><p>Settings are copied into the CaseStatus file, providing documentation of your changes.</p></li>
+</ol>
+<div>
+<img src="https://github.com/NCAR/CTSM-Tutorial-2022/raw/main/images/xmlFiles2.png" width="670" />
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">env_batch.xml</span></code> and <code class="docutils literal notranslate"><span class="pre">env_run.xml</span></code> files include most of the variables you will need to modify to set up and run simulations.</p>
+<p>These files can be changed at any time before running the simulation.</p>
+<div class="alert alert-block alert-info", markdown='1'>
+<p><b>A few useful tips for using the xml scripts:</b></p>
+<ol>
+<li>Use <i>./xmlquery --listall</i> to list variables and their values in the .xml files</li>
+<li> Modify a variable in a .xml file, use <i>./xmlchange</i></li>
+<li> For help, type <i>./xmlchange --help</i></li>
+<li> To list variables in a specific file <i>./xmlquery --file env_run.xml</i> (here env_run.xml). </li>
+<li> You can also search for multiple variables, separating the variable names with a comma (“,”). For example, <i>./xmlquery –p {string}</i> will search for every variable that includes this string. <b>Try it for “STOP” or “CLM”</b>. </li>
+</ol>
+</div>
+<section id="example">
+<h4>Example:<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">./xmlchange</span> <span class="pre">{variable</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">changed}={value</span> <span class="pre">to</span> <span class="pre">change</span> <span class="pre">to}</span></code>
+<br><br></p>
+<hr class="docutils" />
+<p>Many runtime variables are found in the <code class="docutils literal notranslate"><span class="pre">env_run.xml</span></code> file. The variables in this file control the mechanics of the run (length, resubmits, and archiving).</p>
+<p>Common variables in env_run.xml to change include:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">STOP_OPTION</span></code> sets the run-time interval type, i.e. nmonths, ndays, nyears</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STOP_N</span></code> sets the number of run-time intervals to run the model during the specified wallclock time.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Wallclock time is set in the env_batch.xml file and is a measure of the actual time.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">RESUBMIT</span></code> sets the number of times to resubmit the run</p></li>
+</ol>
+</section>
+<section id="to-do">
+<h4><strong>To Do:</strong><a class="headerlink" href="#to-do" title="Permalink to this heading">#</a></h4>
+<p>Use <code class="docutils literal notranslate"><span class="pre">xmlquery</span></code> to find the values of the variables listed above. Feel free to play around with options</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./xmlquery<span class="w"> </span>STOP_OPTION
+./xmlquery<span class="w"> </span>STOP_N
+./xmlquery<span class="w"> </span>RESUBMIT
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>From the list above, you should find these values:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">STOP_OPTION</span></code> -&gt; ndays</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STOP_N</span></code> -&gt; 5</p></li>
+</ol>
+<ul class="simple">
+<li><p>By default, the model is set to run for 5 days.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">RESUBMIT</span></code> -&gt; 0</p></li>
+</ol>
+<ul class="simple">
+<li><p>Resubmitting your job, allows for longer runs (when you run out of wall clock time) by continuing the run from a restart file.</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>We will not see any model output from a 5-day model run because history files with model output are only recorded every month by default</em></p>
+<ul class="simple">
+<li><p>Let’s change the length of the simulation to 1 year.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./xmlchange<span class="w"> </span><span class="nv">STOP_OPTION</span><span class="o">=</span>nyears
+./xmlchange<span class="w"> </span><span class="nv">STOP_N</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This changes the run-time interval from 5 days to one year.</p>
+<p><em>We won’t resubmit this case, but setting <code class="docutils literal notranslate"><span class="pre">RESUBMIT=1</span></code>, would allow you to run for a second year.</em></p>
+<div class="alert alert-block alert-info" markdown='1'>
+<p><b>NOTE:</b> If you try to change a variable to a value that isn’t an option, you will get an error message with a list of valid values.</p>
+</div>
+<p>Verify that the changes worked as you expected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./xmlquery<span class="w"> </span>STOP_OPTION,STOP_N
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="alert alert-block alert-info" markdown='1'>
+<p><b>NOTE:</b> If you’re running on Cheyenne, or another HPC machine changing the <code class="docutils literal notranslate"><span class="pre">JOB_WALLCLOCK_TIME</span></code> may help you get through the queue more quickly.  For example, it won’t take 12 hours to run a 1-year simulation and your simulation will get into the queue more quickly if you set a shorter run time.  <b>This is not important running in the cloud.</b></p>
+<p>You can find out timing information for some standard simulations <a href="https://csegweb.cgd.ucar.edu/timing/cgi-bin/timings.cgi" target="_blank">here</a>. Click on a compset similar to the one you will run and look for the “model throughput” value. This is how many simulated years the computer can run in a 24-hour timeframe.  <i>If you’re running on Cheyenne</i>, you can estimate the amount of time you’ll need based on this.</p>
+</div></section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="namelist-changes">
+<h2>1.4.2 Namelist changes<a class="headerlink" href="#namelist-changes" title="Permalink to this heading">#</a></h2>
+<p>You may want to customize additional features for your simulation. These can be controled with namelist changes.</p>
+<ul class="simple">
+<li><p>Not all changes can be made with <code class="docutils literal notranslate"><span class="pre">./xmlchange</span></code></p></li>
+<li><p>Additional changes made using namelist files: <code class="docutils literal notranslate"><span class="pre">user_nl_&lt;model&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_nl_&lt;model&gt;</span></code> files are created in the case directory after <code class="docutils literal notranslate"><span class="pre">./case.setup</span></code></p></li>
+</ul>
+<p>The compset that you created your case with sets up initial, or default namelist options. These can be found in <code class="docutils literal notranslate"><span class="pre">CaseDocs/lnd_in</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> modifies the namelist <code class="docutils literal notranslate"><span class="pre">lnd_in</span></code> options</p></li>
+<li><p><em>Important:</em> Don’t modify the namelist file (<code class="docutils literal notranslate"><span class="pre">lnd_in</span></code>) directly. Instead, make changes in <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code>.</p></li>
+<li><p>Some namelist variables can also be changed in env_run.xml file.</p></li>
+<li><p>This <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/settings/current/clm5_0_nml.html">website has CLM5.0 namelist variables</a></p></li>
+</ul>
+<p>We modified this already with the when we created your case with the <code class="docutils literal notranslate"><span class="pre">--user-mods-dirs</span> <span class="pre">fates_sp</span></code> flag.  This user-mods-directory sets <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> options correctly for a FATES-SP case.</p>
+<p>Check that it worked by opening the file in an editor.</p>
+<div class="alert alert-block alert-warning">
+<p><b>TIP</b> You can do this with any editor. The two options below use emacs or vi, but there are lots of other options as well as resources for how to use these online.</p>
+</div>
+<hr class="docutils" />
+<p><strong>To Do:</strong></p>
+<p>Open your <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> file to see what’s inside.</p>
+<p>You can navigate to your case directory in a few different ways:</p>
+<ol class="arabic simple">
+<li><p>Open it via the navigation sidebar</p></li>
+</ol>
+<ul class="simple">
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">clm_tutorial_cases</span></code> directory</p></li>
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">I2000_CTSM_FATESsp</span></code> case directory</p></li>
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> file in the sidebar of your JupyterLab window.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Open the same file with an editor from the command line in your terminal window.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">~/clm_tutorial_cases/I2000_CTSM_FATESsp/user_nl_clm</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p><em>or</em></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">~/clm_tutorial_cases/I2000_CTSM_FATESsp/user_nl_clm</span></code></p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Altrnatively you can just <code class="docutils literal notranslate"><span class="pre">cat</span></code> the file from this notebook, but you won’t be able to make changes</p></li>
+</ol>
+<p><em>These options were set up for you when you created the FATES-SP case using user_mods_dirs</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>~/clm_tutorial_cases/I2000_CTSM_FATESsp/user_nl_clm
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<p><strong>Is fates_sp set to true?</strong></p>
+<p>If not, on the command line your can type:
+<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;use_fates_sp</span> <span class="pre">=</span> <span class="pre">.true.&quot;</span> <span class="pre">&gt;&gt;</span> <span class="pre">user_nl_clm</span></code>
+This is a simplified way of writing information to <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code></p>
+<p>The other text you see in <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> turns off some of the biogeochemistry and fire options that are not needed for an SP case.  Other options reduce the output that’s being writting out to history files.</p>
+</section>
+<hr class="docutils" />
+<section id="submit-the-case">
+<h2>1.4.3 Submit the case!<a class="headerlink" href="#submit-the-case" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you submit a job, you will see confirmation that it successfully submitted:</p>
+<section id="congratulations-you-ve-created-and-submitted-global-clm-fates-sp-case">
+<h3>Congratulations! You’ve created and submitted global CLM-FATES-SP case.<a class="headerlink" href="#congratulations-you-ve-created-and-submitted-global-clm-fates-sp-case" title="Permalink to this heading">#</a></h3>
+<p>Next, you will probably want to check on the status of your jobs.</p>
+<div class="alert alert-block alert-info" markdown="1">
+<p><b>TIP:</b> This is dependent on the scheduler that you’re using.</p>
+<ul>
+<li>Cheyenne uses <b>PBS</b> where status is checked with <i>qstat -u $USER</i></li>
+<li>This is also enabled in the cloud for you, try it in the code block below</li></ul>
+<p>If you want to stop the simulation, you can do so with qdel here (or on Cheyenne).</p>
+<ul>
+<li> Find your Job ID after typing <i>qstat</i> </li>
+<li> Type <i>qdel {Job ID}</i> </li>
+</ul>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qstat<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Once your jobs are complete (or show the ‘C’ state under the ‘Use’ column, which means complete), we can check the CaseStatus file to ensure there were no errors and it completed successfully.  To do this, we’ll ‘tail’ the end of the CaseStatus file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tail<span class="w"> </span>~/clm_tutorial_cases/I2000_CTSM_FATESsp/CaseStatus
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="locate-model-history-files">
+<h1>2. Locate model history files<a class="headerlink" href="#locate-model-history-files" title="Permalink to this heading">#</a></h1>
+<p>Your simulation will likely take some time to complete. The information
+provided next shows where the model output will be located while the
+model is running and once the simulation is complete. We also provide
+files from a simulation that is already complete so that you can do the
+next exercises before your simulation completes.</p>
+<div class="alert alert-block alert-info" markdown="1">
+<p><b>When your simulation is running</b> history files go to your scratch directory:</p>
+<ul>
+<li><i>/scratch/{USER}/{CASE}</i> </li>
+</ul>
+<p>Within this directory you can find <i>/run</i> and <i>/bld</i> subdirectories.</p>
+<p><b>When the simulation is complete</b>, a short-term archive directory is created, and history files are moved here:</p>
+<ul>
+<li><i>/scratch/{USER}/<b>archive</b>/lnd/hist/</i> </li>
+</ul>
+<p>Note that files necessary to continue the run are left in the run directory: <i>/scratch/{USER}/{CASE}/run</i></p>
+</div>
+<p>Let’s see what’s in your run directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/scratch/<span class="nv">$USER</span>/I2000_CTSM_FATESsp/run
+ls
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><em>What’s in your run directory?</em></p>
+<p><em>Do you see any log or history files?</em></p>
+<ul class="simple">
+<li><p>log files look like <code class="docutils literal notranslate"><span class="pre">lnd.log*</span></code></p></li>
+<li><p>history files look like <code class="docutils literal notranslate"><span class="pre">I2000_CTSM_FATESsp.clm2.h0.2000-01.nc</span></code></p></li>
+</ul>
+<p>You can keep running the cell above until you see log and history files, then the model is running.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>/scratch/<span class="nv">$USER</span>/archive/I2000_CTSM_FATESsp/lnd/hist
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>What’s in your archive directory?</em></p>
+<p>If you don’t see any history files your simulation is likely still running or in the queue (check using <code class="docutils literal notranslate"><span class="pre">squeue</span></code> or <code class="docutils literal notranslate"><span class="pre">qstat</span></code>). Check again before you leave today to see if your simulation completed and if the files were transferred to archive. <strong>Even if your run isn’t finished, you can move on in this tutorial.</strong></p>
+<p>Next, let’s explore data from a similar simulation that already ran.</p>
+<div class="alert alert-block alert-warning">
+<p><b>TIP:</b> On Cheyenne these directory are found here</p>
+<ul>
+<li> <i>/glade/scratch/{USER}/{CASE}/run</i> </li>
+<li> <i>/glade/scratch/{USER}/<b>archive</b>/{CASE}/lnd/hist/</i> </li>
+</ul>
+</div></section>
+<section class="tex2jax_ignore mathjax_ignore" id="basic-dump-of-model-history-files">
+<h1>3. Basic dump of model history files<a class="headerlink" href="#basic-dump-of-model-history-files" title="Permalink to this heading">#</a></h1>
+<p>There are a few command-line tools you can use to view netCDF data files. One of the most useful is ‘ncdump’:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ncdump</span></code></p></td>
+<td><p>This is a tool that generates a text representation of netCDF data. It is useful for providing information about the variables (names, types, and shapes), dimensions (names and sizes), attributes (names and values), and values of data for all or selected variables.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p><strong>Navigate to this directory, where data from a completed simulation are stored:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/scratch/data/day1/I2000_CTSM_FATESsp/lnd/hist/
+ls<span class="w"> </span>*2000-*
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Let’s look at the information included in the file in a text format</strong>
+This is also better to execute in the command line, but you can do it here.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">-h</span> <span class="pre">I2000_CTSM_FATESsp.clm2.h0.2000-01.nc</span> <span class="pre">|</span> <span class="pre">more</span></code></p>
+<p>If you must run commands in a notebook, run the code block below - we’re only showing the first 50 lines here, to reduce the output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ncdump<span class="w"> </span>-h<span class="w"> </span>I2000_CTSM_FATESsp.clm2.h0.2000-01.nc<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-50
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info" markdown="1">
+<p><b>NOTES:</b></p>
+<ol>
+    <li> Use the “-h” option to look through the variable names, attributes and dimensions. If you do not use an option, ncdump will list this information and all the data values of all the variables, which is a lot of information!! </li>
+    <li> In a terminal, use tools like the “| more” command so that you can scroll through the information from the start of the file.</li>
+    <ul>
+        <li> hitting <i>return</i> will advance line by line</li>
+        <li> hitting the <i>space bar</i> will advance more quickly</li>
+        <li> hitting <i>q</i> will exit</li>
+    </ul>
+</ol>
+</div><p>Go ahead to the <span class="xref myst">Day1b_GlobalVisualization notebook</span></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bash"
+        },
+        kernelOptions: {
+            name: "bash",
+            path: "./notebooks/Global"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bash'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 1a: <em>Global Simulations</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-notes-about-the-model">A few notes about the model:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional information:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-this-tutorial">Questions about this tutorial?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ctsm-can-be-run-in-4-simple-steps">CTSM can be run in 4 simple steps.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#invoke-case-setup">1.2 invoke case.setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-executable">1.3 build the executable</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-your-run-to-the-batch-queue">1.4 submit your run to the batch queue</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-directory-for-cases">1.1.1 create a directory for cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate-to-the-source-code-directory">1.1.2 navigate to the source code directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-case">1.1.3 Create a new case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-newcase"><strong>./create_newcase</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-argements-to-create-a-new-case">Required argements to create a new case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-component-sets">More on component sets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#move-to-your-case-directory">1.2.1 Move to your case directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-your-case">1.2.2 Set up your case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-customization-checks">Case Customization Checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xml-files">1.4.1 XML files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xmlchange"><code class="docutils literal notranslate"><span class="pre">xmlchange</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do"><strong>To Do:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namelist-changes">1.4.2 Namelist changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-the-case">1.4.3 Submit the case!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congratulations-you-ve-created-and-submitted-global-clm-fates-sp-case">Congratulations! You’ve created and submitted global CLM-FATES-SP case.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-model-history-files">2. Locate model history files</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-dump-of-model-history-files">3. Basic dump of model history files</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

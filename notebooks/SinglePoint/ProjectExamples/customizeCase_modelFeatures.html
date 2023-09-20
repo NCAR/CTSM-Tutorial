@@ -1,0 +1,1204 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Customize your case: Controling model features &#8212; CTSM Mini-tutorial 2022</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/SinglePoint/ProjectExamples/customizeCase_modelFeatures';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/ncar_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/ncar_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NCAR/CTSM-Tutorial-2022/master?urlpath=tree/docs/notebooks/SinglePoint/ProjectExamples/customizeCase_modelFeatures.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/edit/master/docs/notebooks/SinglePoint/ProjectExamples/customizeCase_modelFeatures.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/SinglePoint/ProjectExamples/customizeCase_modelFeatures.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/notebooks/SinglePoint/ProjectExamples/customizeCase_modelFeatures.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Customize your case: Controling model features</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Customize your case: Controling model features</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-your-case-with-namelist-changes-spinning-up-the-model"><em>Customizing your case with namelist changes &amp; spinning up the model</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-let-s-start-with-a-bit-of-background">First let’s start with a bit of background.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-environment">Set up environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-case">1. Create a new case.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate-to-your-source-code">1.1 Navigate to your source code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-base-case">1.2 Create a new base case.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-base-case">1.2.1 Build the base case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overwrite-the-site-experiment-ad-case-now-using-the-correct-build">1.2.2 Overwrite the <em>site.experiment.ad</em> case, now using the correct build</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-to-the-case-directory">1.2.3 Move to the case directory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-your-case-namelist-changes">2 Customizing your case: Namelist changes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-familiar-with-namelist-files">2.1 Getting familiar with namelist files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-look">Take a look!</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-deeper-at-namelist-options">2.2 Looking deeper at namelist options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Take a look</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-off-plant-hydraulic-stress">2.3 Turn off plant hydraulic stress</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-ad-spinup-run">2.4 Start the AD spinup run</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-details-on-spinup">3 More details on spinup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#look">LOOK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postad-simulations">3.1 postAD simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1.1 Create a new base case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.1.2 Build the base case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-site-experiment-postad-case-from-the-built-base-case">3.1.3 Create the site.experiment.postad case from the built base case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-same-namelist-changes-to-turn-off-phs">3.1.4 make the same namelist changes to turn off PHS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-the-postad-simulation">3.1.5 Submit the postad simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">LOOK</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-simulations">3.2 Transient simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-experimental-transient-case">3.2.1 Create an experimental transient case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namelist-changes-to-turn-off-phs">3.2.2 Namelist changes to turn off PHS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-the-transient-case">3.2.3 Submit the transient case</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-control-case">3.3 Run a control case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-check">Double check</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="customize-your-case-controling-model-features">
+<h1>Customize your case: Controling model features<a class="headerlink" href="#customize-your-case-controling-model-features" title="Permalink to this heading">#</a></h1>
+<section id="customizing-your-case-with-namelist-changes-spinning-up-the-model">
+<h2><em>Customizing your case with namelist changes &amp; spinning up the model</em><a class="headerlink" href="#customizing-your-case-with-namelist-changes-spinning-up-the-model" title="Permalink to this heading">#</a></h2>
+<p><strong>This is an optional tutorial</strong> and provides some additional guidance for creating an experimental clone for a NEON case in CTSM and spinning up the model.</p>
+<p>We’re going to move kind of quickly through some material that’s already covered in the tutorial on <span class="xref myst">cloning a NEON case</span>. It may be helpful to refer back to this tutorial if you have questions or want more information about creating an experimental clone.</p>
+<br>
+</section>
+<hr class="docutils" />
+<section id="in-this-tutorial">
+<h2>In this tutorial<a class="headerlink" href="#in-this-tutorial" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Create a new base case for a NEON site that you’ve already run.</p></li>
+<li><p>Customize your case with namelist changes.</p></li>
+<li><p>Learn a bit more about spinup.</p></li>
+</ol>
+<hr class="docutils" />
+<section id="first-let-s-start-with-a-bit-of-background">
+<h3>First let’s start with a bit of background.<a class="headerlink" href="#first-let-s-start-with-a-bit-of-background" title="Permalink to this heading">#</a></h3>
+<p>CLM has different features that can be turned on or off with namelist changes.  Some of these features represent alternative hypotheses about how different aspects of how the land works. The different options have alternative model structure and parameterizations for particular processes that are controlled with namelist flags. These include:</p>
+<ul class="simple">
+<li><p>FATES vs. ‘BigLeaf’ vegetation</p></li>
+<li><p>Medlyn vs. Ball-Berry stomatal conductance</p></li>
+<li><p>CENTURY vs. MIMICS soil biogeochemistry</p></li>
+<li><p>Different soil moisture stress formulations (below)</p></li>
+<li><p>an lots more</p></li>
+</ul>
+<p><em>Why would you want to use this?</em></p>
+<p>We noticed that soil moisture profiles in CLM have an odd feature where soil moisture is higher in surface soils than in the sub surface.  Why would this happen?
+<img alt="moisture plot" src="notebooks/images/WOOD_H2OSOI.png" /></p>
+<p>Plant hydraulic stress (or <strong>PHS</strong>) was introduced in CLM5.  You can <a class="reference external" href="https://doi.org/10.1029/2018MS001500">learn more about PHS in this paper</a>, where Daniel Kennedy and co-authors mentioned hydraulic redistribution of soil water by plant roots. This happens in the real world too and is a pretty neat feature of PHS. Could hydraulic redistribution also be keeping surface soils in CLM too wet? To address this question we’ll do a simple model experiment where we turn off PHS. This will revert back to the <strong>BTRAN</strong> formulation of soil moisture stress that was used in previous versions of CLM.</p>
+<p>We can turn of PHS with a simple namelist modification, but since this will change answers in the model, we also need to spin up the model again to generate new initial conditions with PHS off.</p>
+<div class="alert alert-block alert-warning">
+<p><b>NOTICE:</b> If you’re running this notebook through the NCAR JupyterHub login, you need to be on a Cheyenne login node (NOT Casper).</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="set-up-environment">
+<h3>Set up environment<a class="headerlink" href="#set-up-environment" title="Permalink to this heading">#</a></h3>
+<p>It is important in order to have all the tools and packages you need to run simulations.</p>
+<p>The following code <strong>is needed</strong> if you’re running in CESM-lab in the cloud, you only have to do this once.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># cp -rp /opt/ncar/ctsm/ ~/CTSM</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>The code below <strong>is not</strong> needed in the cloud</em>.</p>
+<div class="alert alert-block alert-info">
+<p><b>TIP:</b> <i>If you’re running on Cheyenne</i>, you may need to uncomment the the following two lines of code. This will set up your conda environment correctly.</p>
+<p><b>This is not required if your running CESM-Lab in the cloud.</b></p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#module purge</span>
+<span class="c1">#module load conda ncarenv</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="create-a-new-case">
+<h1>1. Create a new case.<a class="headerlink" href="#create-a-new-case" title="Permalink to this heading">#</a></h1>
+<p>Because we’re going to modify namelist options that will change answers in CLM we have to run this case through an accelerated decompostion (AD) and postAD spinup.  This will generate new initial conditions for our experimental case. We’ll learn more about spinup in part 3 of this tutorial.</p>
+<p>Doing an AD spinup requires a new base case to be created so the model is configured correctly.  This means we have to create and build a new case for both AD and postAD simulations.  This process is streamlined with the <code class="docutils literal notranslate"><span class="pre">run_neon</span></code> script and the use of usermod directories we created for NEON cases.</p>
+<section id="navigate-to-your-source-code">
+<h2>1.1 Navigate to your source code<a class="headerlink" href="#navigate-to-your-source-code" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/CTSM/tools/site_and_regional
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-new-base-case">
+<h2>1.2 Create a new base case.<a class="headerlink" href="#create-a-new-base-case" title="Permalink to this heading">#</a></h2>
+<p>You can modify the new case for the site you’d like to run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># If needed, change the 4-character NEON site below.</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">new_case</span><span class="o">=</span><span class="s1">&#39;WOOD&#39;</span><span class="w">    </span><span class="c1"># the new site you want to run </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">experiment</span><span class="o">=</span><span class="s1">&#39;BTRAN&#39;</span><span class="w">    </span><span class="c1"># the experimental name of your case</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then run_neon with the following flags:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--experiment</span> <span class="pre">$experiment</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--run-type</span> <span class="pre">ad</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--setup-only</span></code></p></li>
+</ul>
+<p>Since we’re creating an experimental case that will change answers in the model we should run a full AD and postAD spinup.
+We’ll go over specifics related to experiment and run-type later in this tutorial.</p>
+<p>In our experimental case we’ll be using the BTRAN formulation of soil moisture stress.</p>
+<div class="alert alert-block alert-info">
+<p><b>HINT:</b> It’s helpful to have descriptive experiment names.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># then run_neon with experiment and setup-only flags</span>
+./run_neon.py<span class="w"> </span>--neon-sites<span class="w"> </span><span class="nv">$new_case</span><span class="w">  </span><span class="se">\</span>
+<span class="w">   </span>--output-root<span class="w"> </span>~/scratch/NEON_cases<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--overwrite<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--experiment<span class="w"> </span><span class="nv">$experiment</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--run-type<span class="w"> </span>ad<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--setup-only<span class="w">  </span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="build-the-base-case">
+<h3>1.2.1 Build the base case<a class="headerlink" href="#build-the-base-case" title="Permalink to this heading">#</a></h3>
+<p>You may have noticed a warning in the code block above.  We’ll go ahead and build the new base case above.  As before this takes some time so be patient.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$new_case</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qcmd<span class="w"> </span>--<span class="w"> </span>./case.build
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="overwrite-the-site-experiment-ad-case-now-using-the-correct-build">
+<h3>1.2.2 Overwrite the <em><a class="reference external" href="http://site.experiment.ad">site.experiment.ad</a></em> case, now using the correct build<a class="headerlink" href="#overwrite-the-site-experiment-ad-case-now-using-the-correct-build" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>move back to your source code</p></li>
+<li><p>run_neon again</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/CTSM/tools/site_and_regional
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/CTSM/tools/site_and_regional
+
+./run_neon.py<span class="w"> </span>--neon-sites<span class="w"> </span><span class="nv">$new_case</span><span class="w">  </span><span class="se">\</span>
+<span class="w">   </span>--output-root<span class="w"> </span>~/scratch/NEON_cases<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--base-case<span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$new_case</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--overwrite<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--experiment<span class="w"> </span><span class="nv">$experiment</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--run-type<span class="w"> </span>ad<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--setup-only<span class="w">  </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may notice the following was printed from creating an experimental clone</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WARNING</span><span class="p">:</span> <span class="n">CLM</span> <span class="ow">is</span> <span class="n">starting</span> <span class="n">up</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">cold</span> <span class="n">state</span>
+</pre></div>
+</div>
+<p>This is good, since we’re going to be starting the model from a cold state, or bare ground with the AD spinup.</p>
+</section>
+<section id="move-to-the-case-directory">
+<h3>1.2.3 Move to the case directory<a class="headerlink" href="#move-to-the-case-directory" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$new_case</span>.<span class="nv">$experiment</span>.ad
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="customizing-your-case-namelist-changes">
+<h1>2 Customizing your case: Namelist changes<a class="headerlink" href="#customizing-your-case-namelist-changes" title="Permalink to this heading">#</a></h1>
+<p>The configuration of CLM can be customized via namelist modifications.</p>
+<p>These changes made using namelist files like <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code></p>
+<section id="getting-familiar-with-namelist-files">
+<h2>2.1 Getting familiar with namelist files<a class="headerlink" href="#getting-familiar-with-namelist-files" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">user_nl_&lt;model&gt;</span></code> files are created in the case directory after setting up your case with <code class="docutils literal notranslate"><span class="pre">./case.setup</span></code></p>
+<ul class="simple">
+<li><p>Note: This was already done for us since we cloned a case with run_neon</p></li>
+</ul>
+<section id="take-a-look">
+<h3>Take a look!<a class="headerlink" href="#take-a-look" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>What other user <code class="docutils literal notranslate"><span class="pre">user_nl_&lt;model&gt;</span></code> files do you already have in this case directory?</p></li>
+<li><p>What kind of information is already included in a <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> file?</p></li>
+</ul>
+<p>We can explore these files on the comand line using an editor, by opening them directly in jupyter hub, or by simply printing the contents of the files to the screen here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>user_nl_*
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>user_nl_clm<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-18
+</pre></div>
+</div>
+</div>
+</div>
+<p>The compset that you created your case with sets up initial, or default namelist options. These can be found in <code class="docutils literal notranslate"><span class="pre">CaseDocs/lnd_in</span></code></p>
+<style> 
+table td, table th, table tr {text-align:left !important;}
+</style>
+<div class="alert alert-block alert-warning">
+<b>Important:</b>   Don’t modify the lnd_in namelist file directly. Instead, make changes in user_nl_clm.
+</div>
+</section>
+</section>
+<section id="looking-deeper-at-namelist-options">
+<h2>2.2 Looking deeper at namelist options<a class="headerlink" href="#looking-deeper-at-namelist-options" title="Permalink to this heading">#</a></h2>
+<p>All CLM namelist options are defined in the <code class="docutils literal notranslate"><span class="pre">lnd_in</span></code> file</p>
+<p>We can explore this file on the comand line using an editor, by opening it directly in jupyter hub, or by simply printing the contents of the files to the screen here.</p>
+<ul class="simple">
+<li><p><strong>NOTE:</strong> This file is huge, so we’ll just look at the first 65 lines</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>CaseDocs/lnd_in<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-65
+</pre></div>
+</div>
+</div>
+</div>
+<p>There’s a lot to dig into here! So we’ll just stick with a few highlights.</p>
+<section id="id1">
+<h3>Take a look<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p><strong>See what printed to in the cell above and answer the following questions</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">finidat</span></code>: What initial conditions file are you using?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fsurdat</span></code>: What surface dataset are you using?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">paramfile</span></code>: What parameter file are you using?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spinup_state</span></code>: What is your spinup state?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_hydrstress</span></code>: Are you using plant hydraulic stress?</p></li>
+</ul>
+<p>Does this make sense?  Answers are in the hidden cell below.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">finidat</span> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">'</span></code>  There are no initial conditions because this is an AD run</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fsurdat</span> <span class="pre">=</span> <span class="pre">&quot;.../surfdata_1x1_NEON_WOOD_hist_78pfts_CMIP6_simyr2000_c230111.nc&quot;</span></code> This the surface dataset that’s been modified for our NEON site.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">paramfile</span> <span class="pre">=</span> <span class="pre">'.../ctsm51_params.c211112.nc'</span></code> is the default parameter file for CTSM5.1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spinup_state</span> <span class="pre">=</span> <span class="pre">2</span></code>, which is used for accelerated decomposition, or AD mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_hydrstress</span> <span class="pre">=</span> <span class="pre">.true.</span></code>, because plant hydraulic stress is on by default in CTSM5.1</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Additional information about customizing CTSM’s configurations, including namelist modifications, are available in the <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/setting-up-and-running-a-case/customizing-the-clm-configuration.html?highlight=namelist">CTSM users guide</a>
+Namelist changes can also be used to modify variables on history file output. Simple modification of history file output DOES NOT require spinning up the model.</p></li>
+<li><p>A list of all the <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/setting-up-and-running-a-case/master_list_nofates.html">CTSM history fields are available here</a></p></li>
+<li><p>A list of all the <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/setting-up-and-running-a-case/master_list_fates.html">CTSM-FATES history fields are available here</a></p></li>
+</ul>
+</section>
+</section>
+<section id="turn-off-plant-hydraulic-stress">
+<h2>2.3 Turn off plant hydraulic stress<a class="headerlink" href="#turn-off-plant-hydraulic-stress" title="Permalink to this heading">#</a></h2>
+<p>For this experiment we’re going turn plant hydraulic stress off. We can change user_nl_clm using an editor, by opening it directly in jupyter hub, or with the following comand.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;use_hydrstress = .false.&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let make sure this worked.  We can:</p>
+<ul class="simple">
+<li><p>preview namelists;</p></li>
+<li><p>check the  <code class="docutils literal notranslate"><span class="pre">lnd_in</span></code> file.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## now make sure it worked </span>
+./preview_namelists
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>CaseDocs/lnd_in<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-65
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ve turned off PHS in simulation</p>
+</section>
+<section id="start-the-ad-spinup-run">
+<h2>2.4 Start the AD spinup run<a class="headerlink" href="#start-the-ad-spinup-run" title="Permalink to this heading">#</a></h2>
+<p>We already build the model, and when making namelist or .xml changes we don’t have to rebuild our case, so now we’re ready to submit the case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now our case is submitted!  Spinup, or model initialization from a cold start, actually takes a little bit of time.  Now that our AD case is running, we can briefly cover spinup.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="more-details-on-spinup">
+<h1>3 More details on spinup<a class="headerlink" href="#more-details-on-spinup" title="Permalink to this heading">#</a></h1>
+<p>We make make steady state assumptions about <em>initial</em> state of ecosystem properties like temperature
+water, snow, ice, carbon &amp; nitrogen.  This is the <em>equilibrium</em> state of the model, given the forcing
+data. In model experiments  we make modifications to namelist settings, the parameter files, surface dataset, or underlying model code we also need to generate new initial conditions.</p>
+<p>In runs with active biogoechemistry, like these NEON simulations, this means we need to get the ecosystem carbon and nigrogen pools with long turnover times into steady state. The turnover and decomposition of these slow pools is mathamatically accelerated in our AD (accelerated decomposition) case.  This means we:</p>
+<ul class="simple">
+<li><p>Accelerate turnover of wood, litter and soil pools.</p></li>
+<li><p>Accelerate advection and diffusion terms too</p></li>
+<li><p>In CLM5 and CTSM5.1 this is calculated as a function of latitude so that spinup is more accelerated in high latitude regions.</p></li>
+</ul>
+<p>During spinup, we just cycle over several years of input data.  For most NEON sites we cycle over four years of data from 2018-2021. More information about spinup is available in the <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-special-cases/Spinning-up-the-biogeochemistry-BGC-spinup.html?highlight=spinup">CLM user’s guide</a></p>
+<div class="alert alert-block alert-info">
+<p><b>NOTE:</b> for runs without active biogeochemistry (called satelite shenology, or SP simulations), we still need to equilibrate the model. This is much faster and doesn’t require accelerated decomposition.</p>
+</div><p>For most temperate systems &lt; 200 years of AD simulations seems adequate, but in colder ecosystems (like NEON sites in Alaska) this can take much longer because cold temperatures slow the turnover of
+soil organic matter.  We have this set up already in the usermod directories that are used to configure your NEON case with <code class="docutils literal notranslate"><span class="pre">run_neon</span></code>. We can look to see if total ecosystem carbon pools (the sum of all vegetation, litter and soil C stocks) look to be equilibrated after 200 years.</p>
+<p><img alt="ad_spinup" src="notebooks/images/WOOD.BTRAN.ad_spin.png" /></p>
+<section id="look">
+<h2>LOOK<a class="headerlink" href="#look" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Does the model seem to have achieved steady state?</p></li>
+<li><p>Why are there periodic oscillations in the total ecosystem C pools?</p></li>
+</ul>
+<p>This plot was generated using the <a class="reference internal" href="QuickPlot_CTSM_spinup.html"><span class="doc std std-doc">QuickPlot_CTSM_spinup</span></a> notebook, which you can modify for your own site or simulation.</p>
+<p>After your AD simulation is finished, we have to take the model out of AD mode.  We call these postAD simulations.</p>
+</section>
+<section id="postad-simulations">
+<h2>3.1 postAD simulations<a class="headerlink" href="#postad-simulations" title="Permalink to this heading">#</a></h2>
+<p>After the model has reached steady-state we have to take it out of AD mode, which requires another ~100 years of simulations.  We also have to create and build a new base case for postAD runs.</p>
+<section id="id2">
+<h3>3.1.1 Create a new base case<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/CTSM/tools/site_and_regional
+<span class="c1"># This is a new base case that we&#39;ll create (and maybe use later for other sites)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">base_case</span><span class="o">=</span><span class="s1">&#39;YELL&#39;</span><span class="w">    </span>
+<span class="c1"># should match the neon site case you did the AD run with</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">new_case</span><span class="o">=</span><span class="s1">&#39;WOOD&#39;</span><span class="w">   </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run_neon.py<span class="w"> </span>--neon-sites<span class="w"> </span><span class="nv">$base_case</span><span class="w">  </span><span class="se">\</span>
+<span class="w">   </span>--output-root<span class="w"> </span>~/scratch/NEON_cases<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--overwrite<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--run-type<span class="w"> </span>postad<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--setup-only<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You’ll notice an error here if there’s no ad run for our postad base_case.  This is fine.</p>
+</section>
+<section id="id3">
+<h3>3.1.2 Build the base case<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$base_case</span>
+qcmd<span class="w"> </span>--<span class="w"> </span>./case.build
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-the-site-experiment-postad-case-from-the-built-base-case">
+<h3>3.1.3 Create the site.experiment.postad case from the built base case<a class="headerlink" href="#create-the-site-experiment-postad-case-from-the-built-base-case" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/CTSM/tools/site_and_regional
+
+./run_neon.py<span class="w"> </span>--neon-sites<span class="w"> </span><span class="nv">$new_case</span><span class="w">  </span><span class="se">\</span>
+<span class="w">   </span>--output-root<span class="w"> </span>~/scratch/NEON_cases<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--base-case<span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$base_case</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--overwrite<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--experiment<span class="w"> </span><span class="nv">$experiment</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--run-type<span class="w"> </span>postad<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--setup-only<span class="w">  </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="make-the-same-namelist-changes-to-turn-off-phs">
+<h3>3.1.4 make the same namelist changes to turn off PHS<a class="headerlink" href="#make-the-same-namelist-changes-to-turn-off-phs" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$new_case</span>.<span class="nv">$experiment</span>.postad
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;use_hydrstress = .false.&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm
+./preview_namelists
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the lnd_in file</span>
+cat<span class="w"> </span>CaseDocs/lnd_in<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>use_hydrstress
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Stop and check!</strong></p>
+<ul class="simple">
+<li><p>How are the <code class="docutils literal notranslate"><span class="pre">lnd_in</span></code> files different in our ad and postad cases?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>diff<span class="w"> </span>CaseDocs/lnd_in<span class="w"> </span>../<span class="nv">$new_case</span>.<span class="nv">$experiment</span>.ad/CaseDocs/lnd_in
+</pre></div>
+</div>
+</div>
+</div>
+<p>the postad case has:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">finidat</span> <span class="pre">=</span> <span class="pre">'WOOD.BTRAN.ad...'</span></code> initial conditions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spinup_state</span> <span class="pre">=</span> <span class="pre">0</span></code> meaning we’re out of ad mode now</p></li>
+<li><p>different builds</p></li>
+</ul>
+</section>
+<section id="submit-the-postad-simulation">
+<h3>3.1.5 Submit the postad simulation<a class="headerlink" href="#submit-the-postad-simulation" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
+</pre></div>
+</div>
+</div>
+</div>
+<p>Have a look to see if 100 years is enough to get pools to steady state?</p>
+<p><img alt="postad" src="notebooks/images/WOOD.BTRAN.postad.png" /></p>
+<section id="id4">
+<h4>LOOK<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>In postad simulations ecosystem carbon and nitrogen are much larger than in the ad case.</p></li>
+<li><p>Does the model seem to have achieved steady state?</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="transient-simulations">
+<h2>3.2 Transient simulations<a class="headerlink" href="#transient-simulations" title="Permalink to this heading">#</a></h2>
+<p>Now we’re ready to go ahead with the transient simulation</p>
+<section id="create-an-experimental-transient-case">
+<h3>3.2.1 Create an experimental transient case<a class="headerlink" href="#create-an-experimental-transient-case" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>your <code class="docutils literal notranslate"><span class="pre">base_case</span></code> can now be a built transient case (here KONZ from our first tutorials)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--run-from-postad</span></code> let’s us get initial conditions files from our experiment.postad case</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the 4-character NEON site below.</span>
+<span class="nb">cd</span><span class="w"> </span>~/CTSM/tools/site_and_regional
+<span class="nb">export</span><span class="w"> </span><span class="nv">base_case</span><span class="o">=</span><span class="s1">&#39;KONZ&#39;</span><span class="w">   </span><span class="c1"># this should be a built, transient case</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">new_case</span><span class="o">=</span><span class="s1">&#39;WOOD&#39;</span><span class="w">    </span><span class="c1"># the new site you want to run</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># then run_neon</span>
+./run_neon.py<span class="w"> </span>--neon-sites<span class="w"> </span><span class="nv">$new_case</span><span class="w">  </span><span class="se">\</span>
+<span class="w">   </span>--output-root<span class="w"> </span>~/scratch/NEON_cases<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--base-case<span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$base_case</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--experiment<span class="w"> </span><span class="nv">$experiment</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--overwrite<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--run-type<span class="w"> </span>transient<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--setup-only<span class="w">  </span><span class="se">\</span>
+<span class="w">   </span>--run-from-postad
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="namelist-changes-to-turn-off-phs">
+<h3>3.2.2 Namelist changes to turn off PHS<a class="headerlink" href="#namelist-changes-to-turn-off-phs" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$new_case</span>.<span class="nv">$experiment</span>.transient
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;use_hydrstress = .false.&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm
+./preview_namelists
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the lnd_in file</span>
+cat<span class="w"> </span>CaseDocs/lnd_in<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>use_hydrstress
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># How are the lnd_in fies different?</span>
+diff<span class="w"> </span>CaseDocs/lnd_in<span class="w"> </span>../<span class="nv">$new_case</span>.<span class="nv">$experiment</span>.postad/CaseDocs/lnd_in
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’re running:</p>
+<ul class="simple">
+<li><p>a transient simulation (transient CO2, nitrogen deposition, etc</p></li>
+<li><p>with different restart files, not from the postad run we already did</p></li>
+<li><p>with different builds</p></li>
+</ul>
+</section>
+<section id="submit-the-transient-case">
+<h3>3.2.3 Submit the transient case<a class="headerlink" href="#submit-the-transient-case" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="run-a-control-case">
+<h2>3.3 Run a control case<a class="headerlink" href="#run-a-control-case" title="Permalink to this heading">#</a></h2>
+<p>If you haven’t done it already, we should likely just run a control case for a transient case out of the box (with PHS on).
+Lucking this is really easy!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/CTSM/tools/site_and_regional
+
+<span class="c1"># then run_neon</span>
+./run_neon.py<span class="w"> </span>--neon-sites<span class="w"> </span><span class="nv">$new_case</span><span class="w">  </span><span class="se">\</span>
+<span class="w">    </span>--output-root<span class="w"> </span>~/scratch/NEON_cases<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--base-case<span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$base_case</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--overwrite
+
+<span class="c1"># we&#39;ll just go ahead and submit this case</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="double-check">
+<h3>Double check<a class="headerlink" href="#double-check" title="Permalink to this heading">#</a></h3>
+<p>It’s a good idea to make sure cases have expected differences.</p>
+<p>See if this is true for our control and experimental transient cases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$new_case</span>.transient
+diff<span class="w"> </span>CaseDocs/lnd_in<span class="w"> </span>../<span class="nv">$new_case</span>.<span class="nv">$experiment</span>.transient/CaseDocs/lnd_in
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-success">
+<strong>Congratulations!</strong> 
+<p>You’ve created and run a full spinup for an experimental case of CLM at the NEON tower you selected!</p>
+<p>Now we need to see how the simulations are different.</p>
+</div>
+<p>If you’re developing this tutorial:
+Before saving and pushing this code to github go to <code class="docutils literal notranslate"><span class="pre">Kernel</span></code> and <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">kernel</span> <span class="pre">and</span> <span class="pre">clear</span> <span class="pre">all</span> <span class="pre">outputs...</span></code></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bash"
+        },
+        kernelOptions: {
+            name: "bash",
+            path: "./notebooks/SinglePoint/ProjectExamples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bash'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Customize your case: Controling model features</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-your-case-with-namelist-changes-spinning-up-the-model"><em>Customizing your case with namelist changes &amp; spinning up the model</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-let-s-start-with-a-bit-of-background">First let’s start with a bit of background.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-environment">Set up environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-case">1. Create a new case.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate-to-your-source-code">1.1 Navigate to your source code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-base-case">1.2 Create a new base case.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-base-case">1.2.1 Build the base case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overwrite-the-site-experiment-ad-case-now-using-the-correct-build">1.2.2 Overwrite the <em>site.experiment.ad</em> case, now using the correct build</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-to-the-case-directory">1.2.3 Move to the case directory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-your-case-namelist-changes">2 Customizing your case: Namelist changes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-familiar-with-namelist-files">2.1 Getting familiar with namelist files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-look">Take a look!</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-deeper-at-namelist-options">2.2 Looking deeper at namelist options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Take a look</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-off-plant-hydraulic-stress">2.3 Turn off plant hydraulic stress</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-ad-spinup-run">2.4 Start the AD spinup run</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-details-on-spinup">3 More details on spinup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#look">LOOK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postad-simulations">3.1 postAD simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1.1 Create a new base case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.1.2 Build the base case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-site-experiment-postad-case-from-the-built-base-case">3.1.3 Create the site.experiment.postad case from the built base case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-same-namelist-changes-to-turn-off-phs">3.1.4 make the same namelist changes to turn off PHS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-the-postad-simulation">3.1.5 Submit the postad simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">LOOK</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-simulations">3.2 Transient simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-experimental-transient-case">3.2.1 Create an experimental transient case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namelist-changes-to-turn-off-phs">3.2.2 Namelist changes to turn off PHS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-the-transient-case">3.2.3 Submit the transient case</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-control-case">3.3 Run a control case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-check">Double check</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

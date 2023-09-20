@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Frequently Asked Questions (FAQ) &#8212; CTSM Mini-tutorial 2022</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'faq';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to the NEON-NCAR Main Tutorial Repository" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/ncar_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/ncar_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/edit/master/docs/faq.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/issues/new?title=Issue%20on%20page%20%2Ffaq.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/faq.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Frequently Asked Questions (FAQ)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="frequently-asked-questions-faq">
+<h1>Frequently Asked Questions (FAQ)<a class="headerlink" href="#frequently-asked-questions-faq" title="Permalink to this heading">#</a></h1>
+<ul>
+<li><p><strong>How can I access CESM-Lab after the tutorial?</strong></p>
+<ul class="simple">
+<li><p>You can always find all the tutorial materials <a class="reference external" href="https://ncar.github.io/CTSM-Tutorial-2022/README.html">here</a>.</p></li>
+<li><p>Your access to AWS will be depracted after this tutorial but you can access CESM-Lab using an AWS account (check with your lab or university).</p></li>
+<li><p>You can also run CTSM using dockers on your own laptops. Details on running CTSM using containers through our CTSM-NEON tutorial tool are available <a class="reference external" href="https://ncar.github.io/NEON-visualization/">here</a>.</p></li>
+</ul>
+</li>
+<li><p><strong>How can I transfer my progress/data outside the cloud or on another machine?</strong></p>
+<ul class="simple">
+<li><p>You can transfer Jupyter notebooks, case directories, and other files you created or modified during the tutorial from CESM-Lab to your personal computer (or any other machine) using <code class="docutils literal notranslate"><span class="pre">rsync</span></code>.</p>
+<ul>
+<li><p>Open a terminal window (or SSH into, for a machine like NCAR’s Cheyenne) in the machine you would like the files transferred to. On Macs you can generally access a terminal via Applications &gt; Utilities &gt; Terminal. On Windows machines you may need to download a software like <a class="reference external" href="https://www.putty.org/">PuTTY</a>.</p></li>
+<li><p>Inside the terminal, navigate to the location you would like the files downloaded to and type:
+<code class="docutils literal notranslate"><span class="pre">rsync</span> <span class="pre">-avz</span> <span class="pre">&lt;username&gt;&#64;ctsmworkshop2022.cesm.cloud:&lt;full_path_of_file&gt;</span> <span class="pre">.</span></code></p></li>
+<li><p>Your computer may say it cannot “recognize the authenticity of the host”, but you can enter <code class="docutils literal notranslate"><span class="pre">yes</span></code></p></li>
+<li><p>Then you will be prompted to enter your CTSM Tutorial 2022 password (the password you used to log into CESM-Lab)</p></li>
+</ul>
+</li>
+<li><p><strong>Alternatively</strong> on CESM-Lab you can directly download any individual files by right clicking on them in the left-hand file navigation pane and clicking <code class="docutils literal notranslate"><span class="pre">Download</span></code>. Directories can be downloaded by first <code class="docutils literal notranslate"><span class="pre">tar</span></code>-ing them (e.g. <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-zcvf</span> <span class="pre">my_files.tar.gz</span> <span class="pre">clm_tutorial_cases</span></code>). Then right click on the tarred file in the file navigation pane to download it as you would a file.</p></li>
+</ul>
+</li>
+<li><p><strong>I messed up the notebooks. How can I find what it should be??</strong></p>
+<p>You can look at the notebooks on GitHub and correct small mistakes, or you can do the following:</p>
+<ul class="simple">
+<li><p>Open up terminal window</p></li>
+<li><p>Navigate to CTSM-Tutorial-2022 directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/CTSM-Tutorial-2022</span></code>)</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to check the status of your notebooks and which branch you are on.</p></li>
+<li><p>If you are on the main branch, run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code> which stashes your progress and whatever you saved in your notebooks.</p></li>
+<li><p>Next, run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> to get a clean version of the tutorial notebooks from the original repository.</p></li>
+</ul>
+</li>
+<li><p><strong>How do I see what jobs are running on AWS?</strong></p>
+<ul>
+<li><p>You can either use <code class="docutils literal notranslate"><span class="pre">qstat</span></code> or <code class="docutils literal notranslate"><span class="pre">squeue</span></code> in terminal to list all your jobs and their status.</p></li>
+<li><p>Below is the list of acronyms in the <code class="docutils literal notranslate"><span class="pre">ST</span></code> column and their meanings:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Status</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Completed</p></td>
+<td><p>C</p></td>
+<td><p>Job just successfully completed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Running</p></td>
+<td><p>R</p></td>
+<td><p>The Job is currently running.</p></td>
+</tr>
+<tr class="row-even"><td><p>Queued/Waiting</p></td>
+<td><p>Q / PD</p></td>
+<td><p>The job is waiting for allocation in the queue.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li><p><strong>How do I kill a job that’s running?</strong></p>
+<ul class="simple">
+<li><p>You can either use <code class="docutils literal notranslate"><span class="pre">qdel</span> <span class="pre">JOBID</span></code> or <code class="docutils literal notranslate"><span class="pre">scancel</span> <span class="pre">JOBID</span></code>. You should replace <code class="docutils literal notranslate"><span class="pre">JOBID</span></code> with the job ids that you’d want to stop. Please note that you can get your <code class="docutils literal notranslate"><span class="pre">JOBID</span></code> by using <code class="docutils literal notranslate"><span class="pre">qstat</span></code> or <code class="docutils literal notranslate"><span class="pre">squeue</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>I get a message saying that there is an existing directory and cannot run my code. What do I do??</strong></p>
+<ul class="simple">
+<li><p>Remove the existing directory, which was likely created for an earlier failed case. Alternatively, if this error occurs when using the <code class="docutils literal notranslate"><span class="pre">run_neon</span></code> script, you can use the <code class="docutils literal notranslate"><span class="pre">--overwrite</span></code> option.</p></li>
+</ul>
+</li>
+<li><p><strong>Which parameters need to have a re-build after changing them?</strong></p>
+<ul class="simple">
+<li><p>You only need to rebuild if you’ve changed something in <code class="docutils literal notranslate"><span class="pre">env_build.xml</span></code> or <code class="docutils literal notranslate"><span class="pre">env_mach_pes.xml</span></code>. You can change <code class="docutils literal notranslate"><span class="pre">env_run.xml</span></code> or <code class="docutils literal notranslate"><span class="pre">user_nl_*</span></code> files without rebuilding. The only exception to that is if you are restarting and trying to change the years you are running over for DATM. For more information on when a rebuild is necessary, please see section 4.2 on <a class="reference external" href="https://esmci.github.io/cime/versions/ufs_release_v1.0/html/users_guide/building-a-case.html">this website.</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to the NEON-NCAR Main Tutorial Repository</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

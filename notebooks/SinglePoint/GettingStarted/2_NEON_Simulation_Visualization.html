@@ -1,0 +1,1462 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Tutorial 2: CTSM Evaluations at NEON Tower Sites &#8212; CTSM Mini-tutorial 2022</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/SinglePoint/GettingStarted/2_NEON_Simulation_Visualization';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/ncar_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/ncar_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NCAR/CTSM-Tutorial-2022/master?urlpath=tree/docs/notebooks/SinglePoint/GettingStarted/2_NEON_Simulation_Visualization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/edit/master/docs/notebooks/SinglePoint/GettingStarted/2_NEON_Simulation_Visualization.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/SinglePoint/GettingStarted/2_NEON_Simulation_Visualization.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/notebooks/SinglePoint/GettingStarted/2_NEON_Simulation_Visualization.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tutorial 2: CTSM Evaluations at NEON Tower Sites</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 2: <em>CTSM Evaluations at NEON Tower Sites</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial :</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-clm-model-data">1. Explore CLM model data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-model-data">1.1 Locate model data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-simulated-data">1.2 Explore Simulated Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-libraries">1.2.1 Load Python Libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-simulation-year">1.2.2 Select Simulation Year</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-model-data-files">1.2.3 Load model data files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-model-data-files">1.2.4 Open model data files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-step-explore-dataset-from-simulations">1.2.5 Optional Step: Explore dataset from simulations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-neon-tower-observation-data">2. Explore NEON Tower Observation Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-neon-data">2.1 Download NEON data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-neon-data">2.2 Load NEON data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-clm-and-neon-latent-heat-flux-data">3. Compare CLM and NEON latent heat flux data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-data">Format Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-latent-heat-flux">3.1 What is latent heat flux?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional">Optional:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-latent-heat-flux">3.2 Plotting latent heat flux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-timeseries">3.2.1 Daily Timeseries</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-simulations-and-observations-in-the-plot-similar"><strong>Are the simulations and observations in the plot similar?</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-to-consider"><strong>Questions to consider:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monthly-averages-component-fluxes-absolute-values">3.2.2 Monthly Averages &amp; Component Fluxes: Absolute Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#next-create-a-stacked-bar-chart-showing-components-of-simulated-latent-heat-flux-over-different-months">Next, create a stacked bar chart showing components of simulated latent heat flux over different months</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Questions to consider:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monthly-averages-component-fluxes-proportional-contributions">3.2.3 Monthly Averages &amp; Component Fluxes: Proportional Contributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-and-seasonal-correlations">3.2.4 Annual and Seasonal Correlations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-diel-cycle">3.2.5 Average Diel Cycle</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-transpiration-and-evaporation-components-of-latent-heat-flux-change-throughout-the-day">How do transpiration and evaporation components of latent heat flux change throughout the day?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-2-ctsm-evaluations-at-neon-tower-sites">
+<h1>Tutorial 2: <em>CTSM Evaluations at NEON Tower Sites</em><a class="headerlink" href="#tutorial-2-ctsm-evaluations-at-neon-tower-sites" title="Permalink to this heading">#</a></h1>
+<p>This tutorial is an introduction to evaluating CTSM at a NEON tower site.  It provides example visualizations and evaluation of simulated latent heat flux using NEON tower observations.  This tutorial uses results from the case you ran in <code class="docutils literal notranslate"><span class="pre">1_NEON_Simulation_Tutorial</span></code>, but you don’t have to wait for those runs to complete before doing this tutorial. We’ve pre-staged model results from this simulation in a shared directory so that you can analyze results of your simulations regardless of whether they’ve completed.</p>
+<hr class="docutils" />
+<p><strong>This tutorial uses a Jupyter Notebook.</strong> A Jupyter Notebook is an interactive computing environment that enables the creation and sharing of documents that contain discrete cells of text or documentation and executable code, including plots. It allows users to access, run, and edit the code in a browser. To interact with this notebook:</p>
+<ul class="simple">
+<li><p>Execute or “run” cells of executable code (cells denoted with ‘[ ]:’) using the play button in the menu at the top (see below image)</p></li>
+<li><p>The results of running code, such as plots, will appear below that cell</p></li>
+<li><p>Each step must be followed in order, otherwise you may encounter errors</p></li>
+</ul>
+<p><img alt="run cell" src="https://problemsolvingwithpython.com/02-Jupyter-Notebooks/images/run_cell.png" /></p>
+<p>For more information on Jupyter notebooks please see the <a class="reference external" href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html">Jupyter Notebook Quick Start Guide</a>.</p>
+<hr class="docutils" />
+<section id="in-this-tutorial">
+<h2>In this tutorial :<a class="headerlink" href="#in-this-tutorial" title="Permalink to this heading">#</a></h2>
+<p>The tutorial has several components. Below you will find steps and instructions to:</p>
+<ol class="arabic simple">
+<li><p>Become familiar with Jupyter notebooks</p></li>
+<li><p>Begin getting acquainted with python packages and their utilities</p></li>
+<li><p>Explore CLM model data</p></li>
+<li><p>Explore NEON observation data</p></li>
+<li><p>Compare CLM and NEON latent heat flux data</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="explore-clm-model-data">
+<h1>1. Explore CLM model data<a class="headerlink" href="#explore-clm-model-data" title="Permalink to this heading">#</a></h1>
+<p>There are countless ways of analyzing and processing model data. This tutorial uses Matplotlib, a comprehensive data visualization and plotting library for Python. For more information on Matplotlib, please see the <a class="reference external" href="https://matplotlib.org/stable/users/index.html">User’s Guide</a>.</p>
+<p>Before diving in, set the NEON site that you simulated in the cell below. As a refresher, NEON tower sites include:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ABBY</span><span class="p">,</span><span class="n">BARR</span><span class="p">,</span><span class="n">BART</span><span class="p">,</span><span class="n">BLAN</span><span class="p">,</span><span class="n">BONA</span><span class="p">,</span><span class="n">CLBJ</span><span class="p">,</span><span class="n">CPER</span><span class="p">,</span><span class="n">DCFS</span><span class="p">,</span><span class="n">DEJU</span><span class="p">,</span><span class="n">DELA</span><span class="p">,</span><span class="n">DSNY</span><span class="p">,</span>
+<span class="n">GRSM</span><span class="p">,</span><span class="n">GUAN</span><span class="p">,</span><span class="n">HARV</span><span class="p">,</span><span class="n">HEAL</span><span class="p">,</span><span class="n">JERC</span><span class="p">,</span><span class="n">JORN</span><span class="p">,</span><span class="n">KONA</span><span class="p">,</span><span class="n">KONZ</span><span class="p">,</span><span class="n">LAJA</span><span class="p">,</span><span class="n">LENO</span><span class="p">,</span><span class="n">MLBS</span><span class="p">,</span>
+<span class="n">MOAB</span><span class="p">,</span><span class="n">NIWO</span><span class="p">,</span><span class="n">NOGP</span><span class="p">,</span><span class="n">OAES</span><span class="p">,</span><span class="n">ONAQ</span><span class="p">,</span><span class="n">ORNL</span><span class="p">,</span><span class="n">OSBS</span><span class="p">,</span><span class="n">PUUM</span><span class="p">,</span><span class="n">RMNP</span><span class="p">,</span><span class="n">SCBI</span><span class="p">,</span><span class="n">SERC</span><span class="p">,</span>
+<span class="n">SJER</span><span class="p">,</span><span class="n">SOAP</span><span class="p">,</span><span class="n">SRER</span><span class="p">,</span><span class="n">STEI</span><span class="p">,</span><span class="n">STER</span><span class="p">,</span><span class="n">TALL</span><span class="p">,</span><span class="n">TEAK</span><span class="p">,</span><span class="n">TOOL</span><span class="p">,</span><span class="n">TREE</span><span class="p">,</span><span class="n">UKFS</span><span class="p">,</span><span class="n">UNDE</span><span class="p">,</span>
+<span class="n">WOOD</span><span class="p">,</span><span class="n">WREF</span><span class="p">,</span><span class="n">YELL</span>
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> NIWO and PUUM have data gaps that prevent us from running for a full calendar year and cannotbe plotted</p>
+<p><em>The tutorial is currently set to use the KONZ site. If you ran a simulation for a different tower site, please change the 4-character site name in quotes below to the same as your simulation.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Change the 4-character NEON site below to point to your NEON site:</span>
+<span class="n">neon_site</span> <span class="o">=</span> <span class="s2">&quot;KONZ&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="locate-model-data">
+<h2>1.1 Locate model data<a class="headerlink" href="#locate-model-data" title="Permalink to this heading">#</a></h2>
+<p>When the simulation completes, the data are transferred to an <code class="docutils literal notranslate"><span class="pre">archive</span></code> directory. In this directory, there are files that include data for every day of the simulation, as well as files that average model variables monthly. <p></p>
+<p>In this tutorial, we are using pre-staged results, but the results should be identical to the NEON cases you just ran.</p>
+<p><em>Run the cell below to see a subset of the files listed:</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls<span class="w"> </span>/scratch/data/NEONv2/hist/<span class="o">{</span>neon_site<span class="o">}</span>.transient/lnd/hist<span class="w"> </span><span class="p">|</span>head<span class="w"> </span>-20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each line of the list above includes the file path (<code class="docutils literal notranslate"><span class="pre">/scratch/data/NEONv2/hist/{simulation_name}/lnd/hist/</span></code>) and file name. The file names are automatically generated and comprise:</p>
+<ul class="simple">
+<li><p>the simulation name, which includes:</p>
+<ul>
+<li><p>the NEON site</p></li>
+<li><p>the type of simulation</p>
+<ul>
+<li><p>The simulation you ran is “transient”. This means the model was initialized and ran for the full length of available data. The initial conditions files for the transient tower simulations were created by cycling over 2018-2019 tower meteorological data.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>the date of simulated data</p></li>
+</ul>
+<p>The NEON tower simulations generate two types of files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*h0*</span></code>: Variables that are averaged monthly. One file is available for every month of the simulation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*h1*</span></code>: Variables that are recorded every 30 minutes. Values are aggregated into one file for each day of the simulation. Each file includes 48 data points.</p></li>
+</ul>
+<p><strong>Note:</strong> Only a subset of CLM variables are included on the <code class="docutils literal notranslate"><span class="pre">*h1*</span></code> files, with many more variables included on the monthly-averaged <code class="docutils literal notranslate"><span class="pre">*h0*</span></code> files. A full list of variables that are simulated by CLM is available <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/setting-up-and-running-a-case/master_list_nofates.html">on this website</a>.</p>
+<p><em>Note that you can also find the model data in the ‘Simulation’ folder on your desktop, which was created as part of this tutorial.</em></p>
+<hr class="docutils" />
+<p>The files are saved in netcdf format (denoted with the <code class="docutils literal notranslate"><span class="pre">.nc</span></code> file extension), a file format commonly used for storing large, multi-dimensional scientific variables.
+Netcdf files are platform independent and self-describing; each file includes metadata that describes the data, including: <strong>variables</strong>, <strong>dimensions</strong>, and <strong>attributes</strong>.</p>
+<p>The figure below provides a generic example of the data structure in a netcdf file. The dataset illustrated has two variables (temperature and pressure) that have three dimensions. Coordinate data (e.g., latitude, longitude, time) that describe the data are also included.</p>
+<p><em>Note that while each file for NEON tower simulations has multiple variables, the simulation ran for a single site rather than a larger spatial grid and therefore do not include the latitude and longitude dimensions illustrated here. Within each multi-variable file, most of the variables have one dimension (time), while a few soil variables (e.g., moisture, temperature) have two dimensions (time x depth).</em></p>
+<p><img src='https://xarray.pydata.org/en/stable/_images/dataset-diagram.png' 
+     alt="isolated" body style="background-color:white;"/></p>
+</section>
+<hr class="docutils" />
+<section id="explore-simulated-data">
+<h2>1.2 Explore Simulated Data<a class="headerlink" href="#explore-simulated-data" title="Permalink to this heading">#</a></h2>
+<p>This step has several components, which are broken into smaller steps.</p>
+<section id="load-python-libraries">
+<h3>1.2.1 Load Python Libraries<a class="headerlink" href="#load-python-libraries" title="Permalink to this heading">#</a></h3>
+<p>To dig deeper into our model results, we’ll use this notebook and some python packages to look at the data.</p>
+<p><em>Run the below code to import the required python libraries</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import Libraries</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span><span class="p">,</span> <span class="n">expanduser</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">neon_utils</span> <span class="kn">import</span> <span class="n">download_eval_files</span>
+
+<span class="c1"># suppress Future Warnings that are annoying...</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="select-simulation-year">
+<h3>1.2.2 Select Simulation Year<a class="headerlink" href="#select-simulation-year" title="Permalink to this heading">#</a></h3>
+<p>For simplicity, we focus on analyzing and evaluating a single year of data. <p></p>
+<p>The code below uses data for <strong>2018</strong>, but data are available through this year. You can select a different year by changing the year in the quotes below. <p>
+<em>Run the below code to identify the year of interest for making the plots. Note that the same year will be used to download observational data below</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Specify the year below</span>
+<span class="n">year</span> <span class="o">=</span> <span class="s2">&quot;2018&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Paths are different for every user based on their usernames, so we get the username to use for paths:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;USER&#39;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-model-data-files">
+<h3>1.2.3 Load model data files<a class="headerlink" href="#load-model-data-files" title="Permalink to this heading">#</a></h3>
+<p>For reading the netCDF files, we are using the <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Python package. You can learn more about <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray on this website</a>.</p>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">sim_path</span></code> points to the location where simulation data are stored.</p>
+<p><em>Run the code below to load the model data files. The code will print how many files were loaded</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#--The following line points to your directory:</span>
+<span class="c1">#sim_path = &quot;/home/&quot;+username+&quot;/scratch/NEON_cases/archive/&quot;+neon_site+&quot;.transient/lnd/hist/&quot;</span>
+
+<span class="c1">#-- But for now let&#39;s look at the pre-staged results:  TODO check for latest directory</span>
+<span class="n">sim_path</span> <span class="o">=</span> <span class="s2">&quot;/scratch/data/NEONv2/hist/&quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot;.transient/lnd/hist/&quot;</span>
+
+
+<span class="n">sim_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">sim_path</span><span class="p">,</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot;.transient.clm2.h1.&quot;</span><span class="o">+</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot;*.nc&quot;</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All Simulation files: [&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim_files</span><span class="p">),</span> <span class="s2">&quot;files]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="open-model-data-files">
+<h3>1.2.4 Open model data files<a class="headerlink" href="#open-model-data-files" title="Permalink to this heading">#</a></h3>
+<p>Here we use the python function <code class="docutils literal notranslate"><span class="pre">xarray.open_mfdataset</span></code>, which opens multiple netcdf files as a single xarray dataset. For more information on this xarray function, visit <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_mfdataset.html">the xarray website</a>.</p>
+<p><em>Run the below cell to read in the data files. Note that this step might take a few minutes.</em> Please note that here for faster pre-processing we select only a few variables of interest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ctsm_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FCEV&#39;</span><span class="p">,</span> <span class="s1">&#39;FCTR&#39;</span><span class="p">,</span> <span class="s1">&#39;FGEV&#39;</span><span class="p">,</span><span class="s1">&#39;GPP&#39;</span><span class="p">]</span>
+
+
+<span class="sd">&#39;&#39;&#39;select the variables we want to read in&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="n">ctsm_vars</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ds</span><span class="p">[</span><span class="n">fields</span><span class="p">]</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">ds_ctsm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">sim_files</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">,</span> <span class="n">preprocess</span><span class="o">=</span><span class="n">preprocess</span><span class="p">)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading all simulation files took:&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;seconds.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hint: To read all the variables of ctsm h1 history output files you can use the following block of code, but it will take longer.</p>
+</section>
+<section id="optional-step-explore-dataset-from-simulations">
+<h3>1.2.5 Optional Step: Explore dataset from simulations<a class="headerlink" href="#optional-step-explore-dataset-from-simulations" title="Permalink to this heading">#</a></h3>
+<p>This step looks at the dataset that was just created from the simulation data. This step is not required, but will allow you to explore the python dataset and become familiar with the data.</p>
+<p><em>Run the below cell to find more information about the data</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_ctsm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the output, you can click on <code class="docutils literal notranslate"><span class="pre">Dimensions</span></code>, <code class="docutils literal notranslate"><span class="pre">Coordinates</span></code>, <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">Variables</span></code>, and <code class="docutils literal notranslate"><span class="pre">Attributes</span></code> to expand and see the details and metadata associated with this dataset.</p>
+<p>If you click on <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">Variables</span></code>, you will see a list of all the available variables. You can click on the ‘note’ icon at the right end of the line for each variable to see a description of the variable (the <code class="docutils literal notranslate"><span class="pre">long_name</span></code>) and its <code class="docutils literal notranslate"><span class="pre">units</span></code>, as well as other information. Here are a few questions to consider:</p>
+<p><strong>Questions to consider</strong></p>
+<ol class="arabic simple">
+<li><p>What variables are available in the dataset?</p></li>
+<li><p>What is the <code class="docutils literal notranslate"><span class="pre">long_name</span></code> and <code class="docutils literal notranslate"><span class="pre">unit</span></code> of the variable <code class="docutils literal notranslate"><span class="pre">FSH</span></code>?</p></li>
+<li><p>Can you find the dimensions of this variable?</p></li>
+</ol>
+<p><strong>💡 Tip</strong>:
+Xarray has built-in plotting functions. For quick inspection of a variable, we can use <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> to see it. The code below will make a basic plot of the Gross Primary Production (<code class="docutils literal notranslate"><span class="pre">GPP</span></code>) variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_ctsm</span><span class="p">[</span><span class="s1">&#39;GPP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can select to plot only specific time period using .sel option.</p>
+<p>For example,let’s check GPP for June of 2018:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_ctsm</span><span class="o">.</span><span class="n">GPP</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2018-06-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-06-30&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="explore-neon-tower-observation-data">
+<h1>2. Explore NEON Tower Observation Data<a class="headerlink" href="#explore-neon-tower-observation-data" title="Permalink to this heading">#</a></h1>
+<section id="download-neon-data">
+<h2>2.1 Download NEON data<a class="headerlink" href="#download-neon-data" title="Permalink to this heading">#</a></h2>
+<p><strong>A note about NEON evaluation data</strong>: NEON data for evaluation are pulled from the API and the least restrictive quality control flags are applied. The data are subsequently gap-filled using a redundant data stream regression, while data that are still missing are filled using a Marginal Distribution Sampling (MDS) gap-filling technique. Unit conversions are performed and the data are formatted and supplied as monthly netCDF files.</p>
+<p>To download the data, this step uses a preestablished function (<code class="docutils literal notranslate"><span class="pre">download_eval_files</span></code>) to download the NEON observational data files for the site and year specified above. The preprocessed NEON data are available for download from NEON’s S3 bucket, with the full listing of available data <a class="reference external" href="https://s3.data.neonscience.org/neon-ncar/listing.csv">here</a>.</p>
+<blockquote>
+<div><p>Note that this downloads the evaluation data based on the year you selected above. If you would like to download all available NEON evaluation data from this site, change the word <code class="docutils literal notranslate"><span class="pre">year</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> (quotes included) below: <code class="docutils literal notranslate"><span class="pre">download_eval_files(neon_site,</span> <span class="pre">eval_dir,</span> <span class="pre">&quot;all&quot;)</span></code></p>
+</div></blockquote>
+<p><em>Run the cell below to download available NEON data from the site you selected above.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eval_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;/home&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="s2">&quot;scratch/evaluation_files&quot;</span><span class="p">)</span>
+
+<span class="n">download_eval_files</span><span class="p">(</span><span class="n">neon_site</span><span class="p">,</span> <span class="n">eval_dir</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hint: If the download does not work, you can directly point to the pre-staged results by uncommenting the cell below</p>
+<p><strong>NOTE, this is also faster for more years / sites</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#eval_dir = &#39;/scratch/data/NEONv2/eval&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-neon-data">
+<h2>2.2 Load NEON data<a class="headerlink" href="#load-neon-data" title="Permalink to this heading">#</a></h2>
+<p><em>Run the two cells of code below. The code will print a list of files for the year specified above and read them into a dataset.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eval_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eval_dir</span><span class="p">,</span><span class="n">neon_site</span><span class="p">)</span>
+
+<span class="n">eval_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">eval_path</span><span class="p">,</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot;_eval_&quot;</span><span class="o">+</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot;*.nc&quot;</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All Observation files:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">eval_files</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">ds_eval</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">eval_files</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading all observation files took:&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;s.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="compare-clm-and-neon-latent-heat-flux-data">
+<h1>3. Compare CLM and NEON latent heat flux data<a class="headerlink" href="#compare-clm-and-neon-latent-heat-flux-data" title="Permalink to this heading">#</a></h1>
+<p>So far, we uploaded files of observational and model data. In this section we will compare observed and simulated <strong>latent heat fluxes</strong>. You can also explore other available variables with this code.</p>
+<hr class="docutils" />
+<section id="format-data">
+<h2>Format Data<a class="headerlink" href="#format-data" title="Permalink to this heading">#</a></h2>
+<p>The next cell of code processes the data into a common format to make analysis easier.
+<br/></p>
+<p><strong>A note about model timestamps:</strong> The CTSM history includes an initial 0th timestep for each model simulation. This offset in the time dimension can cause challenges when analyzing and evaluating model data if not treated properly. You may notice in the last line of the below cell, we shift the value by -1 to address this issue.</p>
+<p><em>Run the below cell of code to extract the variables needed for this notebook and create a single dataframe that includes all the extracted variables</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Convert CTSM data to a Pandas Dataframe for easier handling:</span>
+<span class="n">ctsm_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FCEV&#39;</span><span class="p">,</span> <span class="s1">&#39;FCTR&#39;</span><span class="p">,</span> <span class="s1">&#39;FGEV&#39;</span><span class="p">]</span>
+
+<span class="n">df_ctsm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="n">ds_ctsm</span><span class="o">.</span><span class="n">time</span><span class="p">})</span>
+
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ctsm_vars</span><span class="p">:</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span> <span class="p">(</span> <span class="n">ds_ctsm</span><span class="p">[</span><span class="n">var</span><span class="p">])</span>     
+    <span class="n">df_ctsm</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">=</span><span class="n">field</span>
+
+
+<span class="c1">#Convert NEON data to a Pandas Dataframe for easier handling:</span>
+<span class="n">eval_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EFLX_LH_TOT&#39;</span><span class="p">]</span>
+
+<span class="n">df_eval</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="n">ds_eval</span><span class="o">.</span><span class="n">time</span><span class="p">})</span>
+
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">eval_vars</span><span class="p">:</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span> <span class="p">(</span> <span class="n">ds_eval</span><span class="p">[</span><span class="n">var</span><span class="p">])</span>     
+    <span class="n">df_eval</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">=</span><span class="n">field</span>
+
+<span class="c1">#-- make df_all that includes both obs and sim</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">df_eval</span>
+
+<span class="c1">#-- add simulation data to df_all and adjust for offset time dimension:</span>
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ctsm_vars</span><span class="p">:</span>
+    <span class="n">sim_var_name</span> <span class="o">=</span> <span class="s2">&quot;sim_&quot;</span><span class="o">+</span><span class="n">var</span>
+    <span class="c1">#-- shift simulation data by one</span>
+    <span class="n">df_all</span><span class="p">[</span><span class="n">sim_var_name</span><span class="p">]</span><span class="o">=</span><span class="n">df_ctsm</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>The next cell gives us a quick look at the dataframe to make sure the data are available</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-is-latent-heat-flux">
+<h2>3.1 What is latent heat flux?<a class="headerlink" href="#what-is-latent-heat-flux" title="Permalink to this heading">#</a></h2>
+<p>Below we explore how well CLM simulates latent heat flux, which is directly observed at NEON towers. Latent heat flux is the energy for water evaporation from the ecosystem. Latent heat flux is a combination of plant transpiration, evaporation from leaf surfaces (e.g., from dew, after precipitation events, etc.), and evaporation from the soil:</p>
+<div class="math notranslate nohighlight">
+\[ Latent Heat Flux = Transpiration + Canopy Evaporation + Ground Evaporation \]</div>
+<p>Although NEON towers cannot distinguish how much each of these processes contributes to latent heat flux, CLM simulations can help us to disentangle the role of each.</p>
+<p>First we will calculate latent heat flux simulated by CLM by summing the component fluxes in the above equation. The CLM variables are:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(FCEV\)</span>: Canopy evaporation (W m<sup>-2</sup>) <br>
+<span class="math notranslate nohighlight">\(FCTR\)</span>: Canopy transpiration (W m<sup>-2</sup>) <br>
+<span class="math notranslate nohighlight">\(FGEV\)</span>: Ground evaporation (W m<sup>-2</sup>) <br></p>
+</div></blockquote>
+<p><em>Run the below cell to calculate simulated latent heat flux</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clm_var</span> <span class="o">=</span> <span class="s1">&#39;sim_EFLX_LH_TOT&#39;</span>
+
+<span class="c1">#EFLX_LH_TOT = FCEV + FCTR +FGEV</span>
+<span class="n">df_all</span> <span class="p">[</span><span class="n">clm_var</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">]</span> \
+                 <span class="o">+</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">]</span>\
+                 <span class="o">+</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">]</span>
+
+<span class="n">df_all</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="optional">
+<h3>Optional:<a class="headerlink" href="#optional" title="Permalink to this heading">#</a></h3>
+<p>If you are unfamiliar with reading and using the netcdf file format that model and evaluation data are provided, you can save data different formats. The next cell of code will save the pre-processed data in <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, or comma-seperated file format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the figures directory if it&#39;s not already there</span>
+<span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/scratch/NEON_cases/postprocessed_data&#39;</span><span class="p">))</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">out_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+<span class="n">csv_out</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="s2">&quot;preprocessed_&quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot;.csv&quot;</span><span class="p">)</span>
+<span class="n">df_all</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_out</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="plotting-latent-heat-flux">
+<h2>3.2 Plotting latent heat flux<a class="headerlink" href="#plotting-latent-heat-flux" title="Permalink to this heading">#</a></h2>
+<section id="daily-timeseries">
+<h3>3.2.1 Daily Timeseries<a class="headerlink" href="#daily-timeseries" title="Permalink to this heading">#</a></h3>
+<p>This creates a time-series plot comparing daily average latent heat flux from observations (NEON) and simulations (CLM). To start, we need calculate the daily averages. Run the below cells of code to create the averages and plot.</p>
+<p><em>First, we need to extract year, month, day and hour from time column</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#-- extract year, month, day, hour information from time</span>
+<span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span>
+<span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Next, calculate daily averages</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_daily</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="s1">&#39;day&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;numeric_only&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_daily</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_daily</span><span class="p">[[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the daily averages, we will create a plot using Python’s <a class="reference external" href="https://matplotlib.org/">matplotlib package</a></p>
+<p><em>Run the below cell to create the plot:</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_var</span> <span class="o">=</span> <span class="s1">&#39;EFLX_LH_TOT&#39;</span>
+<span class="n">sim_var</span> <span class="o">=</span> <span class="s1">&#39;sim_&#39;</span><span class="o">+</span><span class="n">plot_var</span>
+
+<span class="n">plot_var_desc</span> <span class="o">=</span> <span class="s2">&quot;Latent Heat Flux&quot;</span>
+<span class="n">plot_var_unit</span><span class="o">=</span> <span class="s2">&quot;W m$^{-2}$&quot;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">df_daily</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">plot_var</span> <span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">ax</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;NEON&quot;</span><span class="p">)</span>
+<span class="n">df_daily</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;sim_&#39;</span><span class="o">+</span><span class="n">plot_var</span> <span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">ax</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;CLM&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">plot_var_desc</span><span class="o">+</span><span class="s2">&quot; [&quot;</span><span class="o">+</span><span class="n">plot_var_unit</span><span class="o">+</span><span class="s2">&quot;]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="are-the-simulations-and-observations-in-the-plot-similar">
+<h4><strong>Are the simulations and observations in the plot similar?</strong><a class="headerlink" href="#are-the-simulations-and-observations-in-the-plot-similar" title="Permalink to this heading">#</a></h4>
+<p>It is important to also look at variability, as this gives us an indication of when and where simulations are outside the range of observed values.</p>
+<p><em>Let’s explore variability by adding the daily standard deviation as a shaded area to the plot</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_daily_std</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="s1">&#39;day&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_daily_std</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_daily_std</span><span class="p">[[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">]])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">df_daily</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">df_daily</span><span class="p">[</span><span class="n">plot_var</span><span class="p">],</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;NEON&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">df_daily</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">df_daily</span><span class="p">[</span><span class="n">sim_var</span><span class="p">],</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;CLM&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">df_daily</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">df_daily</span><span class="p">[</span><span class="n">plot_var</span><span class="p">]</span><span class="o">-</span><span class="n">df_daily_std</span><span class="p">[</span><span class="n">plot_var</span><span class="p">],</span> <span class="n">df_daily</span><span class="p">[</span><span class="n">plot_var</span><span class="p">]</span><span class="o">+</span><span class="n">df_daily_std</span><span class="p">[</span><span class="n">plot_var</span><span class="p">]</span> <span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">df_daily</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">df_daily</span><span class="p">[</span><span class="n">sim_var</span><span class="p">]</span><span class="o">-</span><span class="n">df_daily_std</span><span class="p">[</span><span class="n">sim_var</span><span class="p">],</span> <span class="n">df_daily</span><span class="p">[</span><span class="n">sim_var</span><span class="p">]</span><span class="o">+</span><span class="n">df_daily_std</span><span class="p">[</span><span class="n">sim_var</span><span class="p">]</span> <span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">plot_var_desc</span><span class="o">+</span><span class="s2">&quot; [&quot;</span><span class="o">+</span><span class="n">plot_var_unit</span><span class="o">+</span><span class="s2">&quot;]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The standard deviation allows us to see when CLM underpredicts or overpredicts the NEON tower observations.</p>
+</section>
+<section id="questions-to-consider">
+<h4><strong>Questions to consider:</strong><a class="headerlink" href="#questions-to-consider" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>When is the latent heat hlux highest at this site? When is it lowest? <br></p></li>
+<li><p>Do fluxes simulated by CLM fall within the range of NEON tower observation variability? <br></p></li>
+<li><p>What times of year does CLM shows the best and worst performance in predicting latent heat flux ? <br></p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="monthly-averages-component-fluxes-absolute-values">
+<h3>3.2.2 Monthly Averages &amp; Component Fluxes: Absolute Values<a class="headerlink" href="#monthly-averages-component-fluxes-absolute-values" title="Permalink to this heading">#</a></h3>
+<p>Next we will disentangle whether transpiration, canopy evaporation, or ground evaporation is the dominant contribution to latent heat flux during each month using CLM data. As mentioned in section 3.1, NEON observations cannot distinguish how much each of these processes contributes to latent heat fluxes.</p>
+<p><em>Run the cell below to calculate monthly averages</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_monthly</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;numeric_only&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_monthly</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">15</span>
+<span class="n">df_monthly</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_monthly</span><span class="p">[[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span><span class="s2">&quot;day&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="next-create-a-stacked-bar-chart-showing-components-of-simulated-latent-heat-flux-over-different-months">
+<h4>Next, create a stacked bar chart showing components of simulated latent heat flux over different months<a class="headerlink" href="#next-create-a-stacked-bar-chart-showing-components-of-simulated-latent-heat-flux-over-different-months" title="Permalink to this heading">#</a></h4>
+<p><em>Run the cell below to create the plot</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">line_format</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to convert time label to the format of pandas line plot</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">month_name</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">month</span> <span class="o">==</span> <span class="s1">&#39;Jan&#39;</span><span class="p">:</span>
+        <span class="n">month</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{</span><span class="n">label</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">month</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="n">df_monthly</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;EFLX_LH_TOT&#39;</span> <span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">ax</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;NEON Latent Heat Flux&quot;</span><span class="p">,</span><span class="n">use_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_monthly</span><span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">,</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">,</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="n">stacked</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">line_format</span><span class="p">,</span> <span class="n">df_monthly</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+
+<span class="c1">#set labels for the legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;NEON Latent Heat Flux&quot;</span><span class="p">,</span> <span class="s2">&quot;Canopy Evaporation&quot;</span><span class="p">,</span> <span class="s2">&quot;Canopy Transpiration&quot;</span><span class="p">,</span> <span class="s2">&quot;Ground Evaporation&quot;</span><span class="p">]);</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">plot_var_desc</span><span class="o">+</span><span class="s2">&quot; [&quot;</span><span class="o">+</span><span class="n">plot_var_unit</span><span class="o">+</span><span class="s2">&quot;]&quot;</span><span class="p">)</span>
+        
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The monthly averages of NEON latent heat flux observation are plotted as a line on top of the barplot of CLM data for reference.</p>
+</section>
+<section id="id1">
+<h4><strong>Questions to consider:</strong><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Which months does CLM overestimate and underestimate observed latent heat fluxes for this site?</p></li>
+<li><p>What times of year is <em>canopy transpiration</em> the largest contributor to the total CLM latent heat flux?</p></li>
+<li><p>What times of year are <em>canopy evaporation</em> and <em>ground evaporation</em> important contributors to the total CLM latent heat flux?</p></li>
+<li><p>What is the dominant component flux when CLM overestimates observed latent heat fluxes? When CLM underestimates latent heat fluxes?</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="monthly-averages-component-fluxes-proportional-contributions">
+<h3>3.2.3 Monthly Averages &amp; Component Fluxes: Proportional Contributions<a class="headerlink" href="#monthly-averages-component-fluxes-proportional-contributions" title="Permalink to this heading">#</a></h3>
+<p>It might be easier to see the proportional contributions of transpiration and evaporation fluxes to total latent heat flux. The code below makes a more advanced plot with two y-axes that helps to illustrate the absolute values of monthly latent heat fluxes and the proportion of component fluxes each month.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#-- calculate the percentage of total latent heat flux</span>
+<span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCEV_perc&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR_perc&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV_perc&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_monthly</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>  <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="n">df_monthly</span><span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;sim_FCEV_perc&#39;</span><span class="p">,</span><span class="s1">&#39;sim_FCTR_perc&#39;</span><span class="p">,</span><span class="s1">&#39;sim_FGEV_perc&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="n">stacked</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">line_format</span><span class="p">,</span> <span class="n">df_monthly</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;% Components Latent Heat Flux&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.04</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;% Canopy Evaporation&quot;</span><span class="p">,</span><span class="s2">&quot;% Canopy Transpiration&quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">% G</span><span class="s2">round Evaporation&quot;</span><span class="p">])</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">df_monthly</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;sim_EFLX_LH_TOT&#39;</span> <span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">ax2</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;CLM Latent Heat&quot;</span><span class="p">,</span><span class="n">use_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_monthly</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;EFLX_LH_TOT&#39;</span> <span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">ax2</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;NEON Latent Heat&quot;</span><span class="p">,</span><span class="n">use_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">plot_var_desc</span><span class="o">+</span><span class="s2">&quot; [&quot;</span><span class="o">+</span><span class="n">plot_var_unit</span><span class="o">+</span><span class="s2">&quot;]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.04</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="annual-and-seasonal-correlations">
+<h3>3.2.4 Annual and Seasonal Correlations<a class="headerlink" href="#annual-and-seasonal-correlations" title="Permalink to this heading">#</a></h3>
+<p>Scatter plots can help to describe the relationship between latent heat flux and the component transpiration and evaporation fluxes. We can look at these relationships using data from CLM simulations.</p>
+<p>First, plot annual average relationships.</p>
+<p><em>Run the cells below to first define a generic function that plot scatter diagrams and add a regression line, and then to generate the plots.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Defining generic function for scatter plots</span>
+<span class="k">def</span> <span class="nf">detailed_scatter</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">)</span>
+    <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">slope</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">intercept</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">line</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y=</span><span class="si">{:.2f}</span><span class="s1">x+</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">slope</span><span class="p">,</span><span class="n">intercept</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; (R2=&quot;</span><span class="o">+</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_value</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Generating plots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_daily</span><span class="o">.</span><span class="n">sim_FCEV</span><span class="p">,</span> <span class="n">df_daily</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_daily</span><span class="o">.</span><span class="n">sim_FCTR</span><span class="p">,</span> <span class="n">df_daily</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Transpiration [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_daily</span><span class="o">.</span><span class="n">sim_FGEV</span><span class="p">,</span> <span class="n">df_daily</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span><span class="s1">&#39;#2ca02c&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ground Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot; Scatter Plots&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Since the relationships between latent heat flux and the component transpiration and evaporation fluxes likely vary throughout the year, we can investigate how the relationships change during different seasons.</p>
+<p><em>Run the cell below to generate scatter plots by season</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_daily</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df_daily</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">%</span><span class="k">12</span>+3)//3).map({1:&#39;DJF&#39;, 2: &#39;MAM&#39;, 3:&#39;JJA&#39;, 4:&#39;SON&#39;})
+
+<span class="n">fig</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span>  <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">season</span> <span class="o">=</span> <span class="s1">&#39;MAM&#39;</span>
+<span class="n">df_season</span> <span class="o">=</span>  <span class="n">df_daily</span><span class="p">[</span><span class="n">df_daily</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">season</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FCEV</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">season</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FCTR</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Transpiration [Wm-2]&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FGEV</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span><span class="s1">&#39;#2ca02c&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ground Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+
+<span class="n">season</span> <span class="o">=</span> <span class="s1">&#39;JJA&#39;</span>
+<span class="n">df_season</span> <span class="o">=</span>  <span class="n">df_daily</span><span class="p">[</span><span class="n">df_daily</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">season</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FCEV</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">season</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FCTR</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Transpiration [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FGEV</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span><span class="s1">&#39;#2ca02c&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ground Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+
+<span class="n">season</span> <span class="o">=</span> <span class="s1">&#39;SON&#39;</span>
+<span class="n">df_season</span> <span class="o">=</span>  <span class="n">df_daily</span><span class="p">[</span><span class="n">df_daily</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">season</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FCEV</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">season</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FCTR</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat[Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Transpiration [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FGEV</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span><span class="s1">&#39;#2ca02c&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ground Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">season</span> <span class="o">=</span> <span class="s1">&#39;DJF&#39;</span>
+<span class="n">df_season</span> <span class="o">=</span>  <span class="n">df_daily</span><span class="p">[</span><span class="n">df_daily</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">season</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FCEV</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">season</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FCTR</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Canopy Transpiration [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">detailed_scatter</span> <span class="p">(</span><span class="n">df_season</span><span class="o">.</span><span class="n">sim_FGEV</span><span class="p">,</span> <span class="n">df_season</span><span class="o">.</span><span class="n">sim_EFLX_LH_TOT</span><span class="p">,</span> <span class="s1">&#39;#2ca02c&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat [Wm-2]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ground Evaporation [Wm-2]&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span> <span class="s2">&quot; Seasonal Scatter Plots&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="average-diel-cycle">
+<h3>3.2.5 Average Diel Cycle<a class="headerlink" href="#average-diel-cycle" title="Permalink to this heading">#</a></h3>
+<p>Latent heat flux also changes throughout the day. Does CLM capture the diel cycle that NEON observes? We can compare the average diel cycle from NEON observations and CLM simulations to find out.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">time</span></code> variable in the data is in Greenwich Mean Time (GMT). In the below plots, we adjust for the timezone so that the data are centered on local noon.</p>
+<p><em>Run the cell below to convert to local time</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tzone_shift</span> <span class="o">=</span> <span class="n">ds_eval</span><span class="o">.</span><span class="n">TimeDiffUtcLt</span>
+<span class="c1">#convert to local time</span>
+<span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;local_time&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">tzone_shift</span><span class="p">))</span>
+
+<span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;local_hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;local_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Run the cells below to calculate the annual average diel cycle and to generate a plot</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate annual average diel cycle and bias</span>
+<span class="n">diel_df_mean</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;local_hour&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;numeric_only&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">diel_df_std</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;local_hour&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">diel_df_mean</span><span class="p">[</span><span class="s1">&#39;EFLX_LH_TOT_bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="s1">&#39;sim_EFLX_LH_TOT&#39;</span><span class="p">]</span><span class="o">-</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="s1">&#39;EFLX_LH_TOT&#39;</span><span class="p">]</span>
+<span class="n">diel_df_mean</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot annual average diel cycle and bias</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>  <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  
+        
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">diel_df_mean</span><span class="o">.</span><span class="n">local_hour</span><span class="p">,</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">plot_var</span><span class="p">],</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;NEON&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">diel_df_mean</span><span class="o">.</span><span class="n">local_hour</span><span class="p">,</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">sim_var</span><span class="p">],</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;CLM&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">diel_df_mean</span><span class="o">.</span><span class="n">local_hour</span><span class="p">,</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">plot_var</span><span class="p">]</span><span class="o">-</span><span class="n">diel_df_std</span><span class="p">[</span><span class="n">plot_var</span><span class="p">],</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">plot_var</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_std</span><span class="p">[</span><span class="n">plot_var</span><span class="p">]</span> <span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">diel_df_mean</span><span class="o">.</span><span class="n">local_hour</span><span class="p">,</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">sim_var</span><span class="p">]</span><span class="o">-</span><span class="n">diel_df_std</span><span class="p">[</span><span class="n">sim_var</span><span class="p">],</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">sim_var</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_std</span><span class="p">[</span><span class="n">sim_var</span><span class="p">]</span> <span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat Flux [Wm-2]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Diurnal Cycle of Latent Heat Flux &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">year</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>    
+<span class="n">diel_df_mean</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;local_hour&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;EFLX_LH_TOT_bias&#39;</span> <span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">ax</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bias&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hour&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Bias&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="how-do-transpiration-and-evaporation-components-of-latent-heat-flux-change-throughout-the-day">
+<h4>How do transpiration and evaporation components of latent heat flux change throughout the day?<a class="headerlink" href="#how-do-transpiration-and-evaporation-components-of-latent-heat-flux-change-throughout-the-day" title="Permalink to this heading">#</a></h4>
+<p>We can add a panel to the above plot that shows how CLM partitioned latent heat flux to find out.</p>
+<p><em>Run the cells below to add a panel to the plot</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Calculating diel cycle flux proportions</span>
+<span class="n">diel_df_mean</span><span class="p">[</span><span class="s1">&#39;sim_FCEV_perc&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR_perc&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV_perc&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_mean</span> <span class="p">[</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plotting diel cycl flux proportions</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">gridspec</span>
+
+<span class="n">fig</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> 
+
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">diel_df_mean</span><span class="o">.</span><span class="n">local_hour</span><span class="p">,</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="s1">&#39;EFLX_LH_TOT&#39;</span><span class="p">],</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;NEON&quot;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">diel_df_mean</span><span class="o">.</span><span class="n">local_hour</span><span class="p">,</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="s1">&#39;sim_EFLX_LH_TOT&#39;</span><span class="p">],</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;CLM&quot;</span><span class="p">)</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">diel_df_mean</span><span class="o">.</span><span class="n">local_hour</span><span class="p">,</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">plot_var</span><span class="p">]</span><span class="o">-</span><span class="n">diel_df_std</span><span class="p">[</span><span class="n">plot_var</span><span class="p">],</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">plot_var</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_std</span><span class="p">[</span><span class="n">plot_var</span><span class="p">]</span> <span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">diel_df_mean</span><span class="o">.</span><span class="n">local_hour</span><span class="p">,</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">sim_var</span><span class="p">]</span><span class="o">-</span><span class="n">diel_df_std</span><span class="p">[</span><span class="n">sim_var</span><span class="p">],</span> <span class="n">diel_df_mean</span><span class="p">[</span><span class="n">sim_var</span><span class="p">]</span><span class="o">+</span><span class="n">diel_df_std</span><span class="p">[</span><span class="n">sim_var</span><span class="p">]</span> <span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latent Heat Flux [Wm-2]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Diurnal Cycle of Latent Heat Flux &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">year</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">diel_df_mean</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;local_hour&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;EFLX_LH_TOT_bias&#39;</span> <span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">ax1</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bias&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Bias&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">diel_df_mean</span><span class="p">[[</span><span class="s1">&#39;local_hour&#39;</span><span class="p">,</span><span class="s1">&#39;sim_FCEV&#39;</span><span class="p">,</span><span class="s1">&#39;sim_FCTR&#39;</span><span class="p">,</span><span class="s1">&#39;sim_FGEV&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span> <span class="p">(</span> <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;local_hour&#39;</span><span class="p">,</span><span class="n">stacked</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%La</span><span class="s1">tent Heat Components&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hour&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-success">
+<strong>Congratulations!</strong> 
+<p>You have:</p>
+<ol class="arabic simple">
+<li><p>Accessed the CTSM model data</p></li>
+<li><p>Accessed the NEON observational data</p></li>
+<li><p>Evaluated CTSM latent heat fluxes compared to NEON tower observations</p></li>
+<li><p>Determined when transpiration and evaporation fluxes drive latent heat fluxes</p></li>
+<li><p>Learned how to average over different time periods and create different types of plots</p></li>
+</ol>
+</div>
+<p>You can also use this script to explore additional CLM and NEON data by changing the variables in section 3 of this script.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/SinglePoint/GettingStarted"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tutorial 2: <em>CTSM Evaluations at NEON Tower Sites</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial :</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-clm-model-data">1. Explore CLM model data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-model-data">1.1 Locate model data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-simulated-data">1.2 Explore Simulated Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-libraries">1.2.1 Load Python Libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-simulation-year">1.2.2 Select Simulation Year</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-model-data-files">1.2.3 Load model data files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-model-data-files">1.2.4 Open model data files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-step-explore-dataset-from-simulations">1.2.5 Optional Step: Explore dataset from simulations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-neon-tower-observation-data">2. Explore NEON Tower Observation Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-neon-data">2.1 Download NEON data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-neon-data">2.2 Load NEON data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-clm-and-neon-latent-heat-flux-data">3. Compare CLM and NEON latent heat flux data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-data">Format Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-latent-heat-flux">3.1 What is latent heat flux?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional">Optional:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-latent-heat-flux">3.2 Plotting latent heat flux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-timeseries">3.2.1 Daily Timeseries</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-simulations-and-observations-in-the-plot-similar"><strong>Are the simulations and observations in the plot similar?</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-to-consider"><strong>Questions to consider:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monthly-averages-component-fluxes-absolute-values">3.2.2 Monthly Averages &amp; Component Fluxes: Absolute Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#next-create-a-stacked-bar-chart-showing-components-of-simulated-latent-heat-flux-over-different-months">Next, create a stacked bar chart showing components of simulated latent heat flux over different months</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Questions to consider:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monthly-averages-component-fluxes-proportional-contributions">3.2.3 Monthly Averages &amp; Component Fluxes: Proportional Contributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-and-seasonal-correlations">3.2.4 Annual and Seasonal Correlations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-diel-cycle">3.2.5 Average Diel Cycle</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-transpiration-and-evaporation-components-of-latent-heat-flux-change-throughout-the-day">How do transpiration and evaporation components of latent heat flux change throughout the day?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

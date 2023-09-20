@@ -1,0 +1,1144 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Tutorial 1b: Global Visualizations &#8212; CTSM Mini-tutorial 2022</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Global/2_GlobalVisualization';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/ncar_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/ncar_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NCAR/CTSM-Tutorial-2022/master?urlpath=tree/docs/notebooks/Global/2_GlobalVisualization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/edit/master/docs/notebooks/Global/2_GlobalVisualization.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Global/2_GlobalVisualization.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/Global/2_GlobalVisualization.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tutorial 1b: Global Visualizations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-formatting-data">1. Reading and formatting data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-the-data">1.1 Point to the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-files-load-variables">1.2 Open files &amp; load variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-information-about-the-dataset-is-helpful-for-understanding-your-data">Printing information about the dataset is helpful for understanding your data.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">1.3 Combining datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-derived-variables-to-the-dataset">1.4 Adding derived variables to the dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">2. Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-plots-using-xarray">2.1 Easy plots using Xarray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-differences">2.2 Calculating differences</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-differences-coming-from-incoming-or-reflected-radiation">Are the differences coming from incoming or reflected radiation?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#is-exposed-leaf-area-index-elai-contributing-to-the-differences-in-albedo">Is exposed leaf area index (ELAI) contributing to the differences in albedo?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#most-of-the-differences-in-lai-seem-to-be-in-agricultural-regions">Most of the differences in LAI seem to be in agricultural regions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-time-series">2.3 Calculating Time Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-at-a-single-point">2.3.1 Time series at a single point</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#global-time-series">2.3.2 Global time series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-calculate-the-land-weights">First calculate the land weights:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#next-calculate-and-plot-a-global-weighted-sum">Next, calculate and plot a global weighted sum</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-an-annual-weighted-mean-and-create-customized-plots">2.4 Calculate an annual weighted mean and create customized plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-monthly-weights">2.4.1 Calculate monthly weights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#customized-maps">2.4.2 Customized maps</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-make-the-plot">Now make the plot!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit-challenge">Extra credit challenge</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-1b-global-visualizations">
+<h1>Tutorial 1b: <em>Global Visualizations</em><a class="headerlink" href="#tutorial-1b-global-visualizations" title="Permalink to this heading">#</a></h1>
+<p>This tutorial is an introduction to analyzing results from a global simulation.  It uses results from the case you ran in the 1a Tutorial, <code class="docutils literal notranslate"><span class="pre">Global_Simulations</span></code>, but you don’t have to wait for those runs to complete before doing this tutorial too. We’ve prestaged model results from this simulation and another simulation using a different model configuration in a shared directory. This way, you can get started on analyzing simulations results before your simulations finish running and compare differences caused by model structure.</p>
+<section id="in-this-tutorial">
+<h2>In this tutorial<a class="headerlink" href="#in-this-tutorial" title="Permalink to this heading">#</a></h2>
+<p>The tutorial has several objectives:</p>
+<ol class="arabic simple">
+<li><p>Become familiar with Jupyter Notebooks</p></li>
+<li><p>Begin getting acquainted with python packages and their utilities</p></li>
+<li><p>Compare results from two simulations, here CLM5.1-SP and CLM5.1_FATES-SP</p></li>
+</ol>
+<hr class="docutils" />
+<div class="alert alert-block alert-info">
+<b>NOTE:</b> In this tutorial, you can directly execute the contents of code blocks by running individual cells in this Jupyter notebook, similar to the Day 0b <i>NEON_Simulation_Tutorial</i> tutorial.
+</div>
+<hr class="docutils" />
+<p>First we’ll have a look at the data,</p>
+<ul class="simple">
+<li><p>these were prestaged for your use in the tutorial, but should be idential to the FATESsp case you just ran</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls<span class="w"> </span>/scratch/data/day1/I2000_CTSM_FATESsp/lnd/hist/<span class="w"> </span><span class="p">|</span>head<span class="w"> </span>-20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each line of the list above includes the file path (<code class="docutils literal notranslate"><span class="pre">/scratch/data/day1/I2000_CTSM_FATESsp/lnd/hist/</span></code>) and file name.</p>
+<ul class="simple">
+<li><p>The simulation you ran is really from an I2000 case, which means it just cycles over datm data from 1991-2000 with constant land cover, CO2, etc.</p></li>
+</ul>
+<p>These simulations generate one types of files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*h0*</span></code>: Variables that are averaged monthly. One file is available for every month of the simulation.</p></li>
+</ul>
+<hr class="docutils" />
+<p>The files are saved in netcdf format (denoted with the <code class="docutils literal notranslate"><span class="pre">.nc</span></code> file extension), a file format commonly used for storing large, multi-dimensional scientific variables.
+Netcdf files are platform independent and self-describing; each file includes metadata that describes the data, including: <strong>variables</strong>, <strong>dimensions</strong>, and <strong>attributes</strong>.</p>
+<p>The figure below provides a generic example of the data structure in a netcdf file. The dataset illustrated has two variables (temperature and pressure) that have three dimensions. Coordinate data (e.g., latitude, longitude, time) that describe the data are also included.</p>
+<p><em>Note that while each file for FATES-SP simulations has multiple variables. Within each <code class="docutils literal notranslate"><span class="pre">h0</span></code> file, most of the variables have three dimensions (lat x lon x time), while a few soil variables (e.g., moisture, temperature) have 4 dimensions (lat x lon x time x depth).</em></p>
+<p><img alt="Netcdf" src="https://xarray.pydata.org/en/stable/_images/dataset-diagram.png" /></p>
+<hr class="docutils" />
+<p>To dig deeper we’ll use this notebook and some phthon packages to look at the data and make some simple plots</p>
+<p><em>We’ll start by loading some packages</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># python packages</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># resources for plotting</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cftime</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>NOTE:</b>  This example largely uses features of xarray and
+matplotlib packages. We won’t go into the basics
+of python or features included in these packages, but there are lots of
+resources to help get you started. Some of these are listed below.</p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ncar.github.io/python-tutorial/tutorials/yourfirst.html">NCAR python tutorial</a>, which introduces python, the conda package manager, and more on github.</p></li>
+<li><p><a class="reference external" href="https://ncar.github.io/esds/blog/tag/python-tutorial-series/">NCAR ESDS tutorial series</a>, features several recorded tutorials on a wide variety of topics.</p></li>
+<li><p><a class="reference external" href="https://projectpythia.org/">Project Pythia</a> links to lots of great resources!</p></li>
+<li><p><a class="reference external" href="https://geocat-examples.readthedocs.io/en/latest/">GeoCAT examples</a>, with some nice plotting examples</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reading-and-formatting-data">
+<h2>1. Reading and formatting data<a class="headerlink" href="#reading-and-formatting-data" title="Permalink to this heading">#</a></h2>
+<section id="point-to-the-data">
+<h3>1.1 Point to the data<a class="headerlink" href="#point-to-the-data" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/scratch/data/day1/&#39;</span>                     <span class="c1"># path to archived simulations</span>
+<span class="n">cases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I2000_CTSM51_sp&#39;</span><span class="p">,</span><span class="s1">&#39;I2000_CTSM_FATESsp&#39;</span><span class="p">]</span> <span class="c1"># case names</span>
+<span class="n">years</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span><span class="mi">2020</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>                 <span class="c1"># look at the last 5 years of data</span>
+
+<span class="c1"># create a list of the files we&#39;ll open</span>
+<span class="c1"># for now we&#39;ll create two different lists of files, one for each simulation that we&#39;ll compare </span>
+<span class="n">finCTSM</span>  <span class="o">=</span> <span class="p">[</span><span class="n">path</span><span class="o">+</span><span class="n">cases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/lnd/hist/&#39;</span><span class="o">+</span><span class="n">cases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.clm2.h0.&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;*&#39;</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">]</span> 
+<span class="n">finFATES</span> <span class="o">=</span> <span class="p">[</span><span class="n">path</span><span class="o">+</span><span class="n">cases</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/lnd/hist/&#39;</span><span class="o">+</span><span class="n">cases</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.clm2.h0.&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;*&#39;</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">]</span> 
+
+<span class="c1"># print the last year of data loaded</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">finCTSM</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">finFATES</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>NOTE:</b> These are the raw history files that CTSM writes out.  
+By default, they include grid cell averaged monthly means for different state and flux variables.
+<br><br>
+Typically we post-process these data to generate single variable time series for an experiment. 
+This means that the full time series of model output for each variable, like rain, air temperature, or latent heat flux, are each in their own file.
+A post-processing tutorial will be available at a later date, but for now we'll just read in the monthly history files described above.
+</div></section>
+<section id="open-files-load-variables">
+<h3>1.2 Open files &amp; load variables<a class="headerlink" href="#open-files-load-variables" title="Permalink to this heading">#</a></h3>
+<p>This is done with the xarray function <code class="docutils literal notranslate"><span class="pre">open_mfdataset</span></code></p>
+<p>To make this go faster, we’re going to preprocess the data so we’re just reading the variables we want to look at.</p>
+<div class="alert alert-block alert-info">
+    <b>TIP:</b> If you want to look at other variables, the <b>fields</b> variable in the cell below is where you can modify what we're reading off of the CTSM and CTSM-FATES history files.
+</div>
+<p>Depending on what you’re looking at, these variables of interest may have different names in CTSM and CTSM-FATES simulations.  While this is confusing, FATES-specific variables all have a <em>FATES_</em> prefix. This reflects if the history variables are being calculated by FATES directly, or uses information from FATES, but ultimately calculated by the host land model (here CTSM).</p>
+<p>To begin with we’ll look at albedo that’s simulated by the two models.
+Albedo and can be calculated in several different ways, but the calculations use solar radiation terms that are handled within CTSM.
+Here we’ll look at ‘all sky albedo’, which is the ratio of reflected to incoming solar radiation (<strong>FSR/FSDS</strong>).
+Other intereresting variables might include latent heat flux or gross primary productivity.
+<strong>Note,</strong> we also include information about grid cell areas, as it’s helpful for calculating globally weighted results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notes in your code are helpful to understand what&#39;s going on</span>
+
+<span class="c1"># Define the variables to read in</span>
+<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FSR&#39;</span><span class="p">,</span><span class="s1">&#39;FSDS&#39;</span><span class="p">,</span> <span class="s1">&#39;ELAI&#39;</span><span class="p">,</span><span class="s1">&#39;area&#39;</span><span class="p">,</span><span class="s1">&#39;landfrac&#39;</span><span class="p">]</span>
+
+<span class="c1"># Create some functions that help read in the data</span>
+<span class="sd">&#39;&#39;&#39; quick fix to adjust time vector for monthly data&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">fix_time</span><span class="p">(</span><span class="n">ds</span><span class="p">):</span>  
+    <span class="n">nmonths</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">yr0</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;time.year&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">cftime_range</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">yr0</span><span class="p">),</span><span class="n">periods</span><span class="o">=</span><span class="n">nmonths</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;MS&#39;</span><span class="p">)</span>    
+
+    <span class="k">return</span> <span class="n">ds</span>
+
+<span class="sd">&#39;&#39;&#39;select the variables we want to read in&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ds</span><span class="p">[</span><span class="n">fields</span><span class="p">]</span>
+
+<span class="c1"># Open the datasets. Here we&#39;ll just read in a single year of data</span>
+<span class="n">dsCTSM</span> <span class="o">=</span> <span class="n">fix_time</span><span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">finCTSM</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                                    <span class="n">preprocess</span><span class="o">=</span><span class="n">preprocess</span><span class="p">))</span>
+
+
+<span class="c1"># Define the variables to read in HINT, this may be useful for the extra cridit</span>
+<span class="c1"># fields = [&#39;FSR&#39;,&#39;FSDS&#39;, &#39;ELAI&#39;,&#39;area&#39;,&#39;landfrac&#39;]</span>
+<span class="c1"># def preprocess(ds, fields=fields):</span>
+<span class="c1">#    return ds[fields]</span>
+<span class="n">dsFATES</span> <span class="o">=</span> <span class="n">fix_time</span><span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">finFATES</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                                     <span class="n">preprocess</span><span class="o">=</span><span class="n">preprocess</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-- your data have been read in --&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="printing-information-about-the-dataset-is-helpful-for-understanding-your-data">
+<h4>Printing information about the dataset is helpful for understanding your data.<a class="headerlink" href="#printing-information-about-the-dataset-is-helpful-for-understanding-your-data" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><em>What dimensions do your data have?</em></p></li>
+<li><p><em>What are the coordinate variables?</em></p></li>
+<li><p><em>What variables are we looking at?</em></p></li>
+<li><p><em>Is there other helpful information, or are there attributes in the dataset we should be aware of?</em></p></li>
+</ul>
+<p>Keep in mind that we only read a single year of data, so the time dimension is in months.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print information about the dataset</span>
+<span class="n">dsFATES</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also print information about the variables in your dataset. The example below prints information about one of the data variables we read in. You can modify this cell to look at some of the other variables in the dataset.</p>
+<p><em>What are the units, long name, and dimensions of your data?</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsFATES</span><span class="o">.</span><span class="n">FSDS</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="combining-datasets">
+<h3>1.3 Combining datasets<a class="headerlink" href="#combining-datasets" title="Permalink to this heading">#</a></h3>
+<p>Since our CTSM-FATESsp and CTSM5.1-SP <strong>have the same variables</strong>, we can:</p>
+<ol class="arabic simple">
+<li><p>Combine them into a single dataset using the xarray function <code class="docutils literal notranslate"><span class="pre">concat</span></code></p></li>
+<li><p>Assign coordinates to the ‘sim’ dimension to allow sorting by simulation case</p></li>
+</ol>
+<p><em>Note that our new dataset is called</em> <code class="docutils literal notranslate"><span class="pre">ds</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dsCTSM</span><span class="p">,</span><span class="n">dsFATES</span><span class="p">],</span> <span class="s1">&#39;sim&#39;</span><span class="p">,</span> <span class="n">data_vars</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">sim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;sim&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;CTSM5.1-sp&#39;</span><span class="p">,</span><span class="s1">&#39;CTSM-FATESsp&#39;</span><span class="p">]))</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">FSDS</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-derived-variables-to-the-dataset">
+<h3>1.4 Adding derived variables to the dataset<a class="headerlink" href="#adding-derived-variables-to-the-dataset" title="Permalink to this heading">#</a></h3>
+<p>Next we can calculate the all sky albedo (ASA). Remember from above that this is the ratio of reflected to incoming solar radiation (<strong>FSR/FSDS</strong>).
+We will add this as a new variable in the dataset and add appropriate metadata.</p>
+<p><em>When doing calculations, it is important to avoid dividing by zero. Use the <code class="docutils literal notranslate"><span class="pre">.where</span></code> function for this purpose</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;ASA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">FSR</span><span class="o">/</span><span class="n">ds</span><span class="o">.</span><span class="n">FSDS</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">FSDS</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;ASA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;unitless&#39;</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;ASA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;All sky albedo&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="plotting">
+<h2>2. Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h2>
+<section id="easy-plots-using-xarray">
+<h3>2.1 Easy plots using Xarray<a class="headerlink" href="#easy-plots-using-xarray" title="Permalink to this heading">#</a></h3>
+<p>To get a first look at the data, we can plot a month of data from the two simulations, selecing the month using the <code class="docutils literal notranslate"><span class="pre">.isel</span></code> function.</p>
+<div class="alert alert-block alert-info">
+    <b>NOTE:</b> The plotting function only works with 1D or 2D data. Our data are 4D (sim, time, lat, lon), so we need to specify a specific value for the other variables. Below, we select a specific time using the <i>isel</i> and specify that we want to plot both simulations as panels using <i>col="sim"</i>, leaving the lat and lon dimensions to plot on the x and y axes.
+</div>
+<ul class="simple">
+<li><p>We will plot all sky albedo (variable = <code class="docutils literal notranslate"><span class="pre">ASA</span></code>). Note that we select the variable by specifying our dataset, <code class="docutils literal notranslate"><span class="pre">ds</span></code>, and the variable.</p></li>
+<li><p>The plot is for the month of June (<code class="docutils literal notranslate"><span class="pre">time=6</span></code>)</p></li>
+<li><p>This plotting function will plot <code class="docutils literal notranslate"><span class="pre">ASA</span></code> for each simulation in our dataset</p></li>
+</ul>
+<p><em>More plotting examples are on the <a class="reference external" href="https://docs.xarray.dev/en/latest/user-guide/plotting.html">xarray web site</a></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">ASA</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;sim&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also plot every month from the year of data we read from the files. Here we do that for a single simulation, specified by <code class="docutils literal notranslate"><span class="pre">(sim=0)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">ASA</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">sim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question:</strong>
+Why don’t you see the whole globe in some months?</p>
+</section>
+<section id="calculating-differences">
+<h3>2.2 Calculating differences<a class="headerlink" href="#calculating-differences" title="Permalink to this heading">#</a></h3>
+<p>In the previous section, it was difficult to see albedo differences between the simulations in side-by-side comparisons. We can calculate the differences between the simulations to more clearly see the differences and to understand how model structure, specifically the difference between CLM-FATESsp and CLM5.1sp, changes simulated albedo. The below code:</p>
+<ul class="simple">
+<li><p>Subtracts CLM5.1sp from CLM-FATESsp</p></li>
+<li><p>Defines the difference as a new variable, <code class="docutils literal notranslate"><span class="pre">dsDiff</span></code></p></li>
+</ul>
+<p>We’ll first plot maps of the difference in all sky albedo for each month</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsDiff</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">sim</span><span class="o">=</span><span class="s1">&#39;CTSM-FATESsp&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">sim</span><span class="o">=</span><span class="s1">&#39;CTSM5.1-sp&#39;</span><span class="p">)</span>
+<span class="n">dsDiff</span><span class="o">.</span><span class="n">ASA</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="p">;</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions:</strong></p>
+<ul class="simple">
+<li><p>How is albedo different in CTSM-FATESsp and CTSM5.1-sp?</p></li>
+<li><p>Where are the differences the largest?</p></li>
+<li><p>Are the differences consistent throughout the year?</p></li>
+<li><p>Since these simulations have the same climate and LAI, what’s driving the differences in albedo in different regions?</p></li>
+</ul>
+<p><strong>What’s causing these differences in SP mode?</strong></p>
+<ul class="simple">
+<li><p>CTSM and FATES use different radiation schemes (2-stream vs. Norman, respectively).</p></li>
+<li><p>FATES doesn’t simulate canopy interception of snow, leading to differences in the northern hemisphere in the winter.</p></li>
+<li><p>These differences are being actively investigated, you can see the conversation on <a class="reference external" href="https://github.com/NGEET/fates/issues/837">this FATES issue</a>.</p></li>
+</ul>
+<div class="alert alert-block alert-info">
+<b>ISSUES:</b> CTSM and FATES model developers use GitHub issues to identify bugs, make model improvements, and track code developments.  You can watch these conversations, contribute to onging discussions, or create new issues when you find a problem with the model.
+</div>
+<section id="are-the-differences-coming-from-incoming-or-reflected-radiation">
+<h4>Are the differences coming from incoming or reflected radiation?<a class="headerlink" href="#are-the-differences-coming-from-incoming-or-reflected-radiation" title="Permalink to this heading">#</a></h4>
+<p>To find out, we can plot each variable. First we will plot incoming radiation (the denominator in all-sky albedo).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsDiff</span><span class="o">.</span><span class="n">FSDS</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">vmin</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions:</strong></p>
+<ul class="simple">
+<li><p>Do you see any dfferences?</p></li>
+<li><p>Try plotting reflected radiation (the numerator, FSR). What differences do you see?</p></li>
+</ul>
+<p><em>Note that you might want to change the minimun (<code class="docutils literal notranslate"><span class="pre">vmin</span></code>) and maximum (<code class="docutils literal notranslate"><span class="pre">vmax</span></code>) colorbar values for the plot when you switch between variables</em></p>
+</section>
+<section id="is-exposed-leaf-area-index-elai-contributing-to-the-differences-in-albedo">
+<h4>Is exposed leaf area index (ELAI) contributing to the differences in albedo?<a class="headerlink" href="#is-exposed-leaf-area-index-elai-contributing-to-the-differences-in-albedo" title="Permalink to this heading">#</a></h4>
+<p>Plot the differences in ELAI below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsDiff</span><span class="o">.</span><span class="n">ELAI</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions:</strong></p>
+<ul class="simple">
+<li><p>What regions are LAI differences the greatest?</p></li>
+<li><p>What times of year is this true?</p></li>
+<li><p>Are the regions and times of largest differences the same as the differences in albedo?</p></li>
+</ul>
+</section>
+</section>
+<section id="most-of-the-differences-in-lai-seem-to-be-in-agricultural-regions">
+<h3>Most of the differences in LAI seem to be in agricultural regions.<a class="headerlink" href="#most-of-the-differences-in-lai-seem-to-be-in-agricultural-regions" title="Permalink to this heading">#</a></h3>
+<p>Presently, FATESsp doesn’t account for crop areas, which give it a lower LAI in places that have a large fraction of agricultural lands, especially during the growing season. This points to bigger challenges in how CTSM-FATES need to deal with crops, but it’s something the CTSM and FATES teams are working on.</p>
+</section>
+<section id="calculating-time-series">
+<h3>2.3 Calculating Time Series<a class="headerlink" href="#calculating-time-series" title="Permalink to this heading">#</a></h3>
+<p>As above, the plotting function we use here requires data to be 1D or 2D. Therefore, to plot a time series we either need to select a single point or average over an area.</p>
+<section id="time-series-at-a-single-point">
+<h4>2.3.1 Time series at a single point<a class="headerlink" href="#time-series-at-a-single-point" title="Permalink to this heading">#</a></h4>
+<p>This example uses <code class="docutils literal notranslate"><span class="pre">.sel</span></code>, which functions similarly to the <code class="docutils literal notranslate"><span class="pre">.isel</span></code> function above, to select a single point in the Amazon.</p>
+<p><em>What’s the difference between <code class="docutils literal notranslate"><span class="pre">.sel</span></code> and <code class="docutils literal notranslate"><span class="pre">.isel</span></code>?</em></p>
+<ul class="simple">
+<li><p><em><code class="docutils literal notranslate"><span class="pre">.sel</span></code> selects a value of a variable (e.g., latitude of -5)</em></p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">.isel</span></code> selects an indexed point of a variable (e.g., the 6th point in the data vector)</em></p></li>
+</ul>
+<p>In the below examples, we’ll also use subplots to see multiple variables in several panels</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="n">point</span><span class="o">.</span><span class="n">ASA</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similar to the maps above, there are differences in albedo between the simulations at this location. Let’s add other variables to explore why we see differences at this location.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="sd">&#39;&#39;&#39;this first plot is the same as the one above&#39;&#39;&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="n">point</span><span class="o">.</span><span class="n">ASA</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;now we&#39;ll look for potential sources of the difference&#39;&#39;&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+<span class="n">point</span><span class="o">.</span><span class="n">ELAI</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+<span class="n">point</span><span class="o">.</span><span class="n">FSDS</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+<span class="n">point</span><span class="o">.</span><span class="n">FSR</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions:</strong></p>
+<ul class="simple">
+<li><p>What variables show differences?</p></li>
+<li><p>What variables are similar?</p></li>
+<li><p>How do the differences and similarities help to explain the differences in albedo?</p></li>
+</ul>
+</section>
+<section id="global-time-series">
+<h4>2.3.2 Global time series<a class="headerlink" href="#global-time-series" title="Permalink to this heading">#</a></h4>
+<p>There are many reasons why we may want to calculate globally integrated time series for particular variables.
+This requires weighting the values from each grid cell by the total land area of individual grid cells. The example below does this for our dataset.</p>
+</section>
+<section id="first-calculate-the-land-weights">
+<h4>First calculate the land weights:<a class="headerlink" href="#first-calculate-the-land-weights" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>land area <code class="docutils literal notranslate"><span class="pre">la</span></code> that is the product of land fraction (fraction of land area in each grid cell) and the total area of the grid cell (which changes by latitude). Units are the same as area.</p></li>
+<li><p>land weights <code class="docutils literal notranslate"><span class="pre">lw</span></code>, the fractional weight that each grid makes to the global total, is calculated as the land area of each grid cell divided by the global sum of the land area.</p></li>
+</ul>
+<p>The land weights are shown in the plot below. Note that these are larger near the equator, and smaller at the poles and along the coastline</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">la</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">landfrac</span><span class="o">*</span><span class="n">ds</span><span class="o">.</span><span class="n">area</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;sim&#39;</span><span class="p">])</span> 
+<span class="n">la</span> <span class="o">=</span> <span class="n">la</span> <span class="o">*</span> <span class="mf">1e6</span>  <span class="c1">#converts from land area from km2 to m2 </span>
+<span class="n">la</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;m^2&#39;</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="n">la</span><span class="o">/</span><span class="n">la</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">lw</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="next-calculate-and-plot-a-global-weighted-sum">
+<h4>Next, calculate and plot a global weighted sum<a class="headerlink" href="#next-calculate-and-plot-a-global-weighted-sum" title="Permalink to this heading">#</a></h4>
+<div class="alert alert-block alert-info">
+<p><b>NOTE:</b>  You will likely want to calculate global weighted sum for a variety of different variables. For variables that have area-based units (e.g. GPP, gC/<b>m^2</b>/s), you need to use the land area variable when calculating a global sum. <b> Remember to pay attention to the units and apply any necessary conversions!</b> Keep in mind that grid cell area is reported in km^2.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsGlobalWgt</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds</span> <span class="o">*</span> <span class="n">lw</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plotVars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ASA&#39;</span><span class="p">,</span><span class="s1">&#39;FSDS&#39;</span><span class="p">,</span><span class="s1">&#39;ELAI&#39;</span><span class="p">,</span><span class="s1">&#39;FSR&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">plotVars</span><span class="p">)):</span>
+    <span class="c1"># First add metadata for plotting</span>
+    <span class="n">dsGlobalWgt</span><span class="p">[</span><span class="n">plotVars</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">plotVars</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span>
+    <span class="n">dsGlobalWgt</span><span class="p">[</span><span class="n">plotVars</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">plotVars</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span>
+
+    <span class="c1"># then make plots</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">dsGlobalWgt</span><span class="p">[</span><span class="n">plotVars</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Weighted global sum&#39;</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+        
+    <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="calculate-an-annual-weighted-mean-and-create-customized-plots">
+<h3>2.4 Calculate an annual weighted mean and create customized plots<a class="headerlink" href="#calculate-an-annual-weighted-mean-and-create-customized-plots" title="Permalink to this heading">#</a></h3>
+<p>Annual averages require a different kind of weighting: the number of days per month.
+This example creates python functions that allow you to easily calculate annual averages and create customized plots.</p>
+<div class="alert alert-block alert-info">
+<p><b>Python functions:</b> In python, creating a function allows us to use the same calculation numerous times instead of writing the same code repeatedly.</p>
+</div>
+<section id="calculate-monthly-weights">
+<h4>2.4.1 Calculate monthly weights<a class="headerlink" href="#calculate-monthly-weights" title="Permalink to this heading">#</a></h4>
+<p>The below code creates a function <code class="docutils literal notranslate"><span class="pre">weighted_annual_mean</span></code> to calculate monthly weights. Use this function any time you want to calculate weighted annual means.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a function that will calculate an annual mean weighted by days per month</span>
+<span class="k">def</span> <span class="nf">weighted_annual_mean</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">mon_day</span>  <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">31</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">]),</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">])</span>
+    <span class="n">mon_wgt</span>  <span class="o">=</span> <span class="n">mon_day</span><span class="o">/</span><span class="n">mon_day</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># rolling</span>
+            <span class="o">.</span><span class="n">construct</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">)</span> <span class="c1"># construct the array</span>
+            <span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span> <span class="c1"># slice so that the first element is [1..12], second is [13..24]</span>
+            <span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mon_wgt</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]))</span>
+
+<span class="c1"># generate annual means</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">plotVars</span><span class="p">)):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">weighted_annual_mean</span><span class="p">(</span>
+        <span class="n">ds</span><span class="p">[</span><span class="n">plotVars</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}))</span>
+    
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">dsAnn</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">plotVars</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dsAnn</span><span class="p">[</span><span class="n">plotVars</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">temp</span>
+
+<span class="c1"># Make a simple plot</span>
+<span class="n">dsAnn</span><span class="o">.</span><span class="n">ELAI</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span>
+               <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="customized-maps">
+<h4>2.4.2 Customized maps<a class="headerlink" href="#customized-maps" title="Permalink to this heading">#</a></h4>
+<p>Creating a function isn’t necessary to plot maps, but this function, which uses python’s <code class="docutils literal notranslate"><span class="pre">cartopy</span></code>, allows you to make several pretty maps in one figure.</p>
+<p>Additional examples and information are available on the <a class="reference external" href="https://scitools.org.uk/cartopy/docs/v0.15/index.html">cartopy website</a></p>
+<p>There are two code blocks below. The first block of code defines the function. The second code block creates the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
+<span class="kn">from</span> <span class="nn">cartopy.util</span> <span class="kn">import</span> <span class="n">add_cyclic_point</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="c1"># Generate a function for making panel plots of maps</span>
+<span class="c1">## many of these features are not required, but provide additional control over plotting</span>
+<span class="k">def</span> <span class="nf">map_function</span><span class="p">(</span><span class="n">da</span><span class="p">,</span> <span class="n">cb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">panel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">nbins</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;a function to make one subplot&#39;&#39;&#39;</span>
+    <span class="n">wrap_data</span><span class="p">,</span> <span class="n">wrap_lon</span> <span class="o">=</span> <span class="n">add_cyclic_point</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">coord</span><span class="o">=</span><span class="n">da</span><span class="o">.</span><span class="n">lon</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+    <span class="c1"># define the colormap, including the number of bins</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span><span class="n">nbins</span><span class="p">))</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">wrap_lon</span><span class="p">,</span><span class="n">da</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">wrap_data</span><span class="p">,</span>
+                   <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+                   <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+
+    <span class="c1"># set the bounds of your plot</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="o">-</span><span class="mi">56</span><span class="p">,</span><span class="mi">85</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+    <span class="c1"># add title &amp; panel labels</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>    
+
+    <span class="c1"># add plotting features</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+    <span class="n">ocean</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span>
+        <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s1">&#39;physical&#39;</span><span class="p">,</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span><span class="s1">&#39;110m&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">))</span>
+    
+    <span class="c1"># control colorbars on each plot &amp; their location</span>
+    <span class="k">if</span> <span class="n">cb</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">fraction</span> <span class="o">=</span> <span class="mf">0.03</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+        <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">units</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cb</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">fraction</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>    
+        <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">units</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="c1">#,weight=&#39;bold&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="now-make-the-plot">
+<h4>Now make the plot!<a class="headerlink" href="#now-make-the-plot" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                         <span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()))</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndenumerate</span><span class="p">(</span><span class="n">axes</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">plotData</span> <span class="o">=</span> <span class="n">dsAnn</span><span class="o">.</span><span class="n">ELAI</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">sim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">])</span>
+        <span class="n">map_function</span><span class="p">(</span><span class="n">plotData</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">cb</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                     <span class="n">panel</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">nbins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                     <span class="n">vmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                     <span class="n">units</span><span class="o">=</span><span class="s1">&#39;FATESsp, Annual ELAI&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">plotData</span> <span class="o">=</span> <span class="p">(</span><span class="n">dsAnn</span><span class="o">.</span><span class="n">ELAI</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">sim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span> \
+                    <span class="n">dsAnn</span><span class="o">.</span><span class="n">ELAI</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">sim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">map_function</span><span class="p">(</span><span class="n">plotData</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">cb</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">panel</span><span class="o">=</span><span class="s1">&#39;(b)&#39;</span><span class="p">,</span>
+                     <span class="n">units</span><span class="o">=</span><span class="s1">&#39;Differences FATESsp-CTSM5.1&#39;</span><span class="p">,</span>
+                     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span><span class="n">nbins</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+                     <span class="n">vmax</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span><span class="n">vmin</span><span class="o">=-</span><span class="mf">0.75</span><span class="p">)</span>    
+                     
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="extra-credit-challenge">
+<h2>Extra credit challenge<a class="headerlink" href="#extra-credit-challenge" title="Permalink to this heading">#</a></h2>
+<p>If you have extra time &amp; energy, try running through this notebook with other variables. Interesting options could include:</p>
+<ul class="simple">
+<li><p>Canopy evaporation (<code class="docutils literal notranslate"><span class="pre">FCEV</span></code>) or</p></li>
+<li><p>GPP (<code class="docutils literal notranslate"><span class="pre">FPSN</span></code> in CLM5.1-sp and <code class="docutils literal notranslate"><span class="pre">FATES_GPP</span></code> in FATES)</p></li>
+</ul>
+<div class="alert alert-block alert-warning">
+<p><b>HINT:</b> pay attention to units for these challenges.  Variables may also need to be renamed and units modified to combine datasets (i.e., the GPP challenge is harder!).</p>
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/Global"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-formatting-data">1. Reading and formatting data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-the-data">1.1 Point to the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-files-load-variables">1.2 Open files &amp; load variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-information-about-the-dataset-is-helpful-for-understanding-your-data">Printing information about the dataset is helpful for understanding your data.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">1.3 Combining datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-derived-variables-to-the-dataset">1.4 Adding derived variables to the dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">2. Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-plots-using-xarray">2.1 Easy plots using Xarray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-differences">2.2 Calculating differences</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#are-the-differences-coming-from-incoming-or-reflected-radiation">Are the differences coming from incoming or reflected radiation?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#is-exposed-leaf-area-index-elai-contributing-to-the-differences-in-albedo">Is exposed leaf area index (ELAI) contributing to the differences in albedo?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#most-of-the-differences-in-lai-seem-to-be-in-agricultural-regions">Most of the differences in LAI seem to be in agricultural regions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-time-series">2.3 Calculating Time Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-at-a-single-point">2.3.1 Time series at a single point</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#global-time-series">2.3.2 Global time series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-calculate-the-land-weights">First calculate the land weights:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#next-calculate-and-plot-a-global-weighted-sum">Next, calculate and plot a global weighted sum</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-an-annual-weighted-mean-and-create-customized-plots">2.4 Calculate an annual weighted mean and create customized plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-monthly-weights">2.4.1 Calculate monthly weights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#customized-maps">2.4.2 Customized maps</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-make-the-plot">Now make the plot!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit-challenge">Extra credit challenge</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

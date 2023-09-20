@@ -1,0 +1,1189 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Basic plotting &#8212; CTSM Mini-tutorial 2022</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/SinglePoint/ProjectExamples/Basic_CTSM-NEON_Plots';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/ncar_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/ncar_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NCAR/CTSM-Tutorial-2022/master?urlpath=tree/docs/notebooks/SinglePoint/ProjectExamples/Basic_CTSM-NEON_Plots.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/edit/master/docs/notebooks/SinglePoint/ProjectExamples/Basic_CTSM-NEON_Plots.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/SinglePoint/ProjectExamples/Basic_CTSM-NEON_Plots.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/notebooks/SinglePoint/ProjectExamples/Basic_CTSM-NEON_Plots.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Basic plotting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic plotting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-typical-plots-used-to-look-at-ctsm-variables">Examples of typical plots used to look at CTSM variables</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets">1. Load Datasets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-libraries">1.1 Load Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-history-files">1.2 Point to history files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-my-simulation-results">1.2.1 Where are my simulation results?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatively-we-have-all-these-cases-you-can-run">Alternatively, we have all these cases you can run</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-the-data-folder-with-history-files">1.2.2 Point to the data folder with history files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-functions-to-use-when-opening-the-data-files">1.2.3 Create functions to use when opening the data files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-all-the-files-we-re-going-to-open">1.2.4 List all the files we’re going to open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-data">1.2.5 Read in the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-quick-look-at-the-dataset">Take a quick look at the dataset.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-data-and-making-plots">2. Manipulating data and making plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-full-time-series">2.1 Plotting the full time series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-diel-cycle">2.2 Mean diel cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-mean-flux-calculations">2.3 Daily mean flux calculations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-climatology">2.4 Annual climatology</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#export-postprocessed-data">Export postprocessed data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-csv-file">Check the .csv file</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-plotting">
+<h1>Basic plotting<a class="headerlink" href="#basic-plotting" title="Permalink to this heading">#</a></h1>
+<section id="examples-of-typical-plots-used-to-look-at-ctsm-variables">
+<h2>Examples of typical plots used to look at CTSM variables<a class="headerlink" href="#examples-of-typical-plots-used-to-look-at-ctsm-variables" title="Permalink to this heading">#</a></h2>
+<p>This tutorial uses <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/terminology.html">xarray</a> and <a class="reference external" href="https://matplotlib.org/stable/index.html">matplotlib</a> to create several types of plots. You will find examples for how to:</p>
+<ol class="arabic simple">
+<li><p>Load datasets with xarray</p></li>
+<li><p>Manipulate data &amp; make plots for:</p></li>
+</ol>
+<blockquote>
+<div><p>2.1 Raw dataset; <br>
+2.2 Diel averages for given months of the year; <br>
+2.3 Daily and annual fluxes; and <br>
+2.4 Annual climatologies</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Export data to other file types (<em>e.g., .csv files</em>).</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>This tutorial uses a Jupyter Notebook.</strong>
+For more information on Jupyter notebooks please see the information in the Getting Started tutorials or visit the <a class="reference external" href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html">Jupyter Notebook Quick Start Guide</a>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="load-datasets">
+<h1>1. Load Datasets<a class="headerlink" href="#load-datasets" title="Permalink to this heading">#</a></h1>
+<section id="load-python-libraries">
+<h2>1.1 Load Python Libraries<a class="headerlink" href="#load-python-libraries" title="Permalink to this heading">#</a></h2>
+<p>It is necessary to start by loading in the libraries that will be used in the script. Note that this list is a good starting point for most of your plotting needs. Not all the libraries loaded here will be used in this tutorial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+
+<span class="kn">from</span> <span class="nn">neon_utils</span> <span class="kn">import</span> <span class="n">fix_time_h1</span>
+
+<span class="c1"># suppress Future Warnings that are annoying...</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;numpy &#39;</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="c1">##-- was working with 1.23.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pandas &#39;</span><span class="o">+</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="c1">##-- was working with 1.5.3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xarray &#39;</span><span class="o">+</span><span class="n">xr</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="c1">##-- was working with 2023.1.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="point-to-history-files">
+<h2>1.2 Point to history files<a class="headerlink" href="#point-to-history-files" title="Permalink to this heading">#</a></h2>
+<section id="where-are-my-simulation-results">
+<h3>1.2.1 Where are my simulation results?<a class="headerlink" href="#where-are-my-simulation-results" title="Permalink to this heading">#</a></h3>
+<p>When you run simulations, history files are all saved in the archive directory within your scratch directory. For the NEON simulations, this directory is <code class="docutils literal notranslate"><span class="pre">/scratch/NEON_cases/archive/</span></code>.</p>
+<p>We can print a list of the simulations in this directory. Because this is a python script and we want to use a <a class="reference external" href="https://opensource.com/resources/what-bash">bash</a> command, we have to use bash magic, <code class="docutils literal notranslate"><span class="pre">%%bash</span></code> or <code class="docutils literal notranslate"><span class="pre">!</span></code> which turns the python cell block below into a bash cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+ls ~/scratch/NEON_cases/archive/
+</pre></div>
+</div>
+</div>
+</div>
+<section id="alternatively-we-have-all-these-cases-you-can-run">
+<h4>Alternatively, we have all these cases you can run<a class="headerlink" href="#alternatively-we-have-all-these-cases-you-can-run" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+ls /scratch/data/NEONv2/hist/
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="point-to-the-data-folder-with-history-files">
+<h3>1.2.2 Point to the data folder with history files<a class="headerlink" href="#point-to-the-data-folder-with-history-files" title="Permalink to this heading">#</a></h3>
+<p><strong>The below code sets the following:</strong></p>
+<ul class="simple">
+<li><p>the NEON site;</p></li>
+<li><p>the path to the archive directory;</p></li>
+<li><p>and the subdirectory with data.</p></li>
+</ul>
+<p><strong>To Do:</strong>
+In the code below, change the name of the NEON site you simulated and want to create plots for</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neon_site</span> <span class="o">=</span> <span class="s1">&#39;KONZ&#39;</span>  <span class="c1">#NEON site we&#39;re going to look at</span>
+<span class="n">archive</span> <span class="o">=</span> <span class="s1">&#39;~/scratch/NEON_cases/archive&#39;</span> <span class="c1">#Path to archive directory</span>
+
+<span class="c1"># Alternatively, prestaged data from all NEON sites are here</span>
+<span class="c1"># archive = &#39;/scratch/data/NEONv2/hist/&#39;</span>
+
+<span class="c1"># this unpacks the and expands the shortcut we used above</span>
+<span class="n">archive</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">archive</span><span class="p">))</span> 
+
+<span class="c1"># Create a path to the data folder</span>
+<span class="n">data_folder</span> <span class="o">=</span> <span class="n">archive</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span><span class="s1">&#39;.transient/lnd/hist&#39;</span>
+<span class="n">data_folder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Is this the path for the simulated data, <code class="docutils literal notranslate"><span class="pre">data_folder</span></code>, correct?</strong>
+If not, you can set the <code class="docutils literal notranslate"><span class="pre">data_folder</span></code> variable manually.
+<br><em>HINT:</em> You can check in the terminal window or using bash magic.</p>
+</section>
+<hr class="docutils" />
+<section id="create-functions-to-use-when-opening-the-data-files">
+<h3>1.2.3 Create functions to use when opening the data files<a class="headerlink" href="#create-functions-to-use-when-opening-the-data-files" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">preprocess</span></code> reads in a subset of variables using an xarray function. This saves time and memory resources.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fix_time</span></code> adjusts a time offset that is a feature of the CTSM history files.
+<br><strong>A note about model timestamps:</strong> The CTSM history includes an initial 0th timestep for each model simulation. This offset in the time dimension can cause challenges when analyzing and evaluating model data if not treated properly.
+<br><em>Don’t worry too much about the details of these functions right now</em></p></li>
+</ol>
+<p><strong>To Do:</strong> You can change the ‘variables’ list below to add or remove variables that you are interested in plotting. Make sure to follow the same formatting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- read only these variables from the whole netcdf files</span>
+<span class="k">def</span> <span class="nf">preprocess</span> <span class="p">(</span><span class="n">ds</span><span class="p">):</span>
+    <span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FCEV&#39;</span><span class="p">,</span> <span class="s1">&#39;FCTR&#39;</span><span class="p">,</span> <span class="s1">&#39;FGEV&#39;</span><span class="p">,</span><span class="s1">&#39;FSH&#39;</span><span class="p">,</span><span class="s1">&#39;GPP&#39;</span><span class="p">,</span><span class="s1">&#39;FSA&#39;</span><span class="p">,</span><span class="s1">&#39;FIRA&#39;</span><span class="p">,</span><span class="s1">&#39;AR&#39;</span><span class="p">,</span><span class="s1">&#39;HR&#39;</span><span class="p">,</span><span class="s1">&#39;ELAI&#39;</span><span class="p">]</span>
+
+    <span class="n">ds_new</span><span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lndgrid</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_new</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have created the functions needed to manipulate our datasets</p>
+</section>
+<hr class="docutils" />
+<section id="list-all-the-files-we-re-going-to-open">
+<h3>1.2.4 List all the files we’re going to open<a class="headerlink" href="#list-all-the-files-we-re-going-to-open" title="Permalink to this heading">#</a></h3>
+<p>The the 30-minute, high frequency data (<strong>‘h1’ files</strong>) are written out every day for NEON simulations. CTSM typically saves files as monthly averages (the ‘h0’ files) and many more variables are available at this frequency.</p>
+<p>To open all of the <code class="docutils literal notranslate"><span class="pre">*h1*</span></code>files in our <code class="docutils literal notranslate"><span class="pre">data_folder</span></code>, we use the <code class="docutils literal notranslate"><span class="pre">glob</span></code> python function.</p>
+<p>You will notice that <strong>several python functions are combined in a single line of code</strong> that runs through a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop over defined simulation years (written as a list of strings).</p>
+<div class="alert alert-block alert-info">
+<b>Note</b> If you're new to python it's dense, but efficient. This code is borrowed from Negin Sobhani. Sharing code is really helpful!
+</div>
+<p><strong>To Do:</strong> You can change the years of data that you will read in below. Make sure that you do not add years where data are not available, though! You can check by listing the files in your <code class="docutils literal notranslate"><span class="pre">data_folder</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This list gives you control over the years of data to read in</span>
+<span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2018&quot;</span><span class="p">,</span><span class="s2">&quot;2019&quot;</span><span class="p">,</span><span class="s2">&quot;2020&quot;</span><span class="p">,</span><span class="s2">&quot;2021&quot;</span><span class="p">]</span>  
+
+<span class="c1"># Create an empty list of all the file names to extend</span>
+<span class="n">sim_files</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">:</span>
+    <span class="n">sim_files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span><span class="s2">&quot;*h1.&quot;</span><span class="o">+</span><span class="n">year</span><span class="o">+</span><span class="s2">&quot;*.nc&quot;</span><span class="p">))))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All simulation files for all years: [&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim_files</span><span class="p">),</span> <span class="s2">&quot;files]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sim_files</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many files are you going to read in?  What is the last day of the simulation you’ll be looking at?</p>
+</section>
+<hr class="docutils" />
+<section id="read-in-the-data">
+<h3>1.2.5 Read in the data<a class="headerlink" href="#read-in-the-data" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">.open_mfdataset</span></code> will open all of these data files and concatinate them into a single <strong>xarray dataset</strong>.</p>
+<p>There are lot of files so this can take a long time! Be patient, it will be done in &lt; 1 minute. This can be done more quickly with dask, which parallelizes python code, but we do not use that here.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">preprocess</span></code> will limit the number of variables we’re reading in. This is an xarray feature that helps save time (and memory resources).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fix_time_h1</span></code> corrects anoying features related to how CTSM history files handle time and is provided in <code class="docutils literal notranslate"><span class="pre">neon_utils.py</span></code>.
+<em>Don’t worry too much about the details of these functions right now</em></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;---------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Reading in data for &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="p">)</span>
+<span class="n">ds_ctsm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">sim_files</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">,</span><span class="n">preprocess</span><span class="o">=</span><span class="n">preprocess</span><span class="p">)</span>
+<span class="n">ds_ctsm</span> <span class="o">=</span> <span class="n">fix_time_h1</span> <span class="p">(</span><span class="n">ds_ctsm</span><span class="p">)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading all simulation files took:&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;s.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="take-a-quick-look-at-the-dataset">
+<h4>Take a quick look at the dataset.<a class="headerlink" href="#take-a-quick-look-at-the-dataset" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>What are your coodinate variables?</p></li>
+<li><p>How long is the time dimension?</p></li>
+<li><p>What variables are available to look at?</p></li>
+<li><p>What are the ‘long names’, or descriptions, of some of these variables? (HINT: try <code class="docutils literal notranslate"><span class="pre">ds_ctsm.GPP</span></code>)</p></li>
+<li><p>What other metadata are associated with this dataset?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_ctsm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="manipulating-data-and-making-plots">
+<h1>2. Manipulating data and making plots<a class="headerlink" href="#manipulating-data-and-making-plots" title="Permalink to this heading">#</a></h1>
+<p>The data frequency in the <strong>h1 files</strong> is 30 minutes. The below examples focus on different ways to average the time dimension of the data to visualize results.</p>
+<p>While several variables are read in, this example focuses on gross primary production (GPP). You can change the variable to look at other variables of intereset.</p>
+<hr class="docutils" />
+<section id="plotting-the-full-time-series">
+<h2>2.1 Plotting the full time series<a class="headerlink" href="#plotting-the-full-time-series" title="Permalink to this heading">#</a></h2>
+<p>It’s often helpful to visualize the raw data.
+This is quick and easy if you:</p>
+<ul class="simple">
+<li><p>point your dataset <code class="docutils literal notranslate"><span class="pre">ds_ctsm</span></code>,</p></li>
+<li><p>select a variable <code class="docutils literal notranslate"><span class="pre">GPP</span></code> and use</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.plot()</span></code> function that’s built into xarray.</p></li>
+</ul>
+<p>These three actions are combined in a single line of code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_ctsm</span><span class="o">.</span><span class="n">GPP</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When looking at this figure:</p>
+<ul class="simple">
+<li><p>Do you see clear peaks for each year’s growing season?</p></li>
+<li><p>What other trends are evident in the data?</p></li>
+<li><p>Are patterns similar for other variables?</p></li>
+</ul>
+<p>It can be challenging to interpret patterns and trends with this volume of data. Below are a few examples to summarize data in different ways</p>
+</section>
+<hr class="docutils" />
+<section id="mean-diel-cycle">
+<h2>2.2 Mean diel cycle<a class="headerlink" href="#mean-diel-cycle" title="Permalink to this heading">#</a></h2>
+<p>The high frequcncy data allows us to look at an average daily cycle of fluxes.</p>
+<p><strong>Let’s start by looking at just a few days of data.</strong></p>
+<p>We will subset the data by adding the following xarray features to our previous <code class="docutils literal notranslate"><span class="pre">ds_ctsm.GPP.plot()</span></code> command:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.isel</span></code> the <em>index select</em> on the coorinate variable, <em>time</em>, and:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice</span></code> which let’s us slice out a range of data, instead of a single time point.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the data range. Below selects a few days of July (Julian Day 181 to 185)</span>
+<span class="c1">#  at 30 minute frequency (this means 48 times recorded / day, which is why the Julian Day is multiplied by 48)</span>
+<span class="n">first_time</span> <span class="o">=</span> <span class="p">(</span><span class="mi">181</span><span class="o">*</span><span class="mi">48</span><span class="p">)</span>
+<span class="n">last_time</span> <span class="o">=</span> <span class="p">(</span><span class="mi">185</span><span class="o">*</span><span class="mi">48</span><span class="p">)</span>
+
+<span class="n">ds_ctsm</span><span class="o">.</span><span class="n">GPP</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">first_time</span><span class="p">,</span><span class="n">last_time</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>From this plot, you notice that at night GPP goes to zero.  That’s why there are zero values in the middle of summer!</em></p>
+<p><strong>You can also subset data to explore a single month.</strong></p>
+<p>Here, we look at data for all of July using the xarray <code class="docutils literal notranslate"><span class="pre">.where</span></code> function, which requires a:</p>
+<ul class="simple">
+<li><p>logical to evaluate. In the below example, this is when the time dimension equals our selected month; and</p></li>
+<li><p>‘dropping’, or not using, the remaining data where the logical is false (optional).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_month</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">month_GPP</span> <span class="o">=</span> <span class="n">ds_ctsm</span><span class="p">[</span><span class="s1">&#39;GPP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_ctsm</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">sel_month</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;month &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sel_month</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; has length = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">month_GPP</span><span class="o">.</span><span class="n">time</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Does the time dimension have the right length? (48 times/day * n days/month * n year of simulations)</p>
+<div class="alert alert-block alert-info">
+<b>Note</b> You can also do this other ways. For example, using the xarray select function `.sel` should produce idential results.
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">month_GPP</span> <span class="pre">=</span> <span class="pre">ds_ctsm.GPP.sel(time=ds_ctsm.time.dt.month.isin([sel_month]))</span></code></p>
+</div></blockquote>
+</div>
+<p><strong>Calculate at the average diel cycle for a month.</strong></p>
+<p>We can accomplish this using the:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.groupby</span></code> function for combined</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_time</span></code> variable (which is made by adding the hour to a decimal minute for each day) and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.plot</span></code>, which again gives us a quck look at an xarray data array.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month_GPP</span><span class="p">[</span><span class="s1">&#39;local_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">month_GPP</span><span class="p">[</span><span class="s2">&quot;time.hour&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">month_GPP</span><span class="p">[</span><span class="s2">&quot;time.minute&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">60</span>
+<span class="n">month_GPP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">month_GPP</span><span class="p">[</span><span class="s2">&quot;local_time&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>CTSM simulations are run with GMT, not local_time.</p>
+<p>We’ll shift these results here, centering to local noon for now.
+CPER is in the Mountain time zone (GMT-7), meaning we should:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.shift</span></code> -14 timesteps (one timestep = 30 minutes), repeating the</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.groupby</span></code> function on our <code class="docutils literal notranslate"><span class="pre">local_time</span> <span class="pre">variable</span></code>, and then taking the</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.mean</span></code> or <code class="docutils literal notranslate"><span class="pre">.std</span></code></p></li>
+</ul>
+<p>You can layer all these steps into a sigle line of code!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate mean and standard deviation </span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">month_GPP</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">14</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">month_GPP</span><span class="p">[</span><span class="s2">&quot;local_time&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">month_GPP</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">14</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">month_GPP</span><span class="p">[</span><span class="s2">&quot;local_time&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Now make the plots!</strong>
+Here we’ll switch to plotting with matplotlib, loaded as <code class="docutils literal notranslate"><span class="pre">plt</span></code> for convenience, which has intuitive functions like:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.plot</span></code>(x, y, …)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.fill_between</span></code>(x, y+z, y-z, …) and plot control of features like</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.xlabel</span></code>, <code class="docutils literal notranslate"><span class="pre">.ylabel</span></code>, <code class="docutils literal notranslate"><span class="pre">.title</span></code>, and <code class="docutils literal notranslate"><span class="pre">.grid</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mean</span><span class="p">[</span><span class="s1">&#39;local_time&#39;</span><span class="p">],</span> <span class="n">mean</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">mean</span><span class="p">[</span><span class="s1">&#39;local_time&#39;</span><span class="p">],</span> <span class="n">mean</span><span class="o">+</span><span class="n">std</span><span class="p">,</span><span class="n">mean</span><span class="o">-</span><span class="n">std</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;local_time (h)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">month_GPP</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; (&quot;</span><span class="o">+</span><span class="n">month_GPP</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot; diel mean, month=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sel_month</span><span class="p">),</span> 
+          <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>OK just for fun, lets go crazy by plotting mean diel cycles for each month of the year.</strong></p>
+<p>We can do this in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with just a few lines of code by layering multiple functions into each line.</p>
+<div class="alert alert-block alert-info">
+<b>Note:</b> conditionals in python use indent spacing to define what's happening inside the loop.  This helps make the code easier to read and write. See the example below.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
+    <span class="n">month_GPP</span> <span class="o">=</span> <span class="n">ds_ctsm</span><span class="o">.</span><span class="n">GPP</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">ds_ctsm</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">m</span><span class="p">]))</span>
+    <span class="n">month_GPP</span><span class="p">[</span><span class="s1">&#39;local_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">month_GPP</span><span class="p">[</span><span class="s2">&quot;time.hour&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">month_GPP</span><span class="p">[</span><span class="s2">&quot;time.minute&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">60</span>
+    <span class="n">month_GPP</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">14</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">month_GPP</span><span class="p">[</span><span class="s2">&quot;local_time&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+
+<span class="c1"># Note with newer versions of xarray this generates a &#39;FutureWarning&#39;, which is being suppressed</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot; diel mean&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;month&#39;</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Look at these results!</strong></p>
+<ul class="simple">
+<li><p>What months have the highest daily fluxes at this site?</p></li>
+<li><p>Why does the breadth of each curve change for different months?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="daily-mean-flux-calculations">
+<h2>2.3 Daily mean flux calculations<a class="headerlink" href="#daily-mean-flux-calculations" title="Permalink to this heading">#</a></h2>
+<p>The above examples have calculated the mean and not changed units (<em>currently gC/m^2/s</em>).  Since each day has the same number of timesteps (48) and we are plotting diel cycles, the averaging and native units work. However, it is helpful to consider how data are being grouped in other types of averages and whether you might need to adjust the units.  For example, you may want to calculate a weighted mean at times (e.g. each month has a different number of days) or change units to make them better reflect your calculations. <strong>You can think about this as you are working</strong> by printing the outputs of  calculations at the end of each code cell and thinking about their dimensions, attributes, etc.</p>
+<div class="alert alert-block alert-info">
+<b>Note:</b> Weighted averages and units changes can be calculated several ways. 
+<p>For example, you can use <code class="docutils literal notranslate"><span class="pre">.resample</span></code> or <code class="docutils literal notranslate"><span class="pre">.groupby</span></code> in xarray</p>
+<p>For one-dimensional variables it is more computationally efficient to use these functions in a pandas dataframe. For simplicity in this example, we will keep using xarray.</p>
+</div>
+<p>To calculate a daily mean we’ll focus on:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GPP</span></code> as the variable of interest</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">.resample</span></code> function in xarray, as this handles the time dimension most intuitively</p></li>
+<li><p>the daily time dimension, <code class="docutils literal notranslate"><span class="pre">time='D'</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#-- Calculate daily average for every day </span>
+<span class="n">daily_GPP</span> <span class="o">=</span> <span class="n">ds_ctsm</span><span class="o">.</span><span class="n">GPP</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">daily_GPP</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Take a look at your new data array:</strong></p>
+<ul class="simple">
+<li><p>Do the values of the time coordinate seem appropriate?</p></li>
+<li><p>Is the length of the time coordinate accurate?</p></li>
+</ul>
+<div class="alert alert-block alert-info">
+<b>Note:</b> Variable attributes were carried forward to this new xarray data array, but we can modify this to get more sensible results.
+</div>
+<p>Now we can modify the rate of the GPP fluxes from units of <em>per second</em> to units of <em>per day</em> and quickly <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> results.</p>
+<div class="alert alert-block alert-warning">
+<b>Be careful when changing values of variable!</b> 
+<p>If you run a code block like the one below repeatedly, you’ll modify your GPP values every time. To avoid this, you can recalculate <code class="docutils literal notranslate"><span class="pre">daily_GPP</span></code> at the start of this cell by uncommenting out the first line of the code, below. Even though it’s a little slower, it may ultimately be safer.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># daily_GPP = ds_ctsm.GPP.resample(time=&#39;D&#39;).mean()</span>
+
+<span class="n">sec_per_day</span> <span class="o">=</span> <span class="mf">60.</span> <span class="o">*</span> <span class="mf">60.</span> <span class="o">*</span> <span class="mf">24.</span>
+<span class="n">daily_GPP</span> <span class="o">=</span> <span class="n">daily_GPP</span> <span class="o">*</span> <span class="n">sec_per_day</span>
+
+<span class="c1"># Then change the attirbute</span>
+<span class="n">daily_GPP</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;gC/m^2/day&#39;</span>
+
+<span class="c1"># Now plot results</span>
+<span class="n">daily_GPP</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice how averaging makes the results look smoother. We can also more easily see the interannual variability in GPP that is simulated in different years.</p>
+<p><strong>What is the range in annual GPP that CTSM simulates at this NEON site?</strong></p>
+<p>We can assess this by creating a different plot:</p>
+<ul class="simple">
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">.resample</span></code> function</p></li>
+<li><p>adjust the time dimension to the start of the year, <code class="docutils literal notranslate"><span class="pre">time='AS'</span></code></p></li>
+<li><p>convert the <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> to an annual flux with appropriate units (<strong>NOTE</strong> this assumes that all years have 365 days)</p></li>
+<li><p>create a bar plot (only available as a Pandas series, not in xarray). Use <code class="docutils literal notranslate"><span class="pre">.to_series()</span></code> to convert to a pandas.Series and <code class="docutils literal notranslate"><span class="pre">.plot.bar()</span></code> to make a bar plot</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ds_ctsm</span><span class="o">.</span><span class="n">GPP</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;AS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="n">sec_per_day</span><span class="o">*</span><span class="mi">365</span><span class="p">)</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>There’s even more to think about here:</strong></p>
+<ul class="simple">
+<li><p>What could cause this kind of interannual variability in GPP?</p></li>
+<li><p>Are similar patterns common across multiple NEON sites in the region?</p></li>
+<li><p>Where is this site and what kind of vegetation grows there?</p></li>
+<li><p>Are these annual GPP values realistic for this type of ecosystem?
+<br></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="annual-climatology">
+<h2>2.4 Annual climatology<a class="headerlink" href="#annual-climatology" title="Permalink to this heading">#</a></h2>
+<p>Sometimes it’s helpful to look at the seaonal cycle.  Averaging across multiple years to generate a mean annual cycle is called a climatology. This example uses the <code class="docutils literal notranslate"><span class="pre">.groupby</span></code> function.</p>
+<p>We have already calculated the daily mean and will also need to calculate the daily standard deviation <code class="docutils literal notranslate"><span class="pre">.std</span></code> to understand how the variability in the <strong>daily</strong> fluxes contributes to seasonal variability across years.</p>
+<p>This will create two data arrays for the variable <code class="docutils literal notranslate"><span class="pre">GPP</span></code> (the mean and the standard deviation). We want to:</p>
+<ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">.rename</span></code> to facilitate combining the data arrays</p></li>
+<li><p>combine the variable names and their array values into a dataset, <code class="docutils literal notranslate"><span class="pre">xr.Dataset</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate mean and standard deviation for variables</span>
+<span class="n">climo_GPP_mean</span> <span class="o">=</span> <span class="n">daily_GPP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">daily_GPP</span><span class="p">[</span><span class="s2">&quot;time.dayofyear&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">climo_GPP_std</span>  <span class="o">=</span> <span class="n">daily_GPP</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">daily_GPP</span><span class="p">[</span><span class="s2">&quot;time.dayofyear&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="c1">## rename this variable for this data array</span>
+<span class="n">climo_GPP_std</span> <span class="o">=</span> <span class="n">climo_GPP_std</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;std&#39;</span><span class="p">)</span>
+
+<span class="c1"># combine the data arrays into a dataset</span>
+<span class="n">climo_GPP</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="s2">&quot;GPP&quot;</span><span class="p">:</span> <span class="n">climo_GPP_mean</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">:</span> <span class="n">climo_GPP_std</span><span class="p">})</span>
+
+<span class="c1"># print a variable from the dataset</span>
+<span class="n">climo_GPP</span><span class="p">[</span><span class="s1">&#39;GPP&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we are already using daily values, the units are correct.</p>
+<p>You’ll notice that using <code class="docutils literal notranslate"><span class="pre">.groupby</span></code> changes the time coordinates. Let’s adjust these back to a datetime format using the <code class="docutils literal notranslate"><span class="pre">.rename</span></code> function again (here on a coordinate variable).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rename the coordinate variable</span>
+<span class="n">climo_GPP</span> <span class="o">=</span> <span class="n">climo_GPP</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">:</span> <span class="s1">&#39;time&#39;</span><span class="p">})</span>
+
+<span class="c1">#create a pandas dataframe of the same length</span>
+<span class="c1"># It&#39;s true our climatology is the mean of simulated daily vales between 2018-2021, </span>
+<span class="c1">#   but datetime objects are simpler to work with if you provide a year</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">366</span><span class="p">)</span>
+
+<span class="c1">#replace time coordinate values</span>
+<span class="n">climo_GPP</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span> 
+
+<span class="c1"># Check that it all worked</span>
+<span class="n">climo_GPP</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Now plot the data!</strong>
+We’ve done a lot of work. Let’s:</p>
+<ol class="arabic simple">
+<li><p>Save this figure. We can do this in a new directory, <code class="docutils literal notranslate"><span class="pre">plot_dir</span></code>, under the <code class="docutils literal notranslate"><span class="pre">NEON_cases</span></code> directory.</p></li>
+<li><p>Plot interanual variability around the daily means using matplotlib. Note that this code is a little more complex to make a nice looking figure, so don’t worry about understanding the details now.  Instead, refer back to this as you become more familiar with analyses in python and plotting in matplotlib</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the figures directory if it&#39;s not already there</span>
+<span class="n">plot_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/scratch/NEON_cases/figures&#39;</span><span class="p">))</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">plot_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">plot_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now plot the climatological mean</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">climo_GPP</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">climo_GPP</span><span class="o">.</span><span class="n">GPP</span><span class="p">)</span>
+
+<span class="c1"># Add shading around the mean +/- one sigma of daily mean</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">climo_GPP</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="p">(</span><span class="n">climo_GPP</span><span class="o">.</span><span class="n">GPP</span><span class="o">-</span><span class="n">climo_GPP</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]),</span> 
+                                <span class="p">(</span><span class="n">climo_GPP</span><span class="o">.</span><span class="n">GPP</span><span class="o">+</span><span class="n">climo_GPP</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;GPP (&#39;</span><span class="o">+</span><span class="n">climo_GPP</span><span class="o">.</span><span class="n">GPP</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">neon_site</span><span class="o">+</span><span class="s2">&quot; annual climatology&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># format x axis for monthly dates</span>
+<span class="n">locator</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">()</span>  <span class="c1"># every month</span>
+<span class="c1"># Specify the format - %b gives us Jan, Feb...</span>
+<span class="n">fmt</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%b&#39;</span><span class="p">)</span>            
+            
+<span class="n">X</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span>
+<span class="n">X</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
+<span class="n">X</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>   <span class="p">;</span> 
+
+<span class="c1"># Save out a .pdf.  Other options include .png, .eps, ect.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -- saving figure -- &#39;</span><span class="p">)</span>
+<span class="n">plot_name</span> <span class="o">=</span> <span class="n">neon_site</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="s1">&#39;GPP_climatology.pdf&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">plot_dir</span><span class="p">,</span><span class="n">plot_name</span><span class="p">),</span> 
+             <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can check the image was created</span>
+<span class="o">!</span>ls<span class="w"> </span>~/scratch/NEON_cases/figures
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="export-postprocessed-data">
+<h1>Export postprocessed data<a class="headerlink" href="#export-postprocessed-data" title="Permalink to this heading">#</a></h1>
+<p>Finally! We did a lot of work to generate this climatology. You want to save the data as a different file type to work with later (e.g. .csv) so that you don’t need to rely on this python script. To do this:</p>
+<ol class="arabic simple">
+<li><p>Create a directory to save the file</p></li>
+<li><p>Define the file name for our postprocessed data</p></li>
+<li><p>Generate a pandas dataframe from the climotology (xarray) dataset using the <code class="docutils literal notranslate"><span class="pre">.to_dataframe</span></code> function</p></li>
+<li><p>Save the dataframe as a .csv file using the <code class="docutils literal notranslate"><span class="pre">.to_csv</span></code> function</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the figures directory if it&#39;s not already there</span>
+<span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/scratch/NEON_cases/postprocessed_data&#39;</span><span class="p">))</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">out_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+<span class="c1"># define the file name and directory</span>
+<span class="n">file_out</span> <span class="o">=</span> <span class="n">out_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="s1">&#39;GPP_climatology.csv&#39;</span>
+
+<span class="c1"># Create a dataframe and write out the .csv file</span>
+<span class="n">climo_GPP</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">file_out</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;wrote &#39;</span><span class="o">+</span> <span class="n">file_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check, does this file exist.</span>
+<span class="o">!</span>ls<span class="w"> </span>/scratch/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/NEON_cases/postprocessed_data/
+</pre></div>
+</div>
+</div>
+</div>
+<section id="check-the-csv-file">
+<h2>Check the .csv file<a class="headerlink" href="#check-the-csv-file" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Is there much metadata associated with the .csv file?</p></li>
+<li><p>Will you be able to remember how you generated these data if you use them elsewhere or share them with colleagues?</p></li>
+</ul>
+<div class="alert alert-block alert-success">
+<b>Congratulations!</b> 
+<p>You’ve manipulated and plotted data from one site and one variable.</p>
+<p>What would you like to look at now?</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/SinglePoint/ProjectExamples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic plotting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-typical-plots-used-to-look-at-ctsm-variables">Examples of typical plots used to look at CTSM variables</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets">1. Load Datasets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-libraries">1.1 Load Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-history-files">1.2 Point to history files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-my-simulation-results">1.2.1 Where are my simulation results?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatively-we-have-all-these-cases-you-can-run">Alternatively, we have all these cases you can run</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-the-data-folder-with-history-files">1.2.2 Point to the data folder with history files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-functions-to-use-when-opening-the-data-files">1.2.3 Create functions to use when opening the data files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-all-the-files-we-re-going-to-open">1.2.4 List all the files we’re going to open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-data">1.2.5 Read in the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-quick-look-at-the-dataset">Take a quick look at the dataset.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-data-and-making-plots">2. Manipulating data and making plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-full-time-series">2.1 Plotting the full time series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-diel-cycle">2.2 Mean diel cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-mean-flux-calculations">2.3 Daily mean flux calculations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-climatology">2.4 Annual climatology</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#export-postprocessed-data">Export postprocessed data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-csv-file">Check the .csv file</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

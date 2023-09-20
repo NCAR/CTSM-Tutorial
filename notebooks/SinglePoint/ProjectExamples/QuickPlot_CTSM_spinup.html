@@ -1,0 +1,759 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Quick plots - CTSM - Spinup &#8212; CTSM Mini-tutorial 2022</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_spinup';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/ncar_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/ncar_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NCAR/CTSM-Tutorial-2022/master?urlpath=tree/docs/notebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_spinup.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/edit/master/docs/notebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_spinup.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_spinup.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/notebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_spinup.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Quick plots - CTSM - Spinup</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Quick plots - CTSM - Spinup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-notebook-provides-a-method-to-check-if-spinup-simulations-have-reached-steady-state">This notebook provides a method to check if spinup simulations have reached steady state.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets">1. Load Datasets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-libraries">1.1 Load Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-and-read-in-history-files">1.2 Locate and read in history files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-my-simulation-results">1.2.1 Where are my simulation results?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-the-directory-with-history-files">1.2.2 Point to the directory with history files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-some-functions-we-ll-use-when-opening-the-data">1.2.3 Create some functions we’ll use when opening the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-all-the-files-we-re-going-to-open">1.2.4 List all the files we’re going to open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-data">1.2.5 Read in the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-the-dataset-you-re-working-with">1.2.6 Print the dataset you’re working with</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-total-ecosystem-c-over-time">1.3 Plot total ecosystem C over time</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="quick-plots-ctsm-spinup">
+<h1>Quick plots - CTSM - Spinup<a class="headerlink" href="#quick-plots-ctsm-spinup" title="Permalink to this heading">#</a></h1>
+<section id="this-notebook-provides-a-method-to-check-if-spinup-simulations-have-reached-steady-state">
+<h2>This notebook provides a method to check if spinup simulations have reached steady state.<a class="headerlink" href="#this-notebook-provides-a-method-to-check-if-spinup-simulations-have-reached-steady-state" title="Permalink to this heading">#</a></h2>
+<p>In this tutorial you will find steps and instructions to:</p>
+<ol class="arabic simple">
+<li><p>Load python libraries</p></li>
+<li><p>Locate history files</p></li>
+<li><p>Read in preprocesed data</p></li>
+<li><p>Plot total ecosystem C over time</p></li>
+<li><p>Determine if spinup simulations have reached steady state</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="load-datasets">
+<h1>1. Load Datasets<a class="headerlink" href="#load-datasets" title="Permalink to this heading">#</a></h1>
+<section id="load-python-libraries">
+<h2>1.1 Load Python Libraries<a class="headerlink" href="#load-python-libraries" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">nc_time_axis</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+
+<span class="kn">from</span> <span class="nn">neon_utils</span> <span class="kn">import</span> <span class="n">fix_time_h0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Note:</b> If you are having difficulties importing `nc_time_axis`, run the following line once, then comment it out and restart the kernel by clicking on Kernel --> Restart Kernel in the top left panel in order to ensure the package is installed.  
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nc-time-axis</span></code></p>
+</div></blockquote>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xarray &#39;</span><span class="o">+</span><span class="n">xr</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="c1"># was working with 2023.5.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="locate-and-read-in-history-files">
+<h2>1.2 Locate and read in history files<a class="headerlink" href="#locate-and-read-in-history-files" title="Permalink to this heading">#</a></h2>
+<section id="where-are-my-simulation-results">
+<h3>1.2.1 Where are my simulation results?<a class="headerlink" href="#where-are-my-simulation-results" title="Permalink to this heading">#</a></h3>
+<p>After your simulations finish, history files are all saved in your <code class="docutils literal notranslate"><span class="pre">/scratch/NEON_cases/archive/</span></code> directory</p>
+<p>We can print the cases available to look at using bash magic, <code class="docutils literal notranslate"><span class="pre">%%bash</span></code> or <code class="docutils literal notranslate"><span class="pre">!</span></code> which turns the python cell block below into a bash cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+ls ~/scratch/NEON_cases/archive/
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Note</b> you can accomplish the same thing with the following code:
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">!ls</span> <span class="pre">~/scratch/NEON_cases/archive/</span></code></p>
+</div></blockquote>
+</div>
+</section>
+<hr class="docutils" />
+<section id="point-to-the-directory-with-history-files">
+<h3>1.2.2 Point to the directory with history files<a class="headerlink" href="#point-to-the-directory-with-history-files" title="Permalink to this heading">#</a></h3>
+<p><strong>We’ll set the following:</strong></p>
+<ul class="simple">
+<li><p>site and experiment to look at</p></li>
+<li><p>path to our archive directory</p></li>
+<li><p>directory with input data (where history files are found)</p></li>
+</ul>
+<p>By doing this more generally, it makes the script easier to modify for different sites.</p>
+<div class="alert alert-block alert-info">
+<b>Note</b> You can use data that you generated in other tutorials, or you can look at the example data. If you'd like to use example data, please uncomment the example archive directory line below.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neon_site</span> <span class="o">=</span> <span class="s1">&#39;WOOD&#39;</span>  <span class="c1"># NEON site we&#39;re going to look at</span>
+<span class="n">experiment</span> <span class="o">=</span> <span class="s1">&#39;.BTRAN.ad&#39;</span> <span class="c1"># Can set to ad, postad, or transient</span>
+
+<span class="c1"># If you would like to look at your own data, set the path to your archive directory</span>
+<span class="n">archive</span> <span class="o">=</span> <span class="s1">&#39;~/scratch/NEON_cases/archive&#39;</span>
+
+<span class="c1"># If you would like to look at example data, set the path to this archive directory:</span>
+<span class="c1"># archive = &#39;/scratch/wwieder/NEON_cases/archive&#39;</span>
+
+<span class="c1"># This expands the shortcut &#39;~&#39; used above</span>
+<span class="n">archive</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">archive</span><span class="p">))</span> 
+
+<span class="c1"># Create a path to the data folder</span>
+<span class="n">data_folder</span> <span class="o">=</span> <span class="n">archive</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span><span class="n">experiment</span><span class="o">+</span><span class="s1">&#39;/lnd/hist&#39;</span>
+<span class="n">data_folder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Is this the path for input data, <code class="docutils literal notranslate"><span class="pre">data_folder</span></code>, correct?</strong></p>
+<p><em>HINT:</em> You can check in the terminal window or using bash magic.</p>
+</section>
+<hr class="docutils" />
+<section id="create-some-functions-we-ll-use-when-opening-the-data">
+<h3>1.2.3 Create some functions we’ll use when opening the data<a class="headerlink" href="#create-some-functions-we-ll-use-when-opening-the-data" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">preprocess_all</span></code> will limit the number of coordinate variables we’re reading in. This is an xarray feature that helps save time (and memory resources).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define function to preprocess all variables from the netcdf files</span>
+<span class="c1"># This just drops an unused coordinate variable (lndgrid) from the dataset</span>
+<span class="k">def</span> <span class="nf">preprocess_all</span> <span class="p">(</span><span class="n">ds</span><span class="p">):</span>
+    <span class="n">ds_new</span><span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lndgrid</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">ds_new</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have created the functions needed to manipulate our datasets</p>
+</section>
+<hr class="docutils" />
+<section id="list-all-the-files-we-re-going-to-open">
+<h3>1.2.4 List all the files we’re going to open<a class="headerlink" href="#list-all-the-files-we-re-going-to-open" title="Permalink to this heading">#</a></h3>
+<p>The the monthly history output (<strong>‘h0’ files</strong>) are written out for NEON cases.</p>
+<p>To open all of these files we’re going to need to know their names.  This can be done if we:</p>
+<ul class="simple">
+<li><p>Create an empty list <code class="docutils literal notranslate"><span class="pre">[]</span></code> of simulation files that is</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.extend</span></code>ed with a</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sorted</span></code> list of files generted with the</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glob</span></code> function in python of the</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*h0*</span></code>files in our <code class="docutils literal notranslate"><span class="pre">data_folder</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty list of all the file names to extend</span>
+<span class="n">sim_files</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">sim_files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span><span class="s2">&quot;*h0.*.nc&quot;</span><span class="p">))))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All simulation files for all years: [&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim_files</span><span class="p">),</span> <span class="s2">&quot;files]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sim_files</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="read-in-the-data">
+<h3>1.2.5 Read in the data<a class="headerlink" href="#read-in-the-data" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Reading in data for &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="p">)</span>
+
+<span class="n">ds_ctsm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">sim_files</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">,</span>
+                            <span class="n">preprocess</span><span class="o">=</span><span class="n">preprocess_all</span><span class="p">)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading all simulation files took:&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;s.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="print-the-dataset-you-re-working-with">
+<h3>1.2.6 Print the dataset you’re working with<a class="headerlink" href="#print-the-dataset-you-re-working-with" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_ctsm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="plot-total-ecosystem-c-over-time">
+<h2>1.3 Plot total ecosystem C over time<a class="headerlink" href="#plot-total-ecosystem-c-over-time" title="Permalink to this heading">#</a></h2>
+<p>We can visually check to see if the simulation achieved steady-state.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_ctsm</span><span class="o">.</span><span class="n">TOTECOSYSC</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">neon_site</span><span class="o">+</span><span class="n">experiment</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>LOOK</strong></p>
+<ul class="simple">
+<li><p>Does the model seem to have achieved steady state?</p></li>
+<li><p>Why are there periodic oscillations in the total ecosystem C pools?</p></li>
+</ul>
+<div class="alert alert-block alert-success">
+<b>Congratulations:</b> 
+<p>You’ve quickly looked at total ecosystem carbon stocks to check for steady state.</p>
+<p>Are there other variables would you like to look at?</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/SinglePoint/ProjectExamples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Quick plots - CTSM - Spinup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-notebook-provides-a-method-to-check-if-spinup-simulations-have-reached-steady-state">This notebook provides a method to check if spinup simulations have reached steady state.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets">1. Load Datasets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-libraries">1.1 Load Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-and-read-in-history-files">1.2 Locate and read in history files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-my-simulation-results">1.2.1 Where are my simulation results?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-the-directory-with-history-files">1.2.2 Point to the directory with history files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-some-functions-we-ll-use-when-opening-the-data">1.2.3 Create some functions we’ll use when opening the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-all-the-files-we-re-going-to-open">1.2.4 List all the files we’re going to open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-data">1.2.5 Read in the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-the-dataset-you-re-working-with">1.2.6 Print the dataset you’re working with</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-total-ecosystem-c-over-time">1.3 Plot total ecosystem C over time</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

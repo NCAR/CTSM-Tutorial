@@ -1,0 +1,1217 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>CTSM-SP simulations at NEON sites &#8212; CTSM Mini-tutorial 2022</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/SinglePoint/ProjectExamples/CTSMsp_NEON_fromScratch';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/ncar_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/ncar_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NCAR/CTSM-Tutorial-2022/master?urlpath=tree/docs/notebooks/SinglePoint/ProjectExamples/CTSMsp_NEON_fromScratch.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/edit/master/docs/notebooks/SinglePoint/ProjectExamples/CTSMsp_NEON_fromScratch.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/SinglePoint/ProjectExamples/CTSMsp_NEON_fromScratch.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/notebooks/SinglePoint/ProjectExamples/CTSMsp_NEON_fromScratch.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>CTSM-SP simulations at NEON sites</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">CTSM-SP simulations at NEON sites</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-neon-doesn-t-work-for-satelite-phenology-sp-cases-so-we-ll-create-these-cases-from-scratch"><em>run_neon</em> doesn’t work for satelite phenology (SP cases), so we’ll create these cases from <em>‘scratch’</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ctsm-can-be-run-in-4-simple-steps">CTSM can be run in 4 simple steps.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-environment">Set up environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate-to-the-source-code-directory">1.1.1 Navigate to the source code directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-case">1.1.1 Create a new case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-newcase"><strong>./create_newcase</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-arguments-to-create-a-new-case">Required arguments to create a new case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-parallel-bgc-case-for-comparison">1.1.2 Create a parallel BGC case for comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-to-your-sp-case-directory">1.2.1 Move to your SP case directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xlm-changes-to-modify-env-run-options">1.2.2 xlm changes to modify env_run options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-user-nl-clm">1.2.3 Modify user_nl_clm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-build-your-case">1.3 Setup and build your case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-setup">1.3.1 case.setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congratulations">Congratulations!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#you-ve-created-and-submitted-a-single-point-neon-run-from-scratch">You’ve created and submitted a single point NEON run from scratch.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-model-history-files">2. Locate model history files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-directory">2.1 Run directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#archive-directory">2.2 Archive directory</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-clone">3. Create a Clone</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-clone"><strong>./create_clone</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-arguments-to-create-a-clone">Required arguments to create a clone</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information-we-provided-here-were">Additional information we provided here were:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#move-to-your-case-directory-and-compare-env-run">3.2.1 Move to your case directory and compare env_run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-xlm-changes">3.2.2 Make xlm changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-user-nl-clm">3.2.3 Copy user_nl_clm</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ctsm-sp-simulations-at-neon-sites">
+<h1>CTSM-SP simulations at NEON sites<a class="headerlink" href="#ctsm-sp-simulations-at-neon-sites" title="Permalink to this heading">#</a></h1>
+<section id="run-neon-doesn-t-work-for-satelite-phenology-sp-cases-so-we-ll-create-these-cases-from-scratch">
+<h2><em>run_neon</em> doesn’t work for satelite phenology (SP cases), so we’ll create these cases from <em>‘scratch’</em><a class="headerlink" href="#run-neon-doesn-t-work-for-satelite-phenology-sp-cases-so-we-ll-create-these-cases-from-scratch" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">run_neon</span></code> script we’ve been using is very useful, but it simplifies a number of steps that users may want to take control of in their workflow.  We’ll introduce how you can control aspects of your case setup and configuration here. For example, a deeper understanding of the model is need if your want to run a satelite phenology (SP) case an unsupported tower (non-NEON) site, a generic single point simulation, a regional domain, or for global case.</p>
+<p>If you’re new to running CTSM, this is a somewhat advanced tutorial.  We’re planning on doing all of our examples in the workshop using <code class="docutils literal notranslate"><span class="pre">run_neon</span></code>, so the information in this tutorial may not be needed. That said, it illustrates some important features of how to run the model, how to get initial condition files, and more.</p>
+<br>
+</section>
+<hr class="docutils" />
+<section id="in-this-tutorial">
+<h2>In this tutorial<a class="headerlink" href="#in-this-tutorial" title="Permalink to this heading">#</a></h2>
+<p>The tutorial has several components. Below you will find steps to:</p>
+<ol class="arabic simple">
+<li><p>Create, setup, build, and run a CTSM-SP case at a NEON site from scratch</p></li>
+<li><p>Locate history files</p></li>
+</ol>
+<div class="alert alert-block alert-warning">
+<p><b>NOTICE:</b> If you’re running this notebook through the NCAR JupyterHub login you need to be on a Cheyenne login node (NOT Casper).</p>
+</div><h1> 1. Set up and run a simulation</h1>
+<section id="ctsm-can-be-run-in-4-simple-steps">
+<h3>CTSM can be run in 4 simple steps.<a class="headerlink" href="#ctsm-can-be-run-in-4-simple-steps" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new case</p></li>
+</ol>
+<ul class="simple">
+<li><p><em>This step sets up a new simulation. It is the most complicated of these four steps because it involves making choices to set up the model configuration</em></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Setup</strong> the case</p></li>
+</ol>
+<ul class="simple">
+<li><p><em>This step configures the model so that it can compile</em></p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><strong>Build</strong> the executable</p></li>
+</ol>
+<ul class="simple">
+<li><p><em>This step compiles the model</em></p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p><strong>Submit</strong> your run to the batch queue</p></li>
+</ol>
+<ul class="simple">
+<li><p><em>This step submits the model simulation</em></p></li>
+</ul>
+<p><strong>NOTE:</strong> We’ll also customine our case with xml and namelist changes.</p>
+<hr class="docutils" />
+<h1> 1.1 create a new case</h1>
+<p><em>Set up a new simulation</em></p>
+<hr class="docutils" />
+<div class="alert alert-block alert-info">
+<p><b>NOTE:</b>  If you haven’t done this already, you’ll want to create the following directory</p>
+<p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">~/scratch/NEON_cases</span></code></p>
+<p><b>TIP:</b> If you’re running on Cheyenne, creating a softlink to scratch in your home directory is helpful.</p>
+<p>You can create this with the following: <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/glade/scratch/$USER</span> <span class="pre">~/scratch</span></code></p>
+</div></section>
+<section id="set-up-environment">
+<h3>Set up environment<a class="headerlink" href="#set-up-environment" title="Permalink to this heading">#</a></h3>
+<p>It is important in order to have all the tools and packages you need to run simulations.</p>
+<p>The following code <strong>is needed</strong> if you’re running in CESM-lab in the cloud, you only have to do this once.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#cp -rp /opt/ncar/ctsm/ ~/CTSM</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>The code below <strong>is not</strong> needed in the cloud</em>.</p>
+<div class="alert alert-block alert-info">
+<p><b>TIP:</b> <i>If you’re running on Cheyenne</i>, you may need to uncomment the the following two lines of code. This will set up your conda environment correctly.</p>
+<p><b>This is not required if your running CESM-Lab in the cloud.</b></p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#module purge</span>
+<span class="c1">#module load conda ncarenv</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="navigate-to-the-source-code-directory">
+<h2>1.1.1 Navigate to the source code directory<a class="headerlink" href="#navigate-to-the-source-code-directory" title="Permalink to this heading">#</a></h2>
+<p>Your source code is in your home directory</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/CTSM/cime/scripts
+
+<span class="c1"># Change the 4-character NEON site below.</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">neon_site</span><span class="o">=</span><span class="s2">&quot;STEI&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-new-case">
+<h2>1.1.1 Create a new case<a class="headerlink" href="#create-a-new-case" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># then create a new case.</span>
+./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/scratch/NEON_cases/<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>_sp_test<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--res<span class="w"> </span>CLM_USRDAT<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--compset<span class="w"> </span>I1PtClm51SpRs<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output-root<span class="w"> </span>~/scratch/NEON_cases/<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--run-unsupported<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--user-mods-dir<span class="w"> </span>NEON/<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>The code above doesn’t always render properly online.  Here’s what the code actually says:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>./create_newcase --case ~/scratch/NEON_cases/${neon_site}_sp_test \
+    --res CLM_USRDAT \
+    --compset I1PtClm51SpRs \
+    --output-root ~/scratch/NEON_cases/ \
+    --run-unsupported \
+    --user-mods-dir NEON/${neon_site} \
+    --handle-preexisting-dirs r
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="create-newcase">
+<h3><strong>./create_newcase</strong><a class="headerlink" href="#create-newcase" title="Permalink to this heading">#</a></h3>
+<div class="alert alert-block alert-info">
+<p><b>NOTE:</b> There is a lot of information that goes into creating a case.</p>
+<p>You can learn more about the options by typing <i>./create_newcase –help</i> on the the command line or in a new code cell.</p>
+<p><b>We’ll briefly go over some of the highlights here.</b></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="required-arguments-to-create-a-new-case">
+<h3>Required arguments to create a new case<a class="headerlink" href="#required-arguments-to-create-a-new-case" title="Permalink to this heading">#</a></h3>
+<p>There are 3 Required arguments Needed to create a new case.  These include</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--case</span></code>, which specifies the <em>location</em> and <em>name</em> of the case being created</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/scratch</span></code> = the alias to your scratch  directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NEON_cases</span></code> = the subdirectory we created to store your other cases</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">${neon_site}_sp_test</span></code> = the name of the case you’re creating</p></li>
+<li><p><em>Recommendation:</em> Use meaningful names, including model version, type of simulation, and any additional details to help you remember the configuration of this simulation
+<br><br></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">--res</span></code> Defines the model <em>resolution</em>, or grid,</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CLM_USRDAT</span></code>, which is an option to get a case setup without having to define the grid resolution, yet.</p></li>
+<li><p>In global cases, the land model is commonly run at a nominal 1 degree <code class="docutils literal notranslate"><span class="pre">f09_g17</span></code> or 2 degree <code class="docutils literal notranslate"><span class="pre">f19_g17</span></code> resolution</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">./query_config</span> <span class="pre">--grids</span></code> provides a list of supported model resolutions
+<br><br></p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">--compset</span></code> Defines the <em>component set</em> for your case,</p></li>
+</ol>
+<ul class="simple">
+<li><p>The Component set specifies the default configuration for the case which includes:</p>
+<ul>
+<li><p>Component models (e.g. active vs. data vs. stub),</p></li>
+<li><p>Time period of simulations and forcing scenarios (e.g. 1850 vs 2000 vs. HIST) and</p></li>
+<li><p>Physics options (e.g. CLM5.1 vs CLM5.0).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I1PtClm51Bgc</span></code> is alias that actually describes a much longer set of components that are being used for this single point case.</p></li>
+<li><p>All CLM-only compsets start with <em>“I”</em>.</p>
+<ul>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">./query_config</span> <span class="pre">--compsets</span> <span class="pre">clm</span></code> provides examples of other CLM compsets
+<br></p></li>
+</ul>
+</li>
+</ul>
+<p><em>There are a few other <strong>optional</strong> flags used to create this new case that we’ll briefly touch on here</em>
+<br></p>
+<ol class="arabic simple" start="4">
+<li><p><code class="docutils literal notranslate"><span class="pre">--output-root</span></code>, which specifies the <em>location</em> of your run directory</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/scratch/NEON_cases</span></code> = the subdirectory we already created
+<br></p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p><code class="docutils literal notranslate"><span class="pre">--user-mods-dirs</span></code> sets up the configuration of the case with a user modification directory that defines the location of the site.</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NEON/FATES/${neon_site}</span></code> has files that format of the history files and a few other custom settings for your case.</p></li>
+<li><p>This inludes setting some of .xml variables and name list settings correctly for a FATES simulation in a NEON single point case.
+<br></p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p><code class="docutils literal notranslate"><span class="pre">--run-unsupported</span></code> avoids error using compsets are not scientifically supported</p></li>
+</ol>
+<div class="alert alert-block alert-info" markdown='1'>
+<p><b>NOTE:</b> You may notice an error about project codes when you create your case. The project code isn’t important for these simulations. But you may need to change this if you’re running on Cheyenne.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="create-a-parallel-bgc-case-for-comparison">
+<h3>1.1.2 Create a parallel BGC case for comparison<a class="headerlink" href="#create-a-parallel-bgc-case-for-comparison" title="Permalink to this heading">#</a></h3>
+<p>we’ll set this up as an AD case to make things easier</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">base_case</span><span class="o">=</span><span class="s1">&#39;KONZ&#39;</span>
+<span class="nb">cd</span><span class="w"> </span>~/CTSM/tools/site_and_regional/
+./run_neon.py<span class="w"> </span>--neon-sites<span class="w"> </span><span class="nv">$neon_site</span><span class="w">  </span><span class="se">\</span>
+<span class="w">   </span>--base-case<span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$base_case</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--output-root<span class="w"> </span>~/scratch/NEON_cases<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>~/scratch/NEON_cases
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<h2> 1.2 Customize your SP case </h2>
+<p><em>Modifications for an SP case</em></p>
+</section>
+<section id="move-to-your-sp-case-directory">
+<h3>1.2.1 Move to your SP case directory<a class="headerlink" href="#move-to-your-sp-case-directory" title="Permalink to this heading">#</a></h3>
+<p><strong>Check differences in env_run with a To start with, we want to run an SP case, not with active biogeochemistry</strong></p>
+<p>These would be set up if you created a global sp compset, but we need to make changes for our single point case here</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/NEON_cases/<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>_sp_test
+diff<span class="w"> </span>env_run.xml<span class="w"> </span>../<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>.transient/env_run.xml
+</pre></div>
+</div>
+</div>
+</div>
+<p>What differences do you see between the env_run files?</p>
+<p><strong>Background</strong></p>
+<ul class="simple">
+<li><p>Most NEON sites we have 4 complete years of data to work with (2018-2021).</p></li>
+<li><p>run_neon and usermod_dirs handle setting up cases correctly for BGC cases.</p></li>
+<li><p>NOTE, there are other differences caused by the compset we used to create our NEON case related to transient CO2.  We’ll ignore these for now.</p></li>
+<li><p>For an SP case, we want to run NEON sites for a bit to let soil water and temperatures the equilibrate before comparing to observations. Luckily, this only takes a few years.</p></li>
+<li><p>We can handle this with the following xml changes</p></li>
+</ul>
+<p>The code below may need to be customized for particular sites, but in general, we want to run for twice as many years as we have NEON observations.  CLM will just cycle over the meterological data that NEON provides.  This will allow the second cycle of our our simulation to end with the same dates over which we have NEON observations, making plotting easier later on. We also need to force a coldstart since there are no initial conditions to compare to.</p>
+</section>
+<section id="xlm-changes-to-modify-env-run-options">
+<h3>1.2.2 xlm changes to modify env_run options<a class="headerlink" href="#xlm-changes-to-modify-env-run-options" title="Permalink to this heading">#</a></h3>
+<p>xlm changes are one way you can control your case to customize the simulation</p>
+<ul class="simple">
+<li><p>We won’t cover this here, but other tutorials cover more about xml changes.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./xmlchange<span class="w"> </span><span class="nv">CCSM_BGC</span><span class="o">=</span>CO2A
+./xmlchange<span class="w"> </span><span class="nv">DATM_CO2_TSERIES</span><span class="o">=</span>20tr
+./xmlchange<span class="w"> </span><span class="nv">CLM_NML_USE_CASE</span><span class="o">=</span><span class="m">2018</span>-PD_transient
+./xmlchange<span class="w"> </span><span class="nv">CLM_CO2_TYPE</span><span class="o">=</span>diagnostic
+
+./xmlchange<span class="w"> </span><span class="nv">RUN_STARTDATE</span><span class="o">=</span><span class="m">2014</span>-01-01<span class="w"> </span>
+./xmlchange<span class="w"> </span><span class="nv">STOP_OPTION</span><span class="o">=</span>nyears
+./xmlchange<span class="w"> </span><span class="nv">STOP_N</span><span class="o">=</span><span class="m">8</span><span class="w">  </span>
+./xmlchange<span class="w"> </span><span class="nv">DATM_YR_END</span><span class="o">=</span><span class="m">2021</span><span class="w">  </span><span class="c1">#this is the last complete year of input data</span>
+./xmlchange<span class="w"> </span><span class="nv">CLM_FORCE_COLDSTART</span><span class="o">=</span>on
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that it worked</span>
+diff<span class="w"> </span>env_run.xml<span class="w"> </span>../<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>.transient/env_run.xml
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modify-user-nl-clm">
+<h3>1.2.3 Modify user_nl_clm<a class="headerlink" href="#modify-user-nl-clm" title="Permalink to this heading">#</a></h3>
+<p>We also won’t discuss namelist modificaiton here, but they are another way to customize your case.</p>
+<p>Specifically these namelist changes:</p>
+<ul class="simple">
+<li><p>set up a FATES-SP case.</p></li>
+<li><p>modifies history file output for an SP case.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove the old user_nl_clm file and create a new one</span>
+rm<span class="w"> </span>user_nl_clm
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;flanduse_timeseries = &#39; &#39; &quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm<span class="w"> </span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;fsurdat = &#39;/scratch/inputdata/lnd/clm2/surfdata_map/NEON/surfdata_1x1_NEON_</span><span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span><span class="s2">_hist_78pfts_CMIP6_simyr2000_c230111.nc&#39; &quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hist_mfilt(2) = 48&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hist_nhtfrq(2) = 1&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hist_fincl2 = &#39;FCEV&#39;,&#39;FCTR&#39;,&#39;FGEV&#39;,&#39;FIRA&#39;,&#39;FSA&#39;,&#39;FSH&#39;,&#39;GPP&#39;,</span>
+<span class="s2">  &#39;H2OSOI&#39;,&#39;SNOW_DEPTH&#39;,&#39;TBOT&#39;,&#39;TSOI&#39;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you&#39;re running in the cloud, we also have to point to the right surface dataset</span>
+<span class="c1"># TODO, this should work for others if we don&#39;t get this onto /scratch/data</span>
+<span class="c1">#echo &quot;fsurdat = &#39;/scratch/wwieder/FATES_surfacedata/surfdata_1x1_NEON_${neon_site}_hist_16pfts_Irrig_CMIP6_simyr2000_c230120.nc&#39;&quot; &gt;&gt; user_nl_clm</span>
+<span class="c1">#echo &quot;fsurdat = &#39;/scratch/data/NEONv2/misc_inputs/FATES_surfacedata/surfdata_1x1_NEON_${neon_site}_hist_16pfts_Irrig_CMIP6_simyr2000_c230120.nc&#39;&quot; &gt;&gt; user_nl_clm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="setup-and-build-your-case">
+<h2>1.3 Setup and build your case<a class="headerlink" href="#setup-and-build-your-case" title="Permalink to this heading">#</a></h2>
+<p><em>This step configures the model so that it can then compile</em></p>
+<section id="case-setup">
+<h3>1.3.1 case.setup<a class="headerlink" href="#case-setup" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">./case.setup</span></code> script:</p>
+<ol class="arabic simple">
+<li><p>configures the model</p></li>
+<li><p>creates files to modify input data and run options</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.setup
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<h3> 1.3.2 Build the executable  </h3>
+<p><em>This step compiles the model</em></p>
+<p>It also takes a long time, so be patient.</p>
+<hr class="docutils" />
+<p>The <code class="docutils literal notranslate"><span class="pre">./case.build</span></code> script:</p>
+<ol class="arabic simple">
+<li><p>Checks input data</p></li>
+<li><p>Creates a build/run directory with model executable and namelists</p></li>
+</ol>
+<p>TODO: using qcmd – ./case.build on cheyenne fails with wget errors of met data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qcmd<span class="w"> </span>--<span class="w"> </span>./case.build
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>This takes some time, and will throw a bunch of errors… don’t worry, just give it time</p>
+<p><strong>When the build completes successfully you’ll see a notice that the <code class="docutils literal notranslate"><span class="pre">MODEL</span> <span class="pre">BUILD</span> <span class="pre">HAS</span> <span class="pre">FINISHED</span> <span class="pre">SUCCESSFULLY</span></code></strong></p>
+<p>You can read on, but before executing any code blocks in the notebook <strong>wait for the model to build.</strong>
+This can take a while.</p>
+<hr class="docutils" />
+<h3> 1.4 Submit your case  </h3>
+<p>Now you’re ready to submit the case!</p>
+<p><em>This step submits the model simulation</em></p>
+<ul class="simple">
+<li><p>You’ll also be downloading all the meterological data from NEON for your site, this also takes a little time and prints lots of information to the screen</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>user_nl_clm
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you submit a job, you will see confirmation that it successfully submitted:</p>
+</section>
+<section id="congratulations">
+<h3>Congratulations!<a class="headerlink" href="#congratulations" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="you-ve-created-and-submitted-a-single-point-neon-run-from-scratch">
+<h3>You’ve created and submitted a single point NEON run from scratch.<a class="headerlink" href="#you-ve-created-and-submitted-a-single-point-neon-run-from-scratch" title="Permalink to this heading">#</a></h3>
+<p>Next, you will probably want to check on the status of your jobs.</p>
+<div class="alert alert-block alert-info" markdown="1">
+<p><b>TIP:</b> This is dependent on the scheduler that you’re using.</p>
+<ul>
+<li>Cheyenne uses <b>PBS</b> where status is checked with <i>qstat -u $USER</i></li>
+<li>This is also enabled in the cloud for you, try it in the code block below</li></ul>
+<p>If you want to stop the simulation, you can do so with qdel here (or on Cheyenne).</p>
+<ul>
+<li> Find your Job ID after typing <i>qstat</i> </li>
+<li> Type <i>qdel {Job ID}</i> </li>
+</ul>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qstat<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Once your jobs are complete (or show the ‘C’ state under the ‘Use’ column, which means complete), we can check the CaseStatus file to ensure there were no errors and it completed successfully.  To do this, we’ll ‘tail’ the end of the CaseStatus file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tail<span class="w">  </span>~/scratch/NEON_cases/<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>_sp_test/CaseStatus
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should see several lines, with the middle one saying ‘case.run success’.</p>
+<p>Before that you’ll see notifications about xml changes, case.setup, and case.submit, and case.run</p>
+<div class="alert alert-success">
+<strong>Congratulations!</strong> 
+<p>You’ve created a CTSM case for the NEON tower you selected.</p>
+<p>We’ll build on these basics in additional tutorials to customize your simulations.</p>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="locate-model-history-files">
+<h1>2. Locate model history files<a class="headerlink" href="#locate-model-history-files" title="Permalink to this heading">#</a></h1>
+<p>Your simulation will likely take some time to complete. The information
+provided next shows where the model output will be located while the
+model is running and once the simulation is complete. We also provide
+files from a simulation that is already complete so that you can do the
+next exercises before your simulation completes.</p>
+<div class="alert alert-block alert-info" markdown="1">
+<p><b>When your simulation is running</b> history files go to your scratch directory:</p>
+<ul>
+<li><i>~/scratch/NEON_cases/{CASE}</i> </li>
+</ul>
+<p>Within this directory you can find <i>/run</i> and <i>/bld</i> subdirectories.</p>
+<p><b>When the simulation is complete</b>, a short-term archive directory is created, and history files are moved here:</p>
+<ul>
+<li><i>~/scratch/NEON_cases/<b>archive</b>/{CASE}/lnd/hist/</i> </li>
+</ul>
+<p>Note that files necessary to continue the run are left in the run directory: <i>~/scratch/NEON_cases/{CASE}/run</i></p>
+</div>
+<section id="run-directory">
+<h2>2.1 Run directory<a class="headerlink" href="#run-directory" title="Permalink to this heading">#</a></h2>
+<p><em>What’s in your run directory?</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>~/scratch/NEON_cases/<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>_sp_test/run
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Do you see any log or history files?</em></p>
+<ul class="simple">
+<li><p>log files look like <code class="docutils literal notranslate"><span class="pre">lnd.log*</span></code></p></li>
+<li><p>history files look like <code class="docutils literal notranslate"><span class="pre">${neon_site}.transient.clm2.h0.*.nc</span></code></p></li>
+</ul>
+<p>You can keep running the cell above until you see log and history files, then the model is running.</p>
+</section>
+<hr class="docutils" />
+<section id="archive-directory">
+<h2>2.2 Archive directory<a class="headerlink" href="#archive-directory" title="Permalink to this heading">#</a></h2>
+<p><em>What’s in your archive directory?</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>~/scratch/NEON_cases/archive/<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>_sp_test/lnd/hist<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can drop the <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">head</span> <span class="pre">-5</span></code> part of the cell above if you want to see ALL the files that have been archived.</p>
+<p>If you don’t see any history files your simulation is likely still running or in the queue (check using squeue or qstat). Check again before you leave today to see if your simulation completed and if the files were transferred to archive. Even if your run isn’t finished, you can move on in this tutorial.</p>
+<p>If you’d like to visualize these results you can go back to tutorial Day0c and modify to point to these results from the neon_site you just ran.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="create-a-clone">
+<h1>3. Create a Clone<a class="headerlink" href="#create-a-clone" title="Permalink to this heading">#</a></h1>
+<h4> This step is optional, but provides helpful information </h4>
+<p>Creating and building a new case is slow.</p>
+<p>Cloning cases can speed this up!</p>
+<h2>3.1 Create a clone </h2>
+<ul class="simple">
+<li><p>Clones use the same resolution, compset, and output root.</p></li>
+<li><p>Clones can also share the same executable (build), which can save time!</p></li>
+</ul>
+<div class="alert alert-block alert-warning" markdown="1">
+<p><b>WARNING:</b> If you’re making code modifications be careful using clones that share the same build. The example below is a good way to run the same model configuration at different NEON sites.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Move back to your source code directory</span>
+<span class="nb">cd</span><span class="w"> </span>~/CTSM/cime/scripts
+
+<span class="c1"># Change the 4-character new NEON site you want to run.</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">neon_site2</span><span class="o">=</span><span class="s2">&quot;TEAK&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># then create a cloned case.</span>
+./create_clone<span class="w"> </span>--case<span class="w"> </span>~/scratch/NEON_cases/<span class="si">${</span><span class="nv">neon_site2</span><span class="si">}</span>_sp_test<span class="w"> </span><span class="se">\</span>
+<span class="w">               </span>--clone<span class="w"> </span>~/scratch/NEON_cases/<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>_sp_test<span class="w"> </span><span class="se">\</span>
+<span class="w">               </span>--user-mods-dirs<span class="w"> </span>~/CTSM/cime_config/usermods_dirs/NEON/FATES/<span class="si">${</span><span class="nv">neon_site2</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">               </span>--keepexe
+</pre></div>
+</div>
+</div>
+</div>
+<section id="create-clone">
+<h2><strong>./create_clone</strong><a class="headerlink" href="#create-clone" title="Permalink to this heading">#</a></h2>
+<div class="alert alert-block alert-info">
+<p><b>NOTE:</b> There is a lot of information that goes into creating a clone.</p>
+<p>You can learn more about the options by typing <i>./create_clone –help</i> on the the command line or in a new code cell.</p>
+<p><b>We’ll briefly go over some of the highlights here.</b></p>
+</div>
+</section>
+<section id="required-arguments-to-create-a-clone">
+<h2>Required arguments to create a clone<a class="headerlink" href="#required-arguments-to-create-a-clone" title="Permalink to this heading">#</a></h2>
+<p>There are 2 required arguments needed to create a clone.  These include:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--case</span></code>, this is the path and name of the new case your cloning.
+<br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--clone</span></code>, this is the path and name of the existing case you want to clone.
+<br><br></p></li>
+</ol>
+</section>
+<section id="additional-information-we-provided-here-were">
+<h2>Additional information we provided here were:<a class="headerlink" href="#additional-information-we-provided-here-were" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">--user-mods-dirs</span></code> as before, this sets up the configuration of the case with a user modification directory that defines the location of the new site we’re running, but it requires the full path to the <code class="docutils literal notranslate"><span class="pre">user-mods-dir</span></code> you want to use.
+<br><br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--keepexe</span></code> Point to original build from the case being cloned.</p></li>
+</ol>
+<hr class="docutils" />
+<p>We’ll also create a BGC case clone for comparison</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/CTSM/tools/site_and_regional
+./run_neon.py<span class="w"> </span>--neon-sites<span class="w"> </span><span class="nv">$neon_site2</span><span class="w">  </span><span class="se">\</span>
+<span class="w">   </span>--base-case<span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$base_case</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--output-root<span class="w"> </span>~/scratch/NEON_cases<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<h2> 3.2 Customize the clone? </h2>
+<p><em>Because you created a clone and point to an existing build we can skip the <code class="docutils literal notranslate"><span class="pre">case.setup</span></code> and <code class="docutils literal notranslate"><span class="pre">case.build</span></code> steps</em></p>
+<hr class="docutils" />
+</section>
+<section id="move-to-your-case-directory-and-compare-env-run">
+<h2>3.2.1 Move to your case directory and compare env_run<a class="headerlink" href="#move-to-your-case-directory-and-compare-env-run" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/NEON_cases/<span class="si">${</span><span class="nv">neon_site2</span><span class="si">}</span>_sp_test
+diff<span class="w"> </span>env_run.xml<span class="w"> </span>../<span class="si">${</span><span class="nv">neon_site2</span><span class="si">}</span>.transient/env_run.xml
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="make-xlm-changes">
+<h2>3.2.2 Make xlm changes<a class="headerlink" href="#make-xlm-changes" title="Permalink to this heading">#</a></h2>
+<p>In the example above the teak data record only starts in 2019, meaning we have 3 years of meterological data to cycle through</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./xmlchange<span class="w"> </span><span class="nv">RUN_STARTDATE</span><span class="o">=</span><span class="m">2016</span>-01-01<span class="w"> </span>
+./xmlchange<span class="w"> </span><span class="nv">STOP_OPTION</span><span class="o">=</span>nyears
+./xmlchange<span class="w"> </span><span class="nv">STOP_N</span><span class="o">=</span><span class="m">6</span><span class="w">  </span>
+./xmlchange<span class="w"> </span><span class="nv">DATM_YR_END</span><span class="o">=</span><span class="m">2021</span><span class="w">  </span><span class="c1">#this is the last complete year of input data</span>
+./xmlchange<span class="w"> </span><span class="nv">CLM_NML_USE_CASE</span><span class="o">=</span><span class="m">2018</span>-PD_transient
+<span class="c1"># Check that chagnes look as expected from the other sp case</span>
+diff<span class="w"> </span>env_run.xml<span class="w"> </span>../<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>_sp_test/env_run.xml
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="copy-user-nl-clm">
+<h2>3.2.3 Copy user_nl_clm<a class="headerlink" href="#copy-user-nl-clm" title="Permalink to this heading">#</a></h2>
+<p>We can just copy the user_nl_clm into our cloned case</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>../<span class="si">${</span><span class="nv">neon_site</span><span class="si">}</span>_sp_test/user_nl_clm<span class="w"> </span>.
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;fsurdat = &#39;/scratch/inputdata/lnd/clm2/surfdata_map/NEON/surfdata_1x1_NEON_</span><span class="si">${</span><span class="nv">neon_site2</span><span class="si">}</span><span class="s2">_hist_78pfts_CMIP6_simyr2000_c230111.nc&#39; &quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm
+
+<span class="c1"># If you&#39;re running in the cloud, we also have to point to the right surface dataset</span>
+
+<span class="c1"># TODO, this should work for others if we don&#39;t get this onto /scratch/data</span>
+<span class="c1">#echo &quot;fsurdat = &#39;/scratch/wwieder/FATES_surfacedata/surfdata_1x1_NEON_${neon_site2}_hist_16pfts_Irrig_CMIP6_simyr2000_c230120.nc&#39;&quot; &gt;&gt; user_nl_clm</span>
+<span class="c1">#echo &quot;fsurdat = &#39;/scratch/data/NEONv2/misc_inputs/FATES_surfacedata/surfdata_1x1_NEON_${neon_site2}_hist_16pfts_Irrig_CMIP6_simyr2000_c230120.nc&#39;&quot; &gt;&gt; user_nl_clm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<h2> 3.3 Submit the case </h2>
+<p><em>Because you created a clone and point to an existing build we can skip the <code class="docutils literal notranslate"><span class="pre">case.setup</span></code> and <code class="docutils literal notranslate"><span class="pre">case.build</span></code> steps</em></p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>As before, you’ll be downloading all the meterological data, which takes a little time and prints lots of information to the screen</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-success">
+<strong>Congratulations!</strong> 
+<p>You’ve created and run a clone Fof CLM- for the NEON tower you selected.</p>
+</div>
+<p>You can track progress on your run using steps outlined in part #2 of this tutorial.
+You can also work on visualizing your results for different sites using visualization code provided</p>
+<p>If you’re developing this tutorial:
+Before saving and pushing this code to github go to <code class="docutils literal notranslate"><span class="pre">Kernel</span></code> and <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">kernel</span> <span class="pre">and</span> <span class="pre">clear</span> <span class="pre">all</span> <span class="pre">outputs...</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lrt<span class="w"> </span>~/scratch/NEON_cases/<span class="si">${</span><span class="nv">neon_site2</span><span class="si">}</span>_sp_test/run/<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bash"
+        },
+        kernelOptions: {
+            name: "bash",
+            path: "./notebooks/SinglePoint/ProjectExamples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bash'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">CTSM-SP simulations at NEON sites</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-neon-doesn-t-work-for-satelite-phenology-sp-cases-so-we-ll-create-these-cases-from-scratch"><em>run_neon</em> doesn’t work for satelite phenology (SP cases), so we’ll create these cases from <em>‘scratch’</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ctsm-can-be-run-in-4-simple-steps">CTSM can be run in 4 simple steps.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-environment">Set up environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate-to-the-source-code-directory">1.1.1 Navigate to the source code directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-case">1.1.1 Create a new case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-newcase"><strong>./create_newcase</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-arguments-to-create-a-new-case">Required arguments to create a new case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-parallel-bgc-case-for-comparison">1.1.2 Create a parallel BGC case for comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-to-your-sp-case-directory">1.2.1 Move to your SP case directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xlm-changes-to-modify-env-run-options">1.2.2 xlm changes to modify env_run options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-user-nl-clm">1.2.3 Modify user_nl_clm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-build-your-case">1.3 Setup and build your case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-setup">1.3.1 case.setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congratulations">Congratulations!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#you-ve-created-and-submitted-a-single-point-neon-run-from-scratch">You’ve created and submitted a single point NEON run from scratch.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-model-history-files">2. Locate model history files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-directory">2.1 Run directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#archive-directory">2.2 Archive directory</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-clone">3. Create a Clone</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-clone"><strong>./create_clone</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-arguments-to-create-a-clone">Required arguments to create a clone</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information-we-provided-here-were">Additional information we provided here were:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#move-to-your-case-directory-and-compare-env-run">3.2.1 Move to your case directory and compare env_run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-xlm-changes">3.2.2 Make xlm changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-user-nl-clm">3.2.3 Copy user_nl_clm</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

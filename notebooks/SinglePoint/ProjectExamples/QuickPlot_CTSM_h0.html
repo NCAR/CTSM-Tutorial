@@ -1,0 +1,874 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Quick plots - CTSM - Monthly &#8212; CTSM Mini-tutorial 2022</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_h0';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/ncar_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/ncar_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NCAR/CTSM-Tutorial-2022/master?urlpath=tree/docs/notebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_h0.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/edit/master/docs/notebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_h0.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial-2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_h0.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/notebooks/SinglePoint/ProjectExamples/QuickPlot_CTSM_h0.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Quick plots - CTSM - Monthly</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Quick plots - CTSM - Monthly</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-way-to-quickly-look-at-monthly-history-files-h0">Simple way to quickly look at monthly history files (<em>h0</em>).</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets">1. Load Datasets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-libraries">1.1 Load Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-history-files">1.2 Point to history files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-my-simulation-results">1.2.1 Where are my simulation results?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-the-data-folder-with-history-files">1.2.2 Point to the data folder with history files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.2.2 Point to the data folder with history files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-some-functions-we-ll-use-when-opening-the-data">1.2.3 Create some functions we’ll use when opening the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-all-the-files-we-re-going-to-open">1.2.4 List all the files we’re going to open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-data">1.2.5 Read in the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-the-dataset-you-re-working-with-ds-ctsm">Print the dataset you’re working with ds_ctsm</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-quick-look-at-the-dataset">Take a quick look at the dataset.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-start-plotting">Let’s start plotting!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-contour-plot-of-soil-moisture-over-time-with-depth-on-the-y-axis">Make a contour plot of soil moisture over time with depth on the y-axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-vertical-profiles-of-soil-moisture">Plot vertical profiles of soil moisture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-time-series-of-soil-moisture-for-a-single-soil-level">Plot a time series of soil moisture for a single soil level</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="quick-plots-ctsm-monthly">
+<h1>Quick plots - CTSM - Monthly<a class="headerlink" href="#quick-plots-ctsm-monthly" title="Permalink to this heading">#</a></h1>
+<section id="simple-way-to-quickly-look-at-monthly-history-files-h0">
+<h2>Simple way to quickly look at monthly history files (<em>h0</em>).<a class="headerlink" href="#simple-way-to-quickly-look-at-monthly-history-files-h0" title="Permalink to this heading">#</a></h2>
+<p>This tutorial is an introduction to <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/terminology.html">xarray</a> and <a class="reference external" href="https://matplotlib.org/stable/index.html">matplotlib</a>. There is plenty more information to be found at the documentation for these libraries.</p>
+<p>This tutorial can be be run either on data from cases that you ran earlier, or can be run on pre-staged data.</p>
+<p>In this tutorial you will find steps and instructions to:</p>
+<ol class="arabic simple">
+<li><p>Load python libraries needed for plotting</p></li>
+<li><p>Locate monthly history files</p></li>
+<li><p>Load datasets with xarray</p></li>
+<li><p>Plot the data</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="load-datasets">
+<h1>1. Load Datasets<a class="headerlink" href="#load-datasets" title="Permalink to this heading">#</a></h1>
+<section id="load-python-libraries">
+<h2>1.1 Load Python Libraries<a class="headerlink" href="#load-python-libraries" title="Permalink to this heading">#</a></h2>
+<p>We always start by loading in the libraries we’re going to use for the script. There are more libraries being loaded here than we’ll likely use, but this list is a good one to get started for most of your plotting needs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+
+<span class="kn">from</span> <span class="nn">neon_utils</span> <span class="kn">import</span> <span class="n">fix_time_h0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># It&#39;s helpful to document the version of some tools that are quickly changing</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xarray &#39;</span><span class="o">+</span><span class="n">xr</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="c1"># was working with 2023.5.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="point-to-history-files">
+<h2>1.2 Point to history files<a class="headerlink" href="#point-to-history-files" title="Permalink to this heading">#</a></h2>
+<section id="where-are-my-simulation-results">
+<h3>1.2.1 Where are my simulation results?<a class="headerlink" href="#where-are-my-simulation-results" title="Permalink to this heading">#</a></h3>
+<p>After your simulations finish, history files are all saved in your <code class="docutils literal notranslate"><span class="pre">/scratch/NEON_cases/archive/</span></code> directory</p>
+<p>We can print the cases we have to look at using bash magic, <code class="docutils literal notranslate"><span class="pre">%%bash</span></code> or <code class="docutils literal notranslate"><span class="pre">!</span></code> which turns the python cell block below into a bash cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+ls ~/scratch/NEON_cases/archive/
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Note</b> you can accomplish the same thing with the following.
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">!ls</span> <span class="pre">~/scratch/NEON_cases/archive/</span></code></p>
+</div></blockquote>
+</div>
+<div class="alert alert-block alert-info">
+<b>Note</b> if you prefer to look at example data instead of your own data, you can read in data located at `/scratch/data/NEONv2/hist`. We'll go over this in the next section.
+</div>
+</section>
+<hr class="docutils" />
+<section id="point-to-the-data-folder-with-history-files">
+<h3>1.2.2 Point to the data folder with history files<a class="headerlink" href="#point-to-the-data-folder-with-history-files" title="Permalink to this heading">#</a></h3>
+<p><strong>We’ll set the following:</strong></p>
+<ul class="simple">
+<li><p>site to look at</p></li>
+<li><p>path to our archive directory</p></li>
+<li><p>directory with input data (where history files are found)</p></li>
+</ul>
+<p>By doing this more generally, it makes the script easier to modify for different sites.</p>
+<div class="alert alert-block alert-info">
+<b>Note</b> you can accomplish the same thing with the following.
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">!ls</span> <span class="pre">~/scratch/NEON_cases/archive/</span></code></p>
+</div></blockquote>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3>1.2.2 Point to the data folder with history files<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p><strong>We’ll set the following:</strong></p>
+<ul class="simple">
+<li><p>site to look at</p></li>
+<li><p>path to our archive directory</p></li>
+<li><p>directory with input data (where history files are found)</p></li>
+</ul>
+<p>By doing this more generally, it makes the script easier to modify for different sites.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neon_site</span> <span class="o">=</span> <span class="s1">&#39;ABBY&#39;</span>  <span class="c1"># NEON site we&#39;re going to look at</span>
+<span class="n">archive</span> <span class="o">=</span> <span class="s1">&#39;~/scratch/NEON_cases/archive&#39;</span> <span class="c1"># Path to archive directory</span>
+
+<span class="c1"># If you prefer to look at example data, you can uncomment the following line</span>
+<span class="c1"># archive = &#39;~/../../scratch/data/NEONv2/hist&#39;</span>
+
+<span class="c1"># This unpacks the and expands the shortcut, &#39;~&#39;, we used above</span>
+<span class="n">archive</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">archive</span><span class="p">))</span> 
+
+<span class="c1"># Create a path to the data folder</span>
+<span class="n">data_folder</span> <span class="o">=</span> <span class="n">archive</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">neon_site</span><span class="o">+</span><span class="s1">&#39;.transient/lnd/hist&#39;</span>
+
+<span class="n">data_folder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Is this path for input data, <code class="docutils literal notranslate"><span class="pre">data_folder</span></code>, correct?</strong></p>
+<p><em>HINT:</em> You can check in the terminal window or use bash magic (<code class="docutils literal notranslate"><span class="pre">%%bash</span></code>) and then list the contents of <code class="docutils literal notranslate"><span class="pre">data_folder</span></code> with <code class="docutils literal notranslate"><span class="pre">ls</span></code> in the same cell.</p>
+</section>
+<hr class="docutils" />
+<section id="create-some-functions-we-ll-use-when-opening-the-data">
+<h3>1.2.3 Create some functions we’ll use when opening the data<a class="headerlink" href="#create-some-functions-we-ll-use-when-opening-the-data" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">preprocess</span></code> will limit the number of variables we’re reading in. This is an xarray feature that helps save time (and memory resources).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fix_time</span></code> corrects annoying features related to how CTSM history files handle time and is provided in <code class="docutils literal notranslate"><span class="pre">neon_utils.py</span></code>.</p></li>
+</ol>
+<p><em>Don’t worry too much about the details of these functions right now</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read all variables from the netcdf files</span>
+<span class="c1"># This just drops an unused coordinate variable (lndgrid) from the dataset</span>
+<span class="k">def</span> <span class="nf">preprocess_all</span> <span class="p">(</span><span class="n">ds</span><span class="p">):</span>
+    <span class="n">ds_new</span><span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lndgrid</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">ds_new</span>
+
+<span class="c1"># Read some of the variables from the netcdf files, </span>
+<span class="c1"># This will make things faster, but requires you to list the variables you want to look at</span>
+<span class="k">def</span> <span class="nf">preprocess_some</span> <span class="p">(</span><span class="n">ds</span><span class="p">):</span>
+    <span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;H2OSOI&#39;</span><span class="p">,</span> <span class="s1">&#39;TSOI&#39;</span><span class="p">]</span>
+    <span class="n">ds_new</span><span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lndgrid</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_new</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have created the functions needed to manipulate our datasets.</p>
+</section>
+<hr class="docutils" />
+<section id="list-all-the-files-we-re-going-to-open">
+<h3>1.2.4 List all the files we’re going to open<a class="headerlink" href="#list-all-the-files-we-re-going-to-open" title="Permalink to this heading">#</a></h3>
+<p>The monthly history output (<strong>‘h0’ files</strong>) are written out for NEON cases.</p>
+<p>To open all of these files we’re going to need to know their names.  This can be done if we:</p>
+<ul class="simple">
+<li><p>Create an empty list <code class="docutils literal notranslate"><span class="pre">[]</span></code> of simulation files that is</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.extend</span></code>ed with a</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sorted</span></code> list of files generated with the</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glob</span></code> function in python of the</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*h0*</span></code>files in our <code class="docutils literal notranslate"><span class="pre">data_folder</span></code></p></li>
+</ul>
+<p>You’ll notice that <strong>all of this gets combined in a single line of code</strong> that runs through a</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> loop over defined simulation years (written as a list of strings)</p></li>
+</ul>
+<div class="alert alert-block alert-info">
+<b>Note</b> If you're new to python it's dense, but efficient.  I actually borrowed a bunch this code from a colleague, Negin Sobhani, who's good at python! Sharing code is really helpful. 
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty list of all the file names to extend</span>
+<span class="n">sim_files</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># If you want to choose a few particular years, you can use this loop</span>
+<span class="c1"># years = [&quot;2021&quot;, &quot;2022&quot;]</span>
+<span class="c1"># for year in years:</span>
+<span class="c1">#    sim_files.extend(sorted(glob(join(data_folder,&quot;*h0.&quot;+year+&quot;*.nc&quot;))))</span>
+
+<span class="n">sim_files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span><span class="s2">&quot;*h0.*.nc&quot;</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many files are you going have to read in?  What is the last day of the simulation you’ll be looking at?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of simulation files: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim_files</span><span class="p">),</span> <span class="s2">&quot;files&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Last simulation file:&quot;</span><span class="p">,</span> <span class="n">sim_files</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="read-in-the-data">
+<h3>1.2.5 Read in the data<a class="headerlink" href="#read-in-the-data" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">xr.open_mfdataset</span></code> will open all of these data files and concatenate them into a single <strong>xarray dataset</strong>.</p>
+<p>We are also going to use the <code class="docutils literal notranslate"><span class="pre">preprocess</span></code> and <code class="docutils literal notranslate"><span class="pre">fix_time</span></code> functions in this step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Reading in data for &quot;</span><span class="o">+</span><span class="n">neon_site</span><span class="p">)</span>
+
+<span class="c1"># Just reading *some* of the data here, could use preprocess_all instead.</span>
+<span class="n">ds_ctsm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">sim_files</span><span class="p">,</span> <span class="n">decode_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">,</span>
+                            <span class="n">preprocess</span><span class="o">=</span><span class="n">preprocess_some</span><span class="p">)</span>
+<span class="n">ds_ctsm</span> <span class="o">=</span> <span class="n">fix_time_h0</span><span class="p">(</span><span class="n">ds_ctsm</span><span class="p">)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading all simulation files took:&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;s.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="print-the-dataset-you-re-working-with-ds-ctsm">
+<h3>Print the dataset you’re working with ds_ctsm<a class="headerlink" href="#print-the-dataset-you-re-working-with-ds-ctsm" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_ctsm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="take-a-quick-look-at-the-dataset">
+<h4>Take a quick look at the dataset.<a class="headerlink" href="#take-a-quick-look-at-the-dataset" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>What are your coodinate variables?</p></li>
+<li><p>How long is the time dimensions?</p></li>
+<li><p>What variables do we have to look at?</p></li>
+<li><p>What are the long names of some of these variables? (HINT: try <code class="docutils literal notranslate"><span class="pre">ds_ctsm.TSOI</span></code>)</p></li>
+<li><p>What are other metadata are associated with this dataset?</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="let-s-start-plotting">
+<h3>Let’s start plotting!<a class="headerlink" href="#let-s-start-plotting" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="make-a-contour-plot-of-soil-moisture-over-time-with-depth-on-the-y-axis">
+<h3>Make a contour plot of soil moisture over time with depth on the y-axis<a class="headerlink" href="#make-a-contour-plot-of-soil-moisture-over-time-with-depth-on-the-y-axis" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot H2OSOI</span>
+<span class="n">ds_ctsm</span><span class="o">.</span><span class="n">H2OSOI</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;levsoi&#39;</span><span class="p">)</span>
+<span class="c1"># Invert the y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="c1"># Add the title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">neon_site</span><span class="p">)</span>
+<span class="c1"># Show plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-vertical-profiles-of-soil-moisture">
+<h3>Plot vertical profiles of soil moisture<a class="headerlink" href="#plot-vertical-profiles-of-soil-moisture" title="Permalink to this heading">#</a></h3>
+<p>This example is looking at one month of data over the top 2m of soil. Depth is on the y axis, and the plot is reversed so deeper soil levels are at the bottom.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot H20SOI at time 5; marker determines style of points</span>
+<span class="n">ds_ctsm</span><span class="o">.</span><span class="n">H2OSOI</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;levsoi&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="c1"># Invert y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="c1"># Add suptitle above plot title with time slice</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">neon_site</span><span class="p">)</span>
+<span class="c1"># Show plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It seems odd that surface soil layers are wetter than deeper ones.</p>
+</section>
+<section id="plot-a-time-series-of-soil-moisture-for-a-single-soil-level">
+<h3>Plot a time series of soil moisture for a single soil level<a class="headerlink" href="#plot-a-time-series-of-soil-moisture-for-a-single-soil-level" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot H2OSOI at soil level 4 with dot markers at each point</span>
+<span class="n">ds_ctsm</span><span class="o">.</span><span class="n">H2OSOI</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">levsoi</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="c1"># Show plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h4><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<div class="alert alert-block alert-success">
+<b>Congratualtions:</b> 
+<p>You’ve now looked at some of the monthly output from CLM.</p>
+<p>What other sites or variables would you like to look at?</p>
+<p>Give it a shot, you can make lots of plots with all this data!</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/SinglePoint/ProjectExamples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Quick plots - CTSM - Monthly</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-way-to-quickly-look-at-monthly-history-files-h0">Simple way to quickly look at monthly history files (<em>h0</em>).</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets">1. Load Datasets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-libraries">1.1 Load Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-history-files">1.2 Point to history files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-my-simulation-results">1.2.1 Where are my simulation results?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-to-the-data-folder-with-history-files">1.2.2 Point to the data folder with history files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.2.2 Point to the data folder with history files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-some-functions-we-ll-use-when-opening-the-data">1.2.3 Create some functions we’ll use when opening the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-all-the-files-we-re-going-to-open">1.2.4 List all the files we’re going to open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-data">1.2.5 Read in the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-the-dataset-you-re-working-with-ds-ctsm">Print the dataset you’re working with ds_ctsm</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-quick-look-at-the-dataset">Take a quick look at the dataset.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-start-plotting">Let’s start plotting!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-contour-plot-of-soil-moisture-over-time-with-depth-on-the-y-axis">Make a contour plot of soil moisture over time with depth on the y-axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-vertical-profiles-of-soil-moisture">Plot vertical profiles of soil moisture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-time-series-of-soil-moisture-for-a-single-soil-level">Plot a time series of soil moisture for a single soil level</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
