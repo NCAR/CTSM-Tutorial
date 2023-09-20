@@ -1,14 +1,14 @@
-These notebooks are project-specific and build upon the GettingStarted notebooks. They reference skills learned through the BuildingBlocks Notebooks.
-     - Basic_CTSM-NEON_Plots.ipynb : This notebook shows how to create plots from NEON data, as well as perform time averaging, etc
-     - CTSMsp_NEON_fromScratch.ipynb : This notebook focuses on using CTSM with satellite phenology
-     - Clone_Case.ipynb : This notebook shares how to clone a case
-     - FATES_NEON_fromScratch.ipynb : This notebook works on creating a FATES case from scratch with NEON
-     - Plot_flux_climatology.ipynb : This notebook provides climatology plotting examples
-     - QuickPlot_CTSM-FATESsp.ipynb : This notebook provides plotting tools for use with FATES run with satellite phenology
-     - QuickPlot_CTSM_h0.ipynb : This plots monthly CTSM data
-     - QuickPlot_CTSM_spinup.ipynb : This plots CTSM cases that have been spun up
-     - customizeCase_PRISM.ipynb : This customizes a case to use PRISM precipitation input data
-     - customizeCase_modelFeatures.ipynb : This customizes various model features
-     - customizeCase_parameterModifications.ipynb : This notebook provides tools for parameter modifications and takes input that is generated from modifyParameterFile.ipynb
-     - modifyParameterFile.ipynb : This notebook modifies a parameter file that can then be used by customizeCase_parameterModifications.ipynb
-     - modifySurfdataFile.ipynb : This notebook modifies a surface data file that can then be used by customizeCase_modelFeatures.ipynb
+These notebooks are project-specific and build upon the `GettingStarted` notebooks. They reference skills learned through the `BuildingBlocks` Notebooks.  
+     - `Basic_CTSM-NEON_Plots.ipynb` : This notebook shows how to create plots from NEON data, as well as perform time averaging, etc  
+     - `CTSMsp_NEON_fromScratch.ipynb` : This notebook focuses on using CTSM with satellite phenology  
+     - `Clone_Case.ipynb` : This notebook shares how to clone a case  
+     - `FATES_NEON_fromScratch.ipynb` : This notebook works on creating a FATES case from scratch with NEON  
+     - `Plot_flux_climatology.ipynb` : This notebook provides climatology plotting examples  
+     - `QuickPlot_CTSM-FATESsp.ipynb` : This notebook provides plotting tools for use with FATES run with satellite  phenology  
+     - `QuickPlot_CTSM_h0.ipynb` : This plots monthly CTSM data  
+     - `QuickPlot_CTSM_spinup.ipynb` : This plots CTSM cases that have been spun up  
+     - `customizeCase_PRISM.ipynb` : This customizes a case to use PRISM precipitation input data  
+     - `customizeCase_modelFeatures.ipynb` : This customizes various model features  
+     - `customizeCase_parameterModifications.ipynb` : This notebook provides tools for parameter modifications and takes input that is generated from `modifyParameterFile.ipynb`  
+     - `modifyParameterFile.ipynb` : This notebook modifies a parameter file that can then be used by `customizeCase_parameterModifications.ipynb`  
+     - `modifySurfdataFile.ipynb` : This notebook modifies a surface data file that can then be used by `customizeCase_modelFeatures.ipynb`  
