@@ -115,6 +115,8 @@ This gives you an updated local copy of the material you'll need for the tutoria
 - [Running single-point cases other than NEON](https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/single-point-and-regional-grid-configurations.html)
 - [Running NEON cases with a container](https://ncar.github.io/ncar-neon-books/intro.html) -- Running CTSM for NEON cases on a laptop
 
+[NCAR-NEON paper](https://gmd.copernicus.org/articles/16/5979/2023/) that overviews this system hand has nice samples of plots. Lombardozzi and Wieder et al 2024 GMD.
+
 [CLM5 Overview Paper](https://doi.org/10.1029/2018MS001583) Lawrence et al. 2019 JAMES
 
 [CLM5 Diagnostic plots](https://www.cesm.ucar.edu/experiments/cesm2.0/land/diagnostics/clm_diag_PCKG.html), from the overview paper.
