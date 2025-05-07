@@ -1,5 +1,5 @@
 
-# Welcome to the [NEON Tutorial 2023](https://github.com/NCAR/CTSM-Tutorial/blob/NEON_Tutorial_2023/README.md)
+# Welcome to the [EMBER Tutorial 2025](https://github.com/NCAR/CTSM-Tutorial/blob/EMBER_Tutorial_2025/README.md)
 
 [![Jupyter Build](https://img.shields.io/github/actions/workflow/status/NCAR/CTSM-Tutorial/gh-page_builder.yml?label=JupyterBook&logo=GitHub&style=flat-square)](https://ncar.github.io/CTSM-Tutorial/README.html)
 
