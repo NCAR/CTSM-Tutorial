@@ -9,7 +9,7 @@
 [![Contributors](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?label=Contributors&logo=github&style=flat-square&color=green)](https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?logo=github) 
 
 
-This tutorial will be used as a resource during the 2023 NEON Tutorial, Flux Course 2023 & ESA 2023 workshop. 
+This tutorial will be used as a resource during the 2025 EMBER bootcamp tutorial. 
 
 <!---
 [![Visits Badge](https://badges.pufler.dev/visits/NCAR/CTSM-Tutorial?style=flat-square&logo=GitHub&color=green)](https://badges.pufler.dev)
