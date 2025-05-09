@@ -41,12 +41,14 @@ We'll also have opportunities to explore more `ProjectExamples` which describe h
 
 # Quick Start
 ## Step 1: Open up CESM-Lab
-- In your web browser go to <a href="https://neon2023.cesm.cloud" target="_blank">  https://neon2023.cesm.cloud </a>
+- In your web browser go to <a href="https://ctsm-jhub.k8s.ucar.edu
+" target="_blank">  https://ctsm-jhub.k8s.ucar.edu
+ </a>
 
   It will automatically open up a portal to connect to the cloud: 
 
   <!--![Screen Shot 2022-05-17 at 1 58 17 AM](https://user-images.githubusercontent.com/17344536/168760701-e436721a-3b84-4d82-b28c-026890a22266.png)-->
-  ![Jupyterhub Login Page](/images/cesmlab_login.png)
+  ![Jupyterhub Login Page](/images/Ember_login.png)
 
 - Enter your username and password provided with your tutorial registration
 - This should launch a JupyterLab window in your browser.
