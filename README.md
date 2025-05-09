@@ -51,26 +51,35 @@ We'll also have opportunities to explore more `ProjectExamples` which describe h
 - Enter your username and password provided with your tutorial registration
 - This should launch a JupyterLab window in your browser.
 
-## Step 2: Navigate to `notebooks` directory
-- Click on the `CTSM-Tutorial` directory
+## Step 2: Navigate to `tutorials` directory
+- Click on the `EMBER_Tutorial_2025` directory
 - Click on the `notebooks` directory
 - Click on the `GettingStarted` directory
 - Click on the `1_GitStarted.ipynb` notebook in the sidebar of your JupyterLab window.
 
-Now you're ready to get started with the pre-tutorial homework.  Let's get started by following along in the first notebook.
+Now you're ready to get started with the first.  Let's get started by following along in the first notebook.
 
 
-## IF you need to update the tutorial repository, you can clone CTSM Tutorial Repository:
-
+## We'll likely need to update your tutorial repository.  To do this 
 - Click on the `Terminal` icon to open a terminal window.
 
 ![Screen Shot 2022-05-17 at 2 05 32 AM](https://user-images.githubusercontent.com/17344536/168761721-b87d21a0-f92a-4040-9296-926f9b234113.png)
 
+Move into the tutorial reopsitory and pull in the updates
+```
+cd ~/tutorials/EMBER_Tutorial_2025
+git pull
+```
+
+
+## IF you need to get the tutorial repository, you can clone CTSM Tutorial Repository:
+
+- Click on the `Terminal` icon to open a terminal window (see above).
 
 - If the directory does not already exist (everything should be pre-staged, so you shouldn't have to do this), run the following command to clone this repository. (Just copy and paste the text below into the terminal window that opens in JupyterLab) 
 
 ```
-git clone -b NEON_Tutorial_2023 https://github.com/NCAR/CTSM-Tutorial
+git clone -b EMBER_Tutorial_2025 https://github.com/NCAR/CTSM-Tutorial
 ```
 
 Then, run the following command from within CTSM-Tutorial to update.
