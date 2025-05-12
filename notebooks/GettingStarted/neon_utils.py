@@ -81,7 +81,7 @@ def quick_soil_profile(sim_path, case_name, var, year):
                 'size'   : 15} 
     matplotlib.rc('font', **font)
     
-    sim_files = sorted(glob(join(sim_path,case_name+".h1."+year.__str__()+"*.nc")))
+    sim_files = sorted(glob(join(os.path.expanduser(sim_path),case_name+".h1."+year.__str__()+"*.nc")))
     print("All Simulation files: [", len(sim_files), "files]")
     
     start = time.time()
@@ -119,7 +119,7 @@ def plot_soil_profile_timeseries(sim_path, neon_site, case_name, var, year):
                 'size'   : 15} 
     matplotlib.rc('font', **font)
     
-    sim_files = sorted(glob(join(sim_path,case_name+".h1."+year.__str__()+"*.nc")))
+    sim_files = sorted(glob(join(os.path.expanduser(sim_path),case_name+".h1."+year.__str__()+"*.nc")))
     print("All Simulation files: [", len(sim_files), "files]")
     
     start = time.time()
