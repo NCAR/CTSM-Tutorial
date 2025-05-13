@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to the EMBER Tutorial 2025 &#8212; NEON Tutorial 2023</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Frequently Asked Questions (FAQ)" href="faq.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/ncar_logo.png" class="logo__image only-light" alt="NEON Tutorial 2023 - Home"/>
+    <script>document.write(`<img src="_static/ncar_logo.png" class="logo__image only-dark" alt="NEON Tutorial 2023 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial/tree/NEON_Tutorial_2023" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial/tree/NEON_Tutorial_2023/edit/NEON_Tutorial_2023/docs/README.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial/tree/NEON_Tutorial_2023/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Welcome to the EMBER Tutorial 2025</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to the EMBER Tutorial 2025</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-open-up-cesm-lab">Step 1: Open up CESM-Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-tutorials-directory">Step 2: Navigate to <code class="docutils literal notranslate"><span class="pre">tutorials</span></code> directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#we-ll-likely-need-to-update-your-tutorial-repository-to-do-this">We’ll likely need to update your tutorial repository.  To do this</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-need-to-get-the-tutorial-repository-you-can-clone-ctsm-tutorial-repository">IF you need to get the tutorial repository, you can clone CTSM Tutorial Repository:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-table-of-contents">Notebook Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">📚 Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">❓ Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">👍 Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-the-ember-tutorial-2025">
+<h1>Welcome to the <a class="reference external" href="https://github.com/NCAR/CTSM-Tutorial/blob/EMBER_Tutorial_2025/README.md">EMBER Tutorial 2025</a><a class="headerlink" href="#welcome-to-the-ember-tutorial-2025" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://ncar.github.io/CTSM-Tutorial/README.html"><img alt="Jupyter Build" src="https://img.shields.io/github/actions/workflow/status/NCAR/CTSM-Tutorial/gh-page_builder.yml?label=JupyterBook&amp;logo=GitHub&amp;style=flat-square" /></a></p>
+<p><a class="reference external" href="https://github.com/NCAR/CTSM-Tutorial/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Naereen/StrapDown.js.svg?style=flat-square" /></a>
+<a class="reference external" href="https://jupyter.org/try"><img alt="Made withJupyter" src="https://img.shields.io/badge/Made%20with-Jupyter-green?style=flat-square&amp;logo=Jupyter&amp;color=green" /></a>
+<a class="reference external" href="https://github.com/NCAR/CTSM-Tutorial/commits/NEON_Tutorial_2023"><img alt="Commits" src="https://img.shields.io/github/last-commit/NCAR/CTSM-Tutorial?label=Last%20commit&amp;style=flat-square&amp;color=green" /></a>
+<a class="reference external" href="https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?logo=github"><img alt="Contributors" src="https://img.shields.io/github/contributors/NCAR/CTSM-Tutorial?label=Contributors&amp;logo=github&amp;style=flat-square&amp;color=green" /></a></p>
+<p>This tutorial will be used as a resource during the 2025 EMBER bootcamp tutorial.</p>
+<!---
+[![Visits Badge](https://badges.pufler.dev/visits/NCAR/CTSM-Tutorial?style=flat-square&logo=GitHub&color=green)](https://badges.pufler.dev)
+ ![example workflow](https://github.com/NCAR/CTSM-Tutorial/actions/workflows/gh-page_builder.yml/badge.svg)
+
+[![Github All Releases](https://img.shields.io/github/downloads/NCAR/CTSM-Tutorial/total.svg)]()
+![GitHub All Releases](https://img.shields.io/github/downloads/NCAR/CTSM-Tutorial/total)
+
+![ViewCount](https://views.whatilearened.today/views/github/NCAR/CTSM-Tutorial/views.svg)
+![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/Tanu-N-Prabhu/Python)
+
+-->
+<p>The materials and notebooks in this tutorial is published as a Jupyter book <a href="https://ncar.github.io/CTSM-Tutorial/README.html" target="_blank"> here</a>.</p>
+<p>These tutorials are designed as an introduction to running the Community Terrestrial Systems Model (CTSM).  Users can begin with the notebooks in the <code class="docutils literal notranslate"><span class="pre">Getting</span> <span class="pre">Started</span></code> directory, which contains:</p>
+<ol class="arabic simple">
+<li><p>An introduction to CTSM, CESM-Lab, and Git</p></li>
+<li><p>Running CTSM simulations at NEON tower sites</p></li>
+<li><p>Evaluating CTSM at NEON tower sites</p></li>
+</ol>
+<p>We’ll also have opportunities to explore more <code class="docutils literal notranslate"><span class="pre">ProjectExamples</span></code> which describe how to:</p>
+<ul class="simple">
+<li><p>Plot data</p></li>
+<li><p>Make simple code modifications</p></li>
+<li><p>Change simulated plant type</p></li>
+<li><p>Change model options (eg, FATES)</p></li>
+<li><p>Identify how to change model output</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h1>
+<section id="step-1-open-up-cesm-lab">
+<h2>Step 1: Open up CESM-Lab<a class="headerlink" href="#step-1-open-up-cesm-lab" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>In your web browser go to <a href="https://ctsm-jhub.k8s.ucar.edu
+" target="_blank">  https://ctsm-jhub.k8s.ucar.edu
+</a></p>
+<p>It will automatically open up a portal to connect to the cloud:</p>
+<!--![Screen Shot 2022-05-17 at 1 58 17 AM](https://user-images.githubusercontent.com/17344536/168760701-e436721a-3b84-4d82-b28c-026890a22266.png)-->
+<p><img alt="Jupyterhub Login Page" src="_images/Ember_login.png" /></p>
+</li>
+<li><p>Enter your username and password provided with your tutorial registration</p></li>
+<li><p>This should launch a JupyterLab window in your browser.</p></li>
+</ul>
+</section>
+<section id="step-2-navigate-to-tutorials-directory">
+<h2>Step 2: Navigate to <code class="docutils literal notranslate"><span class="pre">tutorials</span></code> directory<a class="headerlink" href="#step-2-navigate-to-tutorials-directory" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">EMBER_Tutorial_2025</span></code> directory</p></li>
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> directory</p></li>
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">GettingStarted</span></code> directory</p></li>
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">1_GitStarted.ipynb</span></code> notebook in the sidebar of your JupyterLab window.</p></li>
+</ul>
+<p>Now you’re ready to get started with the first.  Let’s get started by following along in the first notebook.</p>
+</section>
+<section id="we-ll-likely-need-to-update-your-tutorial-repository-to-do-this">
+<h2>We’ll likely need to update your tutorial repository.  To do this<a class="headerlink" href="#we-ll-likely-need-to-update-your-tutorial-repository-to-do-this" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> icon to open a terminal window.</p></li>
+</ul>
+<p><img alt="Screen Shot 2022-05-17 at 2 05 32 AM" src="https://user-images.githubusercontent.com/17344536/168761721-b87d21a0-f92a-4040-9296-926f9b234113.png" /></p>
+<p>Move into the tutorial reopsitory and pull in the updates</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">EMBER_Tutorial_2025</span>
+<span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+</section>
+<section id="if-you-need-to-get-the-tutorial-repository-you-can-clone-ctsm-tutorial-repository">
+<h2>IF you need to get the tutorial repository, you can clone CTSM Tutorial Repository:<a class="headerlink" href="#if-you-need-to-get-the-tutorial-repository-you-can-clone-ctsm-tutorial-repository" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> icon to open a terminal window (see above).</p></li>
+<li><p>If the directory does not already exist (everything should be pre-staged, so you shouldn’t have to do this), run the following command to clone this repository. (Just copy and paste the text below into the terminal window that opens in JupyterLab)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">EMBER_Tutorial_2025</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NCAR</span><span class="o">/</span><span class="n">CTSM</span><span class="o">-</span><span class="n">Tutorial</span>
+</pre></div>
+</div>
+<p>Then, run the following command from within CTSM-Tutorial to update.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>This gives you an updated local copy of the material you’ll need for the tutorial</p>
+<p><em>Can you see a new directory on your navigation sidebar called <code class="docutils literal notranslate"><span class="pre">CTSM-Tutorial</span></code>?</em> (See the left sidebar of your JupyterLab window)
+<img alt="CTSM_Tutorial_git_clone.png" src="_images/CTSM_Tutorial_git_clone.png" /></p>
+</section>
+<section id="notebook-table-of-contents">
+<h2>Notebook Table of Contents<a class="headerlink" href="#notebook-table-of-contents" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>GettingStarted: These notebooks are the building blocks for all additional notebooks.</p>
+<ul>
+<li><p>1_NEON_Simulation_Tutorial.ipynb : This notebook shows how to run a NEON simulation</p></li>
+<li><p>2_NEON_Simulation_Visualization.ipynb : This notebook shows how to visualize NEON simulation output</p></li>
+</ul>
+</li>
+<li><p>ProjectExamples: These notebooks are project-specific and build upon the GettingStarted notebooks</p>
+<ul>
+<li><p>Basic_CTSM-NEON_Plots.ipynb : This notebook shows how to create plots from NEON data, as well as perform time averaging, etc</p></li>
+<li><p>CTSMsp_NEON_fromScratch.ipynb : This notebook focuses on using CTSM with satellite phenology</p></li>
+<li><p>Clone_Case.ipynb : This notebook shares how to clone a case</p></li>
+<li><p>FATES_NEON_fromScratch.ipynb : This notebook works on creating a FATES case from scratch with NEON</p></li>
+<li><p>Plot_flux_climatology.ipynb : This notebook provides climatology plotting examples</p></li>
+<li><p>QuickPlot_CTSM-FATESsp.ipynb : This notebook provides plotting tools for use with FATES run with satellite phenology</p></li>
+<li><p>QuickPlot_CTSM_h0.ipynb : This plots monthly CTSM data</p></li>
+<li><p>QuickPlot_CTSM_spinup.ipynb : This plots CTSM cases that have been spun up</p></li>
+<li><p>customizeCase_PRISM.ipynb : This customizes a case to use PRISM precipitation input data</p></li>
+<li><p>customizeCase_modelFeatures.ipynb : This customizes various model features</p></li>
+<li><p>customizeCase_parameterModifications.ipynb : This notebook provides tools for parameter modifications and takes input that is generated from modifyParameterFile.ipynb</p></li>
+<li><p>modifyParameterFile.ipynb : This notebook modifies a parameter file that can then be used by customizeCase_parameterModifications.ipynb</p></li>
+<li><p>modifySurfdataFile.ipynb : This notebook modifies a surface data file that can then be used by customizeCase_modelFeatures.ipynb</p></li>
+</ul>
+</li>
+<li><p>ContributedNotebooks: These notebooks are contributed by workshop participants who dove further into a particular project.</p></li>
+</ul>
+</section>
+<section id="resources">
+<h2>📚 Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/ESCOMP/ctsm">CTSM Repository</a> which includes the <a class="reference external" href="https://github.com/ESCOMP/CTSM/wiki">CTSM Wiki page</a> that has lots of resources, including much of the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/index.html">CTSM Technical Documentation</a></p></li>
+<li><p><a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/index.html">CTSM User’s Guide</a></p></li>
+<li><p><a class="reference external" href="https://escomp.github.io/CESM/release-cesm2/quickstart.html#create-a-case">Quickstart Guide for Various Model Configuraions</a></p></li>
+<li><p><a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/running-single-points/single-point-and-regional-grid-configurations.html">Running single-point cases other than NEON</a></p></li>
+<li><p><a class="reference external" href="https://ncar.github.io/ncar-neon-books/intro.html">Running NEON cases with a container</a> – Running CTSM for NEON cases on a laptop</p></li>
+</ul>
+<p><a class="reference external" href="https://gmd.copernicus.org/articles/16/5979/2023/">NCAR-NEON paper</a> that overviews this system hand has nice samples of plots. Lombardozzi and Wieder et al 2024 GMD.</p>
+<p><a class="reference external" href="https://doi.org/10.1029/2018MS001583">CLM5 Overview Paper</a> Lawrence et al. 2019 JAMES</p>
+<p><a class="reference external" href="https://www.cesm.ucar.edu/experiments/cesm2.0/land/diagnostics/clm_diag_PCKG.html">CLM5 Diagnostic plots</a>, from the overview paper.</p>
+<p><a class="reference external" href="https://www.cesm.ucar.edu/experiments/cesm2.0/land/diagnostics/clm_diag_ILAMB.html">CLM5 ILAMB page</a>, also from the overview paper.</p>
+</section>
+<section id="questions">
+<h2>❓ Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
+<p>For questions about running simulations, please use DiscussCESM Forums:</p>
+<p><a class="reference external" href="https://bb.cgd.ucar.edu/cesm/forums/containers-cloud-platforms.162/">Containers &amp; Cloud Platforms Forum</a></p>
+<p><a class="reference external" href="https://bb.cgd.ucar.edu/cesm/forums/ctsm-clm-mosart-rtm.134/">CTSM Forum</a></p>
+</section>
+<section id="acknowledgements">
+<h2>👍 Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>A number of people have been critical to this effort, including:</p>
+<ul class="simple">
+<li><p>Adrianna Foster, Negin Sobhani, Danica Lombardozzi, Will Wieder, Gordon Bonan, &amp; Teagan King who put together tutorial materials.</p></li>
+<li><p>Brian Dobbins, who put together the AWS configuration of CESM-Lab;</p></li>
+<li><p>Jackie Shuman, Polly Buotte, &amp; Keith Oleson, who tested tutorial materials;</p></li>
+<li><p>Erik Kluzek &amp; Bill Sacks, who made CTSM tags needed for running simulations.</p></li>
+<li><p>Elizabeth Faircloth and Ryan Johnson who helped with tutorial registration, logistics and webpages; and finally the rest of the</p></li>
+<li><p>TSS staff who provided lecture materials and helped answer questions during the tutorial.</p></li>
+</ul>
+<p>This material is based upon work supported by the National Center for Atmospheric Research (NCAR), which is a major facility sponsored by the National Science Foundation (NSF) under Cooperative Agreement No. 1852977. Staff time on this project was also supported by NSF award numbers 2039932, 2031238, 1926413, and 2120804.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="faq.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Frequently Asked Questions (FAQ)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to the EMBER Tutorial 2025</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-open-up-cesm-lab">Step 1: Open up CESM-Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-tutorials-directory">Step 2: Navigate to <code class="docutils literal notranslate"><span class="pre">tutorials</span></code> directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#we-ll-likely-need-to-update-your-tutorial-repository-to-do-this">We’ll likely need to update your tutorial repository.  To do this</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-need-to-get-the-tutorial-repository-you-can-clone-ctsm-tutorial-repository">IF you need to get the tutorial repository, you can clone CTSM Tutorial Repository:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-table-of-contents">Notebook Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">📚 Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">❓ Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">👍 Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder, Teagan King
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

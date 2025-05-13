@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Customize your case: Additional History Fields &#8212; NEON Tutorial 2023</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/ProjectExamples/customizeCase_HistoryVariables';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/ncar_logo.png" class="logo__image only-light" alt="NEON Tutorial 2023 - Home"/>
+    <script>document.write(`<img src="../../_static/ncar_logo.png" class="logo__image only-dark" alt="NEON Tutorial 2023 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial FAQ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/NCAR/CTSM-Tutorial/tree/NEON_Tutorial_2023/NEON_Tutorial_2023?urlpath=tree/docs/notebooks/ProjectExamples/customizeCase_HistoryVariables.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial/tree/NEON_Tutorial_2023" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial/tree/NEON_Tutorial_2023/edit/NEON_Tutorial_2023/docs/notebooks/ProjectExamples/customizeCase_HistoryVariables.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/CTSM-Tutorial/tree/NEON_Tutorial_2023/issues/new?title=Issue%20on%20page%20%2Fnotebooks/ProjectExamples/customizeCase_HistoryVariables.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/ProjectExamples/customizeCase_HistoryVariables.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Customize your case: Additional History Fields</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-your-case-by-adding-additional-history-fields"><em>Customizing your case by adding additional history fields</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-let-s-start-with-a-bit-of-background-on-history-files">First let’s start with a bit of background on history files.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-are-on-the-default-h0-history-files">What data are on the default, <code class="docutils literal notranslate"><span class="pre">h0</span></code> history files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-are-on-the-h1-high-frequncy-30-minute-daily-resolution-history-files">What data are on the <code class="docutils literal notranslate"><span class="pre">h1</span></code>, high frequncy (30 minute, daily resolution) history files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#h1-output-is-also-defined-in-the-user-nl-clm-file-for-your-case"><code class="docutils literal notranslate"><span class="pre">h1</span></code> output is also defined in the <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> file for your case.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#now-resubmit-your-case">Now resubmit your case</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="customize-your-case-additional-history-fields">
+<h1>Customize your case: Additional History Fields<a class="headerlink" href="#customize-your-case-additional-history-fields" title="Link to this heading">#</a></h1>
+<section id="customizing-your-case-by-adding-additional-history-fields">
+<h2><em>Customizing your case by adding additional history fields</em><a class="headerlink" href="#customizing-your-case-by-adding-additional-history-fields" title="Link to this heading">#</a></h2>
+<p><strong>This is an optional tutorial</strong> that provides an example for how to add history fields to your model output.
+<br></p>
+</section>
+<hr class="docutils" />
+<section id="in-this-tutorial">
+<h2>In this tutorial<a class="headerlink" href="#in-this-tutorial" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Add history fields to a case you’ve already run</p></li>
+</ol>
+<hr class="docutils" />
+<section id="first-let-s-start-with-a-bit-of-background-on-history-files">
+<h3>First let’s start with a bit of background on history files.<a class="headerlink" href="#first-let-s-start-with-a-bit-of-background-on-history-files" title="Link to this heading">#</a></h3>
+<p>Namelist let you controls aspects of your simulation, including the variables that are written out on different history files.  By default the <code class="docutils literal notranslate"><span class="pre">h0</span></code> files have monthly averages of a bunch of different model output.  The <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/setting-up-and-running-a-case/customizing-the-clm-namelist.html">CLM user’s guide</a> has additional information adding and removing fields on history files, setting up history files with different temporal frequency and more.</p>
+<p>Let’s see what we have on hisory files by default. You can look at one of these with the following commands.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">neon_site</span></code> you define should be for a site and case that you’ve already run.</p>
+<ul class="simple">
+<li><p>For the introductory example this was KONZ</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">neon_site</span><span class="o">=</span><span class="s1">&#39;KONZ&#39;</span><span class="w">            </span><span class="c1"># the site you want to run</span>
+ls<span class="w"> </span>~/scratch/NEON_cases/archive/<span class="nv">$neon_site</span>.transient/lnd/hist<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-data-are-on-the-default-h0-history-files">
+<h3>What data are on the default, <code class="docutils literal notranslate"><span class="pre">h0</span></code> history files?<a class="headerlink" href="#what-data-are-on-the-default-h0-history-files" title="Link to this heading">#</a></h3>
+<p>Let’s look at what’s on the file using <code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">-h</span></code>, which prints the header information on a netcdf file.</p>
+<ul class="simple">
+<li><p><strong>NOTE</strong> the file name below may need to be adjusted for the time range of your simulation.</p></li>
+<li><p><strong>HINT</strong> If you want to see the whole h0 history file get rid of the <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">head</span> <span class="pre">-150</span></code> part of the command below.  (Just know there’s a lot of information on the <code class="docutils literal notranslate"><span class="pre">h0</span></code> files).</p></li>
+<li><p>You can also do this on the command line of a terminal window if it’s helpful.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ncdump<span class="w"> </span>-h<span class="w"> </span>~/scratch/NEON_cases/archive/<span class="nv">$neon_site</span>.transient/lnd/hist/<span class="nv">$neon_site</span>.transient.clm2.h0.2018-01.nc<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-150
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-data-are-on-the-h1-high-frequncy-30-minute-daily-resolution-history-files">
+<h3>What data are on the <code class="docutils literal notranslate"><span class="pre">h1</span></code>, high frequncy (30 minute, daily resolution) history files?<a class="headerlink" href="#what-data-are-on-the-h1-high-frequncy-30-minute-daily-resolution-history-files" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ncdump<span class="w"> </span>-h<span class="w"> </span>~/scratch/NEON_cases/archive/<span class="nv">$neon_site</span>.transient/lnd/hist/<span class="nv">$neon_site</span>.transient.clm2.h1.2018-01-01*.nc<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-230
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="h1-output-is-also-defined-in-the-user-nl-clm-file-for-your-case">
+<h3><code class="docutils literal notranslate"><span class="pre">h1</span></code> output is also defined in the <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> file for your case.<a class="headerlink" href="#h1-output-is-also-defined-in-the-user-nl-clm-file-for-your-case" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>NOTE</strong> this file gets copied several times with the run_tower script, which is kind of confusing.</p></li>
+<li><p>If lines are duplicated, the model only uses the last one in the <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> file</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/NEON_cases/<span class="nv">$neon_site</span>.transient
+cat<span class="w"> </span>user_nl_clm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><b>THINK:</b> What are additional variables you may want to look at with a higher temporal frequency?</p>
+</div>
+<p>You can find a full list of history fields on <a class="reference external" href="https://escomp.github.io/ctsm-docs/versions/master/html/users_guide/setting-up-and-running-a-case/master_list_nofates.html">table 1.2.5 of the CTSM user’s guide</a>.</p>
+<p>Assiming you don’t want to get rid of any of the existing <code class="docutils literal notranslate"><span class="pre">h1</span></code> data, but add a few more fields you can just add them below.</p>
+<p>The example below adds runoff and vegetation temperature (<code class="docutils literal notranslate"><span class="pre">QRUNOFF</span></code> and <code class="docutils literal notranslate"><span class="pre">TV</span></code>).
+You can also do this by directly opening and modifying the user_nl_clm file in your case directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hist_fincl2 = &#39;QRUNOFF&#39;,&#39;TV&#39;,</span>
+<span class="s2">             &#39;AR&#39;,&#39;ELAI&#39;,&#39;FCEV&#39;,&#39;FCTR&#39;,&#39;FGEV&#39;,&#39;FIRA&#39;,&#39;FSA&#39;,&#39;FSH&#39;,&#39;GPP&#39;,&#39;H2OSOI&#39;,</span>
+<span class="s2">             &#39;HR&#39;,&#39;SNOW_DEPTH&#39;,&#39;TBOT&#39;,&#39;TSOI&#39;,&#39;SOILC_vr&#39;,&#39;FV&#39;,&#39;NET_NMIN_vr&#39;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>user_nl_clm
+<span class="w">             </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that it worked</span>
+cat<span class="w"> </span>user_nl_clm<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-3
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>NOTE</strong> not all variables listed in table 1.2.5 of the user’s guide can easily be written out to history fields.  After submitting your case, check the lnd.log in your case/run directory if your case fails to see if there’s an issue with the history variables you’re requesting.</p>
+</section>
+<section id="now-resubmit-your-case">
+<h3>Now resubmit your case<a class="headerlink" href="#now-resubmit-your-case" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now our case is submitted!  Check that your experimental case is running</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#qstat -u $USER</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tail<span class="w">  </span>~/scratch/NEON_cases/<span class="nv">$neon_site</span>.transient/CaseStatus
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-success">
+<strong>Congratulations!</strong> 
+<p>You’ve added additional variables to you CLM history files.</p>
+</div>
+<p>If you’re developing this tutorial:
+Before saving and pushing this code to github go to <code class="docutils literal notranslate"><span class="pre">Kernel</span></code> and <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">kernel</span> <span class="pre">and</span> <span class="pre">clear</span> <span class="pre">all</span> <span class="pre">outputs...</span></code></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bash"
+        },
+        kernelOptions: {
+            name: "bash",
+            path: "./notebooks/ProjectExamples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bash'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-your-case-by-adding-additional-history-fields"><em>Customizing your case by adding additional history fields</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial">In this tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-let-s-start-with-a-bit-of-background-on-history-files">First let’s start with a bit of background on history files.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-are-on-the-default-h0-history-files">What data are on the default, <code class="docutils literal notranslate"><span class="pre">h0</span></code> history files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-are-on-the-h1-high-frequncy-30-minute-daily-resolution-history-files">What data are on the <code class="docutils literal notranslate"><span class="pre">h1</span></code>, high frequncy (30 minute, daily resolution) history files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#h1-output-is-also-defined-in-the-user-nl-clm-file-for-your-case"><code class="docutils literal notranslate"><span class="pre">h1</span></code> output is also defined in the <code class="docutils literal notranslate"><span class="pre">user_nl_clm</span></code> file for your case.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#now-resubmit-your-case">Now resubmit your case</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Negin Sobhani, Danica Lombardozzi, Adrianna Foster, Will Wieder, Teagan King
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
